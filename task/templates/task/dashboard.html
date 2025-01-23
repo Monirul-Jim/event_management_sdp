@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="max-w-6xl mx-auto mt-10">
+<div class="mx-auto mt-10">
     <h1 class="text-3xl font-bold text-gray-800 text-center mb-6">Organizer Dashboard</h1>
 
     <!-- Stats Grid -->
@@ -35,15 +35,14 @@
                     <th class="border border-gray-300 px-4 py-2 text-left">Location</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="event-table-body">
                 {% for event in todays_events %}
                 <tr class="bg-white hover:bg-gray-50">
                     <td class="border border-gray-300 px-4 py-2">{{ event.name }}</td>
                     <td class="border border-gray-300 px-4 py-2">{{ event.date }}</td>
                     <td class="border border-gray-300 px-4 py-2">{{ event.time }}</td>
                     <td class="border border-gray-300 px-4 py-2">{{ event.location }}</td>
-                </tr>
-                {% empty %}
+                </tr {% empty %}
                 <tr>
                     <td colspan="4" class="text-center p-4">No events scheduled for today.</td>
                 </tr>
@@ -52,5 +51,77 @@
         </table>
     </div>
 </div>
+<script>
+    // Function to get CSRF token
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
 
+    const csrftoken = getCookie('csrftoken');
+
+    // JavaScript to handle interactive stats
+    document.getElementById('total-events').addEventListener('click', function() {
+        fetchEventData('all');
+    });
+
+    document.getElementById('upcoming-events').addEventListener('click', function() {
+        fetchEventData('upcoming');
+    });
+
+    document.getElementById('past-events').addEventListener('click', function() {
+        fetchEventData('past');
+    });
+
+    function fetchEventData(type) {
+        fetch(`/api/events/?type=${type}`, {
+            method: 'GET',
+            headers: {
+                'X-CSRFToken': csrftoken,
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            updateEventTable(data.events);
+        })
+        .catch(error => console.error('Error fetching event data:', error));
+    }
+
+    function updateEventTable(events) {
+        const tableBody = document.getElementById('event-table-body');
+        tableBody.innerHTML = ''; // Clear existing rows
+
+        if (events.length > 0) {
+            events.forEach(event => {
+                const row = document.createElement('tr');
+                row.className = 'bg-white hover:bg-gray-50';
+                row.innerHTML = `
+                    <td class="border border-gray-300 px-4 py-2">${event.name}</td>
+                    <td class="border border-gray-300 px-4 py-2">${event.date}</td>
+                    <td class="border border-gray-300 px-4 py-2">${event.time}</td>
+                    <td class="border border-gray-300 px-4 py-2">${event.location}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        } else {
+            tableBody.innerHTML = '<tr><td colspan="4" class="text-center p-4">No events found.</td></tr>';
+        }
+    }
+</script>
 {% endblock %}

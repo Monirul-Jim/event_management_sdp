@@ -169,6 +169,22 @@
         "documentation": {}
     },
     {
+        "label": "get_events",
+        "importPath": "task.views",
+        "description": "task.views",
+        "isExtraImport": true,
+        "detail": "task.views",
+        "documentation": {}
+    },
+    {
+        "label": "event_detail",
+        "importPath": "task.views",
+        "description": "task.views",
+        "isExtraImport": true,
+        "detail": "task.views",
+        "documentation": {}
+    },
+    {
         "label": "render",
         "importPath": "django.shortcuts",
         "description": "django.shortcuts",
@@ -206,6 +222,14 @@
         "description": "django.utils",
         "isExtraImport": true,
         "detail": "django.utils",
+        "documentation": {}
+    },
+    {
+        "label": "Count",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
         "documentation": {}
     },
     {
@@ -344,7 +368,7 @@
         "kind": 5,
         "importPath": "task.urls",
         "description": "task.urls",
-        "peekOfCode": "urlpatterns = [\n    path('', home, name='home'),\n    path(\"category/add\", category_list, name=\"create_category\"),\n    path('events/add', event_list, name='event_list'),\n    path('participant/add', participant_list, name='participant_list'),\n    path('organizer/', organizer_dashboard, name='dashboard'),\n    path('api/event-stats/', get_event_stats, name='get_event_stats'),\n]",
+        "peekOfCode": "urlpatterns = [\n    path('', home, name='home'),\n    path(\"category/add\", category_list, name=\"create_category\"),\n    path('events/add', event_list, name='event_list'),\n    path('participant/add', participant_list, name='participant_list'),\n    path('organizer/', organizer_dashboard, name='dashboard'),\n    path('api/event-stats/', get_event_stats, name='get_event_stats'),\n    path('api/events/', get_events, name='get_events'),\n    path('event-details/<int:event_id>/', event_detail, name='event_detail'),\n]",
         "detail": "task.urls",
         "documentation": {}
     },
@@ -394,11 +418,29 @@
         "documentation": {}
     },
     {
+        "label": "get_events",
+        "kind": 2,
+        "importPath": "task.views",
+        "description": "task.views",
+        "peekOfCode": "def get_events(request):\n    event_type = request.GET.get('type', 'all')\n    today = timezone.now().date()\n    if event_type == 'upcoming':\n        events = Event.objects.filter(date__gt=today)\n    elif event_type == 'past':\n        events = Event.objects.filter(date__lt=today)\n    else:  # 'all'\n        events = Event.objects.all()\n    event_list = [{",
+        "detail": "task.views",
+        "documentation": {}
+    },
+    {
+        "label": "event_detail",
+        "kind": 2,
+        "importPath": "task.views",
+        "description": "task.views",
+        "peekOfCode": "def event_detail(request, event_id):\n    event = get_object_or_404(Event, id=event_id)\n    # Assuming a related name for participants\n    participants = event.participants.all()\n    return render(request, 'event_detail.html', {'event': event, 'participants': participants})\ndef home(request):\n    events = Event.objects.annotate(\n        participant_count=Count('participants')).all()\n    return render(request, 'home.html', {'events': events})",
+        "detail": "task.views",
+        "documentation": {}
+    },
+    {
         "label": "home",
         "kind": 2,
         "importPath": "task.views",
         "description": "task.views",
-        "peekOfCode": "def home(request):\n    return render(request, 'home.html')",
+        "peekOfCode": "def home(request):\n    events = Event.objects.annotate(\n        participant_count=Count('participants')).all()\n    return render(request, 'home.html', {'events': events})",
         "detail": "task.views",
         "documentation": {}
     },

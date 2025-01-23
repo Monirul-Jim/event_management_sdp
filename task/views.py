@@ -5,7 +5,7 @@ from .models import Event, Participant, Category
 from .forms import EventForm, ParticipantForm, CategoryForm
 from django.shortcuts import redirect
 from django.utils import timezone
-
+from django.db.models import Count
 from django.http import JsonResponse
 
 
@@ -176,5 +176,36 @@ def get_event_stats(request):
     return JsonResponse(data)
 
 
+def get_events(request):
+    event_type = request.GET.get('type', 'all')
+    today = timezone.now().date()
+
+    if event_type == 'upcoming':
+        events = Event.objects.filter(date__gt=today)
+    elif event_type == 'past':
+        events = Event.objects.filter(date__lt=today)
+    else:  # 'all'
+        events = Event.objects.all()
+
+    event_list = [{
+        'name': event.name,
+        'date': event.date,
+        'time': event.time,
+        'location': event.location,
+    } for event in events]
+
+    return JsonResponse({'events': event_list})
+
+
+def event_detail(request, event_id):
+    event = get_object_or_404(Event, id=event_id)
+    # Assuming a related name for participants
+    participants = event.participants.all()
+    return render(request, 'event_detail.html', {'event': event, 'participants': participants})
+
+
 def home(request):
-    return render(request, 'home.html')
+
+    events = Event.objects.annotate(
+        participant_count=Count('participants')).all()
+    return render(request, 'home.html', {'events': events})
