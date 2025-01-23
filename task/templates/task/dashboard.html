@@ -1,4 +1,56 @@
-{%extends 'base.html'%}
-{%block content%}
-<h1>Hello this is dashboard</h1>
-{% endblock%}
+{% extends 'base.html' %}
+{% block content %}
+<div class="max-w-6xl mx-auto mt-10">
+    <h1 class="text-3xl font-bold text-gray-800 text-center mb-6">Organizer Dashboard</h1>
+
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+        <div class="bg-white p-4 rounded shadow">
+            <h2 class="text-xl font-bold">Total Participants</h2>
+            <p class="text-3xl">{{ total_participants }}</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+            <h2 class="text-xl font-bold">Total Events</h2>
+            <p class="text-3xl" id="total-events">{{ total_events }}</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+            <h2 class="text-xl font-bold">Upcoming Events</h2>
+            <p class="text-3xl" id="upcoming-events">{{ upcoming_events }}</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+            <h2 class="text-xl font-bold">Past Events</h2>
+            <p class="text-3xl" id="past-events">{{ past_events }}</p>
+        </div>
+    </div>
+
+    <!-- Today's Events Listing -->
+    <h2 class="text-2xl font-bold text-gray-800 mb-4">Today's Events</h2>
+    <div class="overflow-x-auto">
+        <table class="min-w-full border-collapse border border-gray-300">
+            <thead class="bg-gray-100">
+                <tr>
+                    <th class="border border-gray-300 px-4 py-2 text-left">Event Name</th>
+                    <th class="border border-gray-300 px-4 py-2 text-left">Date</th>
+                    <th class="border border-gray-300 px-4 py-2 text-left">Time</th>
+                    <th class="border border-gray-300 px-4 py-2 text-left">Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for event in todays_events %}
+                <tr class="bg-white hover:bg-gray-50">
+                    <td class="border border-gray-300 px-4 py-2">{{ event.name }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ event.date }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ event.time }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ event.location }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4" class="text-center p-4">No events scheduled for today.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

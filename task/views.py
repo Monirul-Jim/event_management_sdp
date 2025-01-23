@@ -4,6 +4,9 @@ from django.views.generic.edit import CreateView
 from .models import Event, Participant, Category
 from .forms import EventForm, ParticipantForm, CategoryForm
 from django.shortcuts import redirect
+from django.utils import timezone
+
+from django.http import JsonResponse
 
 
 def category_list(request):
@@ -130,6 +133,47 @@ def participant_list(request):
         "participant_to_edit": participant_to_edit,
         "events": Event.objects.all()  # Pass all events to the template for selection
     })
+
+
+def organizer_dashboard(request):
+    # Get current date
+    today = timezone.now().date()
+
+    # Stats
+    total_participants = Participant.objects.count()
+    total_events = Event.objects.count()
+    upcoming_events = Event.objects.filter(date__gt=today).count()
+    past_events = Event.objects.filter(date__lt=today).count()
+
+    # Today's Events
+    todays_events = Event.objects.filter(date=today)
+
+    context = {
+        'total_participants': total_participants,
+        'total_events': total_events,
+        'upcoming_events': upcoming_events,
+        'past_events': past_events,
+        'todays_events': todays_events,
+    }
+
+    return render(request, 'task/dashboard.html', context)
+
+
+def get_event_stats(request):
+    # Get current date
+    today = timezone.now().date()
+
+    # Stats
+    total_events = Event.objects.count()
+    upcoming_events = Event.objects.filter(date__gt=today).count()
+    past_events = Event.objects.filter(date__lt=today).count()
+
+    data = {
+        'total_events': total_events,
+        'upcoming_events': upcoming_events,
+        'past_events': past_events,
+    }
+    return JsonResponse(data)
 
 
 def home(request):
