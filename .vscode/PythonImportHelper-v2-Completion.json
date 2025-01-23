@@ -1,5 +1,38 @@
 [
     {
+        "label": "django.db.models.deletion",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.db.models.deletion",
+        "description": "django.db.models.deletion",
+        "detail": "django.db.models.deletion",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "admin",
         "importPath": "django.contrib",
         "description": "django.contrib",
@@ -13,6 +46,30 @@
         "description": "django.contrib",
         "isExtraImport": true,
         "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "Category",
+        "importPath": "task.models",
+        "description": "task.models",
+        "isExtraImport": true,
+        "detail": "task.models",
+        "documentation": {}
+    },
+    {
+        "label": "Event",
+        "importPath": "task.models",
+        "description": "task.models",
+        "isExtraImport": true,
+        "detail": "task.models",
+        "documentation": {}
+    },
+    {
+        "label": "Participant",
+        "importPath": "task.models",
+        "description": "task.models",
+        "isExtraImport": true,
+        "detail": "task.models",
         "documentation": {}
     },
     {
@@ -29,14 +86,6 @@
         "description": "django",
         "isExtraImport": true,
         "detail": "django",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
         "documentation": {}
     },
     {
@@ -80,11 +129,59 @@
         "documentation": {}
     },
     {
+        "label": "category_list",
+        "importPath": "task.views",
+        "description": "task.views",
+        "isExtraImport": true,
+        "detail": "task.views",
+        "documentation": {}
+    },
+    {
+        "label": "event_list",
+        "importPath": "task.views",
+        "description": "task.views",
+        "isExtraImport": true,
+        "detail": "task.views",
+        "documentation": {}
+    },
+    {
+        "label": "participant_list",
+        "importPath": "task.views",
+        "description": "task.views",
+        "isExtraImport": true,
+        "detail": "task.views",
+        "documentation": {}
+    },
+    {
         "label": "render",
         "importPath": "django.shortcuts",
         "description": "django.shortcuts",
         "isExtraImport": true,
         "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "get_object_or_404",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "CreateView",
+        "importPath": "django.views.generic.edit",
+        "description": "django.views.generic.edit",
+        "isExtraImport": true,
+        "detail": "django.views.generic.edit",
         "documentation": {}
     },
     {
@@ -139,6 +236,15 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "task.migrations.0001_initial",
+        "description": "task.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Category',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('name', models.CharField(max_length=100)),",
+        "detail": "task.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
         "label": "TaskConfig",
         "kind": 6,
         "importPath": "task.apps",
@@ -161,7 +267,7 @@
         "kind": 6,
         "importPath": "task.forms",
         "description": "task.forms",
-        "peekOfCode": "class ParticipantForm(forms.ModelForm):\n    class Meta:\n        model = Participant\n        fields = '__all__'\nclass CategoryForm(forms.ModelForm):\n    class Meta:\n        model = Category\n        fields = '__all__'",
+        "peekOfCode": "class ParticipantForm(forms.ModelForm):\n    class Meta:\n        model = Participant\n        fields = '__all__'\nclass CategoryForm(forms.ModelForm):\n    class Meta:\n        model = Category\n        fields = ['name', 'description']\n        widgets = {\n            'name': forms.TextInput(attrs={",
         "detail": "task.forms",
         "documentation": {}
     },
@@ -170,7 +276,7 @@
         "kind": 6,
         "importPath": "task.forms",
         "description": "task.forms",
-        "peekOfCode": "class CategoryForm(forms.ModelForm):\n    class Meta:\n        model = Category\n        fields = '__all__'",
+        "peekOfCode": "class CategoryForm(forms.ModelForm):\n    class Meta:\n        model = Category\n        fields = ['name', 'description']\n        widgets = {\n            'name': forms.TextInput(attrs={\n                'class': 'mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500',\n                'placeholder': 'Enter category name',\n            }),\n            'description': forms.Textarea(attrs={",
         "detail": "task.forms",
         "documentation": {}
     },
@@ -179,7 +285,7 @@
         "kind": 6,
         "importPath": "task.models",
         "description": "task.models",
-        "peekOfCode": "class Category(models.Model):\n    name = models.CharField(max_length=100)\n    description = models.TextField()\n    def __init__(self):\n        return self.name\nclass Event(models.Model):\n    name = models.CharField(max_length=100)\n    description = models.TextField()\n    date = models.DateField()\n    time = models.TimeField()",
+        "peekOfCode": "class Category(models.Model):\n    name = models.CharField(max_length=100)\n    description = models.TextField()\n    def __str__(self):\n        return self.name\nclass Event(models.Model):\n    name = models.CharField(max_length=100)\n    description = models.TextField()\n    date = models.DateField()\n    time = models.TimeField()",
         "detail": "task.models",
         "documentation": {}
     },
@@ -188,7 +294,7 @@
         "kind": 6,
         "importPath": "task.models",
         "description": "task.models",
-        "peekOfCode": "class Event(models.Model):\n    name = models.CharField(max_length=100)\n    description = models.TextField()\n    date = models.DateField()\n    time = models.TimeField()\n    location = models.CharField(max_length=100)\n    category = models.ForeignKey(\n        Category, on_delete=models.CASCADE, related_name='events')\n    def __init__(self):\n        return self.name",
+        "peekOfCode": "class Event(models.Model):\n    name = models.CharField(max_length=100)\n    description = models.TextField()\n    date = models.DateField()\n    time = models.TimeField()\n    location = models.CharField(max_length=100)\n    category = models.ForeignKey(\n        Category, on_delete=models.CASCADE, related_name='events')\n    def __str__(self):\n        return self.name",
         "detail": "task.models",
         "documentation": {}
     },
@@ -197,7 +303,7 @@
         "kind": 6,
         "importPath": "task.models",
         "description": "task.models",
-        "peekOfCode": "class Participant(models.Model):\n    name = models.CharField(max_length=100)\n    email = models.EmailField(unique=True)\n    events = models.ManyToManyField(Event, related_name='participants')\n    def __init__(self):\n        return self.name",
+        "peekOfCode": "class Participant(models.Model):\n    name = models.CharField(max_length=100)\n    email = models.EmailField(unique=True)\n    events = models.ManyToManyField(Event, related_name='participants')\n    def __str__(self):\n        return self.name",
         "detail": "task.models",
         "documentation": {}
     },
@@ -206,8 +312,35 @@
         "kind": 5,
         "importPath": "task.urls",
         "description": "task.urls",
-        "peekOfCode": "urlpatterns = [\n    path('', home, name='home'),\n]",
+        "peekOfCode": "urlpatterns = [\n    path('', home, name='home'),\n    path(\"category/add\", category_list, name=\"create_category\"),\n    path('events/add', event_list, name='event_list'),\n    path('participant/add', participant_list, name='participant_list'),\n]",
         "detail": "task.urls",
+        "documentation": {}
+    },
+    {
+        "label": "category_list",
+        "kind": 2,
+        "importPath": "task.views",
+        "description": "task.views",
+        "peekOfCode": "def category_list(request):\n    categories = Category.objects.all()\n    form = CategoryForm()\n    category_to_edit = None  # To determine if we are editing\n    if request.method == \"POST\":\n        if \"create\" in request.POST:  # Handle new category creation\n            form = CategoryForm(request.POST)\n            if form.is_valid():\n                form.save()\n                return redirect(\"create_category\")",
+        "detail": "task.views",
+        "documentation": {}
+    },
+    {
+        "label": "event_list",
+        "kind": 2,
+        "importPath": "task.views",
+        "description": "task.views",
+        "peekOfCode": "def event_list(request):\n    events = Event.objects.all()\n    categories = Category.objects.all()  # Fetch all categories\n    event_to_edit = None  # To determine if we are editing\n    form = EventForm()  # Initialize the form\n    if request.method == \"POST\":\n        if \"create\" in request.POST:  # Handle new event creation\n            form = EventForm(request.POST)\n            if form.is_valid():\n                form.save()",
+        "detail": "task.views",
+        "documentation": {}
+    },
+    {
+        "label": "participant_list",
+        "kind": 2,
+        "importPath": "task.views",
+        "description": "task.views",
+        "peekOfCode": "def participant_list(request):\n    participants = Participant.objects.all()\n    form = ParticipantForm()\n    participant_to_edit = None  # To determine if we are editing\n    if request.method == \"POST\":\n        if \"create\" in request.POST:  # Handle new participant creation\n            form = ParticipantForm(request.POST)\n            if form.is_valid():\n                form.save()\n                # Redirect to the participant list",
+        "detail": "task.views",
         "documentation": {}
     },
     {
