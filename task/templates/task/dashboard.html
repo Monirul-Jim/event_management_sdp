@@ -4,7 +4,6 @@
 <div class="mx-auto mt-10">
     <h1 class="text-3xl font-bold text-gray-800 text-center mb-6">Organizer Dashboard</h1>
 
-    <!-- Stats Grid -->
     <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
         <div class="bg-white p-4 rounded shadow">
             <h2 class="text-xl font-bold">Total Participants</h2>
@@ -24,7 +23,6 @@
         </div>
     </div>
 
-    <!-- Today's Events Listing -->
     <h2 class="text-2xl font-bold text-gray-800 mb-4">Today's Events</h2>
     <div class="overflow-x-auto">
         <table class="min-w-full border-collapse border border-gray-300">
@@ -53,25 +51,7 @@
     </div>
 </div>
 <script>
-    // Function to get CSRF token
-    function getCookie(name) {
-        let cookieValue = null;
-        if (document.cookie && document.cookie !== '') {
-            const cookies = document.cookie.split(';');
-            for (let i = 0; i < cookies.length; i++) {
-                const cookie = cookies[i].trim();
-                if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break;
-                }
-            }
-        }
-        return cookieValue;
-    }
 
-    const csrftoken = getCookie('csrftoken');
-
-    // JavaScript to handle interactive stats
     document.getElementById('total-events').addEventListener('click', function() {
         fetchEventData('all');
     });
@@ -87,10 +67,7 @@
     function fetchEventData(type) {
         fetch(`/api/events/?type=${type}`, {
             method: 'GET',
-            headers: {
-                'X-CSRFToken': csrftoken,
-                'Content-Type': 'application/json'
-            }
+          
         })
         .then(response => {
             if (!response.ok) {
@@ -106,7 +83,7 @@
 
     function updateEventTable(events) {
         const tableBody = document.getElementById('event-table-body');
-        tableBody.innerHTML = ''; // Clear existing rows
+        tableBody.innerHTML = '';
 
         if (events.length > 0) {
             events.forEach(event => {

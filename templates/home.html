@@ -17,7 +17,6 @@
             
             <div class="container mx-auto px-4 py-24 md:py-32 relative z-10">
                 <div class="flex flex-col md:flex-row items-center justify-between">
-                    <!-- Left Side: Event Info -->
                     <div class="w-full md:w-1/2 mb-12 md:mb-0">
                         <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
                             Join Our Upcoming Events.<br>Engage. <br>Learn.
@@ -29,7 +28,6 @@
                         </div>
                     </div>
                     
-                    <!-- Right Side: Event Features -->
                     <div class="w-full md:w-1/2 md:pl-12">
                         <div class=" bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-8 shadow-2xl">
                             <h2 class="text-2xl font-semibold mb-6">Why Attend Our Events?</h2>
@@ -52,7 +50,6 @@
                 </div>
             </div>
             
-            <!-- Decorative Element -->
             <div class="absolute bottom-0 left-0 right-0">
                 <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
@@ -67,7 +64,7 @@
             <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Discover Exciting Events</h1>
             <p class="text-lg text-gray-600 mb-8 text-center">Explore a diverse range of events tailored to your interests. Whether you're passionate about technology, arts, music, or wellness, there's something here for everyone. Dive in and find your next unforgettable experience!</p>
             <form method="get" class="mb-8 flex justify-end gap-4">
-                <!-- Category Filter -->
+        
                 <select name="category" class="border-gray-300 rounded-lg py-2 px-4">
                     <option value="">All Categories</option>
                     {% for category in categories %}
@@ -77,8 +74,6 @@
                     {% endfor %}
                 </select>
             
-                <!-- Date Filter -->
-                <!-- Date Filter -->
 <select name="date" class="border-gray-300 rounded-lg py-2 px-4">
     <option value="">All Dates</option>
     {% for date in upcoming_dates %}
@@ -89,7 +84,6 @@
 </select>
 
             
-                <!-- Submit Button -->
                 <button type="submit" class="bg-blue-500 text-white rounded-lg px-6 py-2 hover:bg-blue-600">
                     Filter
                 </button>
@@ -113,7 +107,7 @@
                       <p><strong>Participants:</strong> {{ event.participant_count }}</p>
                     </div>
                     <p class="text-gray-700 leading-relaxed mb-4">{{ event.description|truncatewords:20 }}</p>
-                    <!-- Button aligned to bottom -->
+                  
                     <div class="mt-auto">
                       <a href="{% url 'event_detail' event.id %}" class="block text-center bg-blue-500 text-white font-medium rounded-lg py-2 transition hover:bg-blue-600">
                         View Details
@@ -292,7 +286,6 @@
 
 
 <script>
-    // Check if the page was reloaded with query parameters
     if (window.location.search) {
         const filterSection = document.getElementById('filter-section');
         if (filterSection) {

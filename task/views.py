@@ -219,23 +219,19 @@ def event_detail(request, event_id):
 def home(request):
     today = date.today()
 
-    # Get filter parameters from the query string
     selected_category = request.GET.get('category')
     selected_date = request.GET.get('date')
 
-    # Convert the date to `YYYY-MM-DD` format if provided
     if selected_date:
         try:
             selected_date = datetime.strptime(selected_date, "%Y-%m-%d").date()
         except ValueError:
-            selected_date = None  # If parsing fails, ignore the date filter
+            selected_date = None
 
-    # Start with the base queryset for events
     events = Event.objects.annotate(participant_count=Count('participants')) \
         .select_related('category') \
         .prefetch_related('participants')
 
-    # Apply category filter if selected
     if selected_category:
         events = events.filter(category_id=selected_category)
 
@@ -245,7 +241,6 @@ def home(request):
     upcoming_dates = Event.objects.filter(
         date__gte=today).values_list('date', flat=True).distinct()
 
-    # Get all categories for the dropdown
     categories = Category.objects.all()
 
     return render(request, 'home.html', {

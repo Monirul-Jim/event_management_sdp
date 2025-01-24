@@ -6,7 +6,6 @@
     <title>{% block title %}Task Management{% endblock %}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Ensure smooth display of the dropdown */
         .group:hover .dropdown-menu,
         .group:focus-within .dropdown-menu {
             display: block;
@@ -16,25 +15,22 @@
 <body class="max-w-7xl mx-auto">
     <header >
         <nav class="mx-auto flex items-center justify-between p-6 " aria-label="Global">
-            <!-- Logo Section -->
+           
             <div class="flex lg:flex-1">
                 <a href="/" class="-m-1.5 p-1.5 text-xl font-bold text-gray-900">
                     Event
                 </a>
             </div>
             
-            <!-- Navigation Links -->
             <div class="flex items-center gap-x-8">
                 <a href="{% url 'home' %}" class="text-sm font-semibold text-gray-900 hover:text-indigo-600">
                     Home
                 </a>
                 
-                <!-- Dropdown Menu -->
                 <div class="relative group">
                     <button 
                         class="text-sm font-semibold text-gray-900 hover:text-indigo-600 focus:outline-none flex items-center gap-x-1">
                         Manage
-                        <!-- SVG Downward Arrow -->
                         <svg class="w-4 h-4 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
@@ -66,7 +62,6 @@
                 </a>
             </div>
 
-            <!-- Search Bar -->
             <form action="{% url 'search_events' %}" method="get" class="flex w-full max-w-md ml-6">
                 <input 
                     type="text" 
