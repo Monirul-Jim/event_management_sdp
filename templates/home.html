@@ -17,34 +17,34 @@
             
             <div class="container mx-auto px-4 py-24 md:py-32 relative z-10">
                 <div class="flex flex-col md:flex-row items-center justify-between">
-                    <!-- Left Side: Company Info -->
+                    <!-- Left Side: Event Info -->
                     <div class="w-full md:w-1/2 mb-12 md:mb-0">
                         <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                            Innovate.<br>Transform.<br>Succeed.
+                            Join Our Upcoming Events.<br>Engage. <br>Learn.
                         </h1>
-                        <p class="text-xl mb-8 text-gray-300">Empowering businesses with cutting-edge solutions for a digital future.</p>
+                        <p class="text-xl mb-8 text-gray-300">Discover events that bring people together, fostering collaboration and growth. Be part of something extraordinary.</p>
                         <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                             <a href="{% url 'participant_list' %}" class="bg-white text-blue-900 font-semibold px-8 py-3 rounded-full hover:bg-blue-100 transition duration-300 text-center">Get Participant</a>
                             <a href="#" class="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white hover:text-blue-900 transition duration-300 text-center">Learn More</a>
                         </div>
                     </div>
                     
-                    <!-- Right Side: Features -->
+                    <!-- Right Side: Event Features -->
                     <div class="w-full md:w-1/2 md:pl-12">
-                        <div class=" bg-opacity-10  backdrop-filter backdrop-blur-lg rounded-xl p-8 shadow-2xl">
-                            <h2 class="text-2xl font-semibold mb-6">Why MyCompany?</h2>
+                        <div class=" bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-8 shadow-2xl">
+                            <h2 class="text-2xl font-semibold mb-6">Why Attend Our Events?</h2>
                             <ul class="space-y-4">
                                 <li class="flex items-center">
                                     <svg class="w-6 h-6 mr-3 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                                    <span>Lightning-fast Performance</span>
+                                    <span>Networking Opportunities</span>
                                 </li>
                                 <li class="flex items-center">
                                     <svg class="w-6 h-6 mr-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                                    <span>Bank-grade Security</span>
+                                    <span>Exclusive Workshops & Talks</span>
                                 </li>
                                 <li class="flex items-center">
                                     <svg class="w-6 h-6 mr-3 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
-                                    <span>AI-powered Insights</span>
+                                    <span>Hands-on Learning Experiences</span>
                                 </li>
                             </ul>
                         </div>
@@ -59,65 +59,108 @@
                 </svg>
             </div>
         </section>
+        
 
     </main>
-<section>
-    <div class="container mx-auto p-4">
-        <h1 class="text-3xl font-bold mb-6">Event Listings</h1>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {% for event in events %}
-            <div class="bg-white shadow-lg hover:shadow-2xl rounded-lg overflow-hidden transition-shadow duration-300 flex flex-col">
-              {% if event.image %}
-              <div class="w-full h-48 bg-gray-200">
-                <img src="{{ event.image }}" alt="{{ event.name }}" class="w-full h-full object-cover">
-              </div>
-              {% endif %}
-              <div class="p-6 flex-grow flex flex-col">
-                <h2 class="text-2xl font-bold text-gray-800 mb-2">{{ event.name }}</h2>
-                <p class="text-sm text-gray-500 mb-4">{{ event.category }}</p>
-                <div class="text-gray-600 text-sm space-y-1 mb-4">
-                  <p><strong>Date:</strong> {{ event.date }}</p>
-                  <p><strong>Time:</strong> {{ event.time }}</p>
-                  <p><strong>Location:</strong> {{ event.location }}</p>
-                  <p><strong>Participants:</strong> {{ event.participant_count }}</p>
+    <section>
+        <div class="container mx-auto p-4">
+            <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Discover Exciting Events</h1>
+            <p class="text-lg text-gray-600 mb-8 text-center">Explore a diverse range of events tailored to your interests. Whether you're passionate about technology, arts, music, or wellness, there's something here for everyone. Dive in and find your next unforgettable experience!</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {% for event in events %}
+                <div class="bg-white shadow-lg hover:shadow-2xl rounded-lg overflow-hidden transition-shadow duration-300 flex flex-col">
+                  {% if event.image %}
+                  <div class="w-full h-48 bg-gray-200">
+                    <img src="{{ event.image }}" alt="{{ event.name }}" class="w-full h-full object-cover">
+                  </div>
+                  {% endif %}
+                  <div class="p-6 flex-grow flex flex-col">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">{{ event.name }}</h2>
+                    <p class="text-sm text-gray-500 mb-4">{{ event.category }}</p>
+                    <div class="text-gray-600 text-sm space-y-1 mb-4">
+                      <p><strong>Date:</strong> {{ event.date }}</p>
+                      <p><strong>Time:</strong> {{ event.time }}</p>
+                      <p><strong>Location:</strong> {{ event.location }}</p>
+                      <p><strong>Participants:</strong> {{ event.participant_count }}</p>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4">{{ event.description|truncatewords:20 }}</p>
+                    <!-- Button aligned to bottom -->
+                    <div class="mt-auto">
+                      <a href="{% url 'event_detail' event.id %}" class="block text-center bg-blue-500 text-white font-medium rounded-lg py-2 transition hover:bg-blue-600">
+                        View Details
+                      </a>
+                    </div>
+                  </div>
                 </div>
-                <p class="text-gray-700 leading-relaxed mb-4">{{ event.description|truncatewords:20 }}</p>
-                <!-- Button aligned to bottom -->
-                <div class="mt-auto">
-                  <a href="{% url 'event_detail' event.id %}" class="block text-center bg-blue-500 text-white font-medium rounded-lg py-2 transition hover:bg-blue-600">
-                    View Details
-                  </a>
-                </div>
-              </div>
+                {% empty %}
+                <p class="text-gray-600 text-center col-span-full">No events available.</p>
+                {% endfor %}
             </div>
-            {% empty %}
-            <p class="text-gray-600 text-center col-span-full">No events available.</p>
-            {% endfor %}
-          </div>
-          
-</section>
+        </div>
+    </section>
+    
+    <!-- Upcoming Events Section -->
+    <section>
+        <div class="container mx-auto p-4">
+            <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Upcoming Events</h1>
+            <p class="text-lg text-gray-600 mb-8 text-center">Get ready for our upcoming events! These events are just around the corner, so don't miss out on the chance to be a part of them!</p>
+    
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {% for event in upcoming_events %}
+                <div class="bg-white shadow-lg hover:shadow-2xl rounded-lg overflow-hidden transition-shadow duration-300 flex flex-col">
+                  {% if event.image %}
+                  <div class="w-full h-48 bg-gray-200">
+                    <img src="{{ event.image }}" alt="{{ event.name }}" class="w-full h-full object-cover">
+                  </div>
+                  {% endif %}
+                  <div class="p-6 flex-grow flex flex-col">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">{{ event.name }}</h2>
+                    <p class="text-sm text-gray-500 mb-4">{{ event.category }}</p>
+                    <div class="text-gray-600 text-sm space-y-1 mb-4">
+                      <p><strong>Date:</strong> {{ event.date }}</p>
+                      <p><strong>Time:</strong> {{ event.time }}</p>
+                      <p><strong>Location:</strong> {{ event.location }}</p>
+                      <p><strong>Participants:</strong> {{ event.participant_count }}</p>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4">{{ event.description|truncatewords:20 }}</p>
+                    <!-- Button aligned to bottom -->
+                    <div class="mt-auto">
+                      <a href="{% url 'event_detail' event.id %}" class="block text-center bg-blue-500 text-white font-medium rounded-lg py-2 transition hover:bg-blue-600">
+                        View Details
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                {% empty %}
+                <p class="text-gray-600 text-center col-span-full">No upcoming events at the moment.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    
 <section>
     <div class="container mx-auto py-12">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div class="bg-gray-200 rounded-lg p-6 text-center">
+            <div class="bg-gray-200 rounded-lg p-6 text-center transition transform hover:scale-105 hover:shadow-xl hover:bg-gray-300">
                 <svg class="w-16 h-16 mx-auto text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                 <h2 class="text-xl font-bold mt-4">7/24 EVENT AVALIABLE</h2>
                 <p class="text-gray-600 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed vel velit</p>
                 <button class="bg-red-500 hover:bg-red-700 cursor-pointer text-white font-bold py-2 px-4 rounded mt-4">DETAILS</button>
             </div>
-            <div class="bg-gray-200 rounded-lg p-6 text-center">
-                <svg class="w-16 h-16 mx-auto text-gray -600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+            <div class="bg-gray-200 rounded-lg p-6 text-center transition transform hover:scale-105 hover:shadow-xl hover:bg-gray-300">
+                <svg class="w-16 h-16 mx-auto text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                 <h2 class="text-xl font-bold mt-4">GREAT LOCATIONS</h2>
                 <p class="text-gray-600 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed vel velit</p>
                 <button class="bg-red-500 hover:bg-red-700 cursor-pointer text-white font-bold py-2 px-4 rounded mt-4">DETAILS</button>
             </div>
-            <div class="bg-gray-200 rounded-lg p-6 text-center">
+            <div class="bg-gray-200 rounded-lg p-6 text-center transition transform hover:scale-105 hover:shadow-xl hover:bg-gray-300">
                 <svg class="w-16 h-16 mx-auto text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                 <h2 class="text-xl font-bold mt-4">MORE THAN 200 SPEAKERS</h2>
                 <p class="text-gray-600 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed vel velit</p>
                 <button class="bg-red-500 hover:bg-red-700 cursor-pointer text-white font-bold py-2 px-4 rounded mt-4">DETAILS</button>
             </div>
-            <div class="bg-gray-200 rounded-lg p-6 text-center">
+            <div class="bg-gray-200 rounded-lg p-6 text-center transition transform hover:scale-105 hover:shadow-xl hover:bg-gray-300">
                 <svg class="w-16 h-16 mx-auto text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                 <h2 class="text-xl font-bold mt-4">LET'S PARTY AFTER EVENT</h2>
                 <p class="text-gray-600 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed vel velit</p>
@@ -126,6 +169,7 @@
         </div>
     </div>
 </section>
+
 
 </body>
 </html>

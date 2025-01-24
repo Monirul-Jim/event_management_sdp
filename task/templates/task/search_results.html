@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mx-auto py-6">
+    <h1 class="text-2xl font-bold mb-4">
+        Search Results for "{{ query }}"
+    </h1>
+    {% if events %}
+    <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for event in events %}
+            <div class="border rounded-lg p-4 shadow-lg">
+                {% if event.image %}
+                    <div class="w-full h-48 bg-gray-200">
+                        <img src="{{ event.image }}" alt="{{ event.name }}" class="w-full h-full object-cover">
+                    </div>
+                {% endif %}
+                <h2 class="text-xl font-semibold text-gray-800">{{ event.name }}</h2>
+                <div class="text-gray-600 text-sm space-y-1 mb-4">
+                    <p><strong>Date:</strong> {{ event.date }}</p>
+                    <p><strong>Time:</strong> {{ event.time }}</p>
+                    <p><strong>Location:</strong> {{ event.location }}</p>
+                </div>
+                <div class="mt-auto">
+                    <a href="{% url 'event_detail' event.id %}" class="block mt-4 text-center bg-blue-500 text-white font-medium rounded-lg py-2 transition hover:bg-blue-600">
+                        View Details
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p class="text-gray-600">No events found matching your search.</p>
+{% endif %}
+
+</div>
+
+
+{% endblock %}

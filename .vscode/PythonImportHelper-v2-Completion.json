@@ -217,6 +217,14 @@
         "documentation": {}
     },
     {
+        "label": "search_events",
+        "importPath": "task.views",
+        "description": "task.views",
+        "isExtraImport": true,
+        "detail": "task.views",
+        "documentation": {}
+    },
+    {
         "label": "render",
         "importPath": "django.shortcuts",
         "description": "django.shortcuts",
@@ -265,11 +273,27 @@
         "documentation": {}
     },
     {
+        "label": "Q",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
         "label": "JsonResponse",
         "importPath": "django.http",
         "description": "django.http",
         "isExtraImport": true,
         "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
         "documentation": {}
     },
     {
@@ -418,7 +442,7 @@
         "kind": 5,
         "importPath": "task.urls",
         "description": "task.urls",
-        "peekOfCode": "urlpatterns = [\n    path('', home, name='home'),\n    path(\"category/add\", category_list, name=\"create_category\"),\n    path('events/add', event_list, name='event_list'),\n    path('participant/add', participant_list, name='participant_list'),\n    path('organizer/', organizer_dashboard, name='dashboard'),\n    path('api/event-stats/', get_event_stats, name='get_event_stats'),\n    path('api/events/', get_events, name='get_events'),\n    path('event-details/<int:event_id>/', event_detail, name='event_detail'),\n]",
+        "peekOfCode": "urlpatterns = [\n    path('', home, name='home'),\n    path(\"category/add\", category_list, name=\"create_category\"),\n    path('events/add', event_list, name='event_list'),\n    path('participant/add', participant_list, name='participant_list'),\n    path('organizer/', organizer_dashboard, name='dashboard'),\n    path('api/event-stats/', get_event_stats, name='get_event_stats'),\n    path('api/events/', get_events, name='get_events'),\n    path('event-details/<int:event_id>/', event_detail, name='event_detail'),\n    path('search/', search_events, name='search_events'),",
         "detail": "task.urls",
         "documentation": {}
     },
@@ -481,7 +505,7 @@
         "kind": 2,
         "importPath": "task.views",
         "description": "task.views",
-        "peekOfCode": "def event_detail(request, event_id):\n    event = get_object_or_404(Event, id=event_id)\n    participants = event.participants.all()\n    return render(request, 'event_detail.html', {'event': event, 'participants': participants})\ndef home(request):\n    events = Event.objects.annotate(\n        participant_count=Count('participants')).all()\n    for i in events:\n        print(i)\n    return render(request, 'home.html', {'events': events})",
+        "peekOfCode": "def event_detail(request, event_id):\n    event = get_object_or_404(Event, id=event_id)\n    participants = event.participants.all()\n    return render(request, 'event_detail.html', {'event': event, 'participants': participants})\n# def home(request):\n#     events = Event.objects.annotate(\n#         participant_count=Count('participants')).all()\n#     for i in events:\n#         print(i)\n#     return render(request, 'home.html', {'events': events})",
         "detail": "task.views",
         "documentation": {}
     },
@@ -490,7 +514,16 @@
         "kind": 2,
         "importPath": "task.views",
         "description": "task.views",
-        "peekOfCode": "def home(request):\n    events = Event.objects.annotate(\n        participant_count=Count('participants')).all()\n    for i in events:\n        print(i)\n    return render(request, 'home.html', {'events': events})",
+        "peekOfCode": "def home(request):\n    # Get today's date\n    today = date.today()\n    # Get all events and annotate with participant count\n    events = Event.objects.annotate(\n        participant_count=Count('participants')).all()\n    # Filter upcoming events (events that are on or after today's date)\n    upcoming_events = Event.objects.filter(date__gte=today).annotate(\n        participant_count=Count('participants')).order_by('date')\n    return render(request, 'home.html', {'events': events, 'upcoming_events': upcoming_events})",
+        "detail": "task.views",
+        "documentation": {}
+    },
+    {
+        "label": "search_events",
+        "kind": 2,
+        "importPath": "task.views",
+        "description": "task.views",
+        "peekOfCode": "def search_events(request):\n    query = request.GET.get('search', '')\n    events = Event.objects.filter(\n        Q(name__icontains=query) | Q(location__icontains=query)\n    ) if query else Event.objects.none()\n    return render(request, 'task/search_results.html', {'events': events, 'query': query})",
         "detail": "task.views",
         "documentation": {}
     },

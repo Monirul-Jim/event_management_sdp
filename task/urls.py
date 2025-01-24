@@ -1,6 +1,6 @@
 from django.urls import path
 from task.views import home
-from task.views import category_list, event_list, participant_list, organizer_dashboard, get_event_stats, get_events, event_detail
+from task.views import category_list, event_list, participant_list, organizer_dashboard, get_event_stats, get_events, event_detail, search_events
 
 urlpatterns = [
     path('', home, name='home'),
@@ -11,4 +11,5 @@ urlpatterns = [
     path('api/event-stats/', get_event_stats, name='get_event_stats'),
     path('api/events/', get_events, name='get_events'),
     path('event-details/<int:event_id>/', event_detail, name='event_detail'),
+    path('search/', search_events, name='search_events'),
 ]
