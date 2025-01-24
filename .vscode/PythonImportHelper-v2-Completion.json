@@ -345,6 +345,14 @@
         "documentation": {}
     },
     {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
@@ -570,7 +578,7 @@
         "kind": 2,
         "importPath": "task.views",
         "description": "task.views",
-        "peekOfCode": "def home(request):\n    today = date.today()\n    events = Event.objects.annotate(participant_count=Count('participants')) \\\n        .select_related('category') \\\n        .prefetch_related('participants') \\\n        .all()\n    upcoming_events = Event.objects.filter(date__gte=today) \\\n        .annotate(participant_count=Count('participants')) \\\n        .select_related('category') \\\n        .prefetch_related('participants') \\",
+        "peekOfCode": "def home(request):\n    today = date.today()\n    # Get filter parameters from the query string\n    selected_category = request.GET.get('category')\n    selected_date = request.GET.get('date')\n    # Convert the date to `YYYY-MM-DD` format if provided\n    if selected_date:\n        try:\n            selected_date = datetime.strptime(selected_date, \"%Y-%m-%d\").date()\n        except ValueError:",
         "detail": "task.views",
         "documentation": {}
     },

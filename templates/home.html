@@ -62,10 +62,38 @@
         
 
     </main>
-    <section>
+    <section id="filter-section">
         <div class="container mx-auto p-4">
             <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Discover Exciting Events</h1>
             <p class="text-lg text-gray-600 mb-8 text-center">Explore a diverse range of events tailored to your interests. Whether you're passionate about technology, arts, music, or wellness, there's something here for everyone. Dive in and find your next unforgettable experience!</p>
+            <form method="get" class="mb-8 flex justify-end gap-4">
+                <!-- Category Filter -->
+                <select name="category" class="border-gray-300 rounded-lg py-2 px-4">
+                    <option value="">All Categories</option>
+                    {% for category in categories %}
+                    <option value="{{ category.id }}" {% if category.id|stringformat:"s" == selected_category %}selected{% endif %}>
+                        {{ category.name }}
+                    </option>
+                    {% endfor %}
+                </select>
+            
+                <!-- Date Filter -->
+                <!-- Date Filter -->
+<select name="date" class="border-gray-300 rounded-lg py-2 px-4">
+    <option value="">All Dates</option>
+    {% for date in upcoming_dates %}
+    <option value="{{ date|date:'Y-m-d' }}" {% if date|stringformat:"Y-m-d" == selected_date %}selected{% endif %}>
+        {{ date|date:"M. j, Y" }}
+    </option>
+    {% endfor %}
+</select>
+
+            
+                <!-- Submit Button -->
+                <button type="submit" class="bg-blue-500 text-white rounded-lg px-6 py-2 hover:bg-blue-600">
+                    Filter
+                </button>
+            </form>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {% for event in events %}
@@ -100,44 +128,7 @@
         </div>
     </section>
     
-    <!-- Upcoming Events Section -->
-    <section>
-        <div class="container mx-auto p-4" id="upcoming">
-            <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Upcoming Events</h1>
-            <p class="text-lg text-gray-600 mb-8 text-center">Get ready for our upcoming events! These events are just around the corner, so don't miss out on the chance to be a part of them!</p>
-    
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {% for event in upcoming_events %}
-                <div class="bg-white shadow-lg hover:shadow-2xl rounded-lg overflow-hidden transition-shadow duration-300 flex flex-col">
-                  {% if event.image %}
-                  <div class="w-full h-48 bg-gray-200">
-                    <img src="{{ event.image }}" alt="{{ event.name }}" class="w-full h-full object-cover">
-                  </div>
-                  {% endif %}
-                  <div class="p-6 flex-grow flex flex-col">
-                    <h2 class="text-2xl font-bold text-gray-800 mb-2">{{ event.name }}</h2>
-                    <p class="text-sm text-gray-500 mb-4">{{ event.category }}</p>
-                    <div class="text-gray-600 text-sm space-y-1 mb-4">
-                      <p><strong>Date:</strong> {{ event.date }}</p>
-                      <p><strong>Time:</strong> {{ event.time }}</p>
-                      <p><strong>Location:</strong> {{ event.location }}</p>
-                      <p><strong>Participants:</strong> {{ event.participant_count }}</p>
-                    </div>
-                    <p class="text-gray-700 leading-relaxed mb-4">{{ event.description|truncatewords:20 }}</p>
-                    <!-- Button aligned to bottom -->
-                    <div class="mt-auto">
-                      <a href="{% url 'event_detail' event.id %}" class="block text-center bg-blue-500 text-white font-medium rounded-lg py-2 transition hover:bg-blue-600">
-                        View Details
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                {% empty %}
-                <p class="text-gray-600 text-center col-span-full">No upcoming events at the moment.</p>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
+  
     
 <section>
     <div class="container mx-auto py-12">
@@ -300,6 +291,15 @@
 
 
 
+<script>
+    // Check if the page was reloaded with query parameters
+    if (window.location.search) {
+        const filterSection = document.getElementById('filter-section');
+        if (filterSection) {
+            filterSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+</script>
 
 </body>
 </html>

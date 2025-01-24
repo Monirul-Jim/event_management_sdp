@@ -11,6 +11,7 @@ from django.db.models import Count
 from django.http import JsonResponse
 from django.db.models import Q
 from datetime import date
+from datetime import datetime
 
 
 def category_list(request):
@@ -218,18 +219,42 @@ def event_detail(request, event_id):
 def home(request):
     today = date.today()
 
+    # Get filter parameters from the query string
+    selected_category = request.GET.get('category')
+    selected_date = request.GET.get('date')
+
+    # Convert the date to `YYYY-MM-DD` format if provided
+    if selected_date:
+        try:
+            selected_date = datetime.strptime(selected_date, "%Y-%m-%d").date()
+        except ValueError:
+            selected_date = None  # If parsing fails, ignore the date filter
+
+    # Start with the base queryset for events
     events = Event.objects.annotate(participant_count=Count('participants')) \
         .select_related('category') \
-        .prefetch_related('participants') \
-        .all()
+        .prefetch_related('participants')
 
-    upcoming_events = Event.objects.filter(date__gte=today) \
-        .annotate(participant_count=Count('participants')) \
-        .select_related('category') \
-        .prefetch_related('participants') \
-        .order_by('date')
+    # Apply category filter if selected
+    if selected_category:
+        events = events.filter(category_id=selected_category)
 
-    return render(request, 'home.html', {'events': events, 'upcoming_events': upcoming_events})
+    if selected_date:
+        events = events.filter(date=selected_date)
+
+    upcoming_dates = Event.objects.filter(
+        date__gte=today).values_list('date', flat=True).distinct()
+
+    # Get all categories for the dropdown
+    categories = Category.objects.all()
+
+    return render(request, 'home.html', {
+        'events': events,
+        'categories': categories,
+        'upcoming_dates': upcoming_dates,
+        'selected_category': selected_category,
+        'selected_date': selected_date,
+    })
 
 
 def search_events(request):
