@@ -12,16 +12,16 @@ from django.http import JsonResponse
 def category_list(request):
     categories = Category.objects.all()
     form = CategoryForm()
-    category_to_edit = None  # To determine if we are editing
+    category_to_edit = None
 
     if request.method == "POST":
-        if "create" in request.POST:  # Handle new category creation
+        if "create" in request.POST:
             form = CategoryForm(request.POST)
             if form.is_valid():
                 form.save()
                 return redirect("create_category")
 
-        elif "update" in request.POST:  # Handle category update
+        elif "update" in request.POST:
             category_id = request.POST.get("category_id")
             category = get_object_or_404(Category, id=category_id)
             form = CategoryForm(request.POST, instance=category)
@@ -29,13 +29,13 @@ def category_list(request):
                 form.save()
                 return redirect("create_category")
 
-        elif "delete" in request.POST:  # Handle category deletion
+        elif "delete" in request.POST:
             category_id = request.POST.get("category_id")
             category = get_object_or_404(Category, id=category_id)
             category.delete()
             return redirect("create_category")
 
-        elif "update_form" in request.POST:  # Pre-fill the form for editing
+        elif "update_form" in request.POST:
             category_id = request.POST.get("category_id")
             category_to_edit = get_object_or_404(Category, id=category_id)
             form = CategoryForm(instance=category_to_edit)
@@ -49,103 +49,94 @@ def category_list(request):
 
 def event_list(request):
     events = Event.objects.all()
-    categories = Category.objects.all()  # Fetch all categories
-    event_to_edit = None  # To determine if we are editing
-    form = EventForm()  # Initialize the form
+    categories = Category.objects.all()
+    event_to_edit = None
+    form = EventForm()
 
     if request.method == "POST":
-        if "create" in request.POST:  # Handle new event creation
+        if "create" in request.POST:
             form = EventForm(request.POST)
             if form.is_valid():
                 form.save()
-                return redirect("event_list")  # Redirect to the event list
+                return redirect("event_list")
 
-        elif "update" in request.POST:  # Handle event update
+        elif "update" in request.POST:
             event_id = request.POST.get("event_id")
             event = get_object_or_404(Event, id=event_id)
-            # Populate form with existing event data
+
             form = EventForm(request.POST, instance=event)
             if form.is_valid():
                 form.save()
-                return redirect("event_list")  # Redirect to the event list
+                return redirect("event_list")
 
-        elif "delete" in request.POST:  # Handle event deletion
+        elif "delete" in request.POST:
             event_id = request.POST.get("event_id")
             event = get_object_or_404(Event, id=event_id)
             event.delete()
-            return redirect("event_list")  # Redirect to the event list
+            return redirect("event_list")
 
-        elif "update_form" in request.POST:  # Pre-fill the form for editing
+        elif "update_form" in request.POST:
             event_id = request.POST.get("event_id")
             event_to_edit = get_object_or_404(Event, id=event_id)
-            # Populate form with existing event data
+
             form = EventForm(instance=event_to_edit)
 
-    # Render the template with the context
     return render(request, "task/create_event.html", {
         "events": events,
         "form": form,
         "event_to_edit": event_to_edit,
-        "categories": categories  # Pass categories to the template
+        "categories": categories
     })
 
 
 def participant_list(request):
     participants = Participant.objects.all()
     form = ParticipantForm()
-    participant_to_edit = None  # To determine if we are editing
+    participant_to_edit = None
 
     if request.method == "POST":
-        if "create" in request.POST:  # Handle new participant creation
+        if "create" in request.POST:
             form = ParticipantForm(request.POST)
             if form.is_valid():
                 form.save()
-                # Redirect to the participant list
                 return redirect("participant_list")
 
-        elif "update" in request.POST:  # Handle participant update
+        elif "update" in request.POST:
             participant_id = request.POST.get("participant_id")
             participant = get_object_or_404(Participant, id=participant_id)
-            # Populate form with existing participant data
             form = ParticipantForm(request.POST, instance=participant)
             if form.is_valid():
                 form.save()
-                # Redirect to the participant list
                 return redirect("participant_list")
 
-        elif "delete" in request.POST:  # Handle participant deletion
+        elif "delete" in request.POST:
             participant_id = request.POST.get("participant_id")
             participant = get_object_or_404(Participant, id=participant_id)
             participant.delete()
-            # Redirect to the participant list
             return redirect("participant_list")
 
-        elif "update_form" in request.POST:  # Pre-fill the form for editing
+        elif "update_form" in request.POST:
             participant_id = request.POST.get("participant_id")
             participant_to_edit = get_object_or_404(
                 Participant, id=participant_id)
-            # Populate form with existing participant data
             form = ParticipantForm(instance=participant_to_edit)
 
     return render(request, "task/create_participant.html", {
         "participants": participants,
         "form": form,
         "participant_to_edit": participant_to_edit,
-        "events": Event.objects.all()  # Pass all events to the template for selection
+        "events": Event.objects.all()
     })
 
 
 def organizer_dashboard(request):
-    # Get current date
     today = timezone.now().date()
 
-    # Stats
     total_participants = Participant.objects.count()
     total_events = Event.objects.count()
     upcoming_events = Event.objects.filter(date__gt=today).count()
     past_events = Event.objects.filter(date__lt=today).count()
 
-    # Today's Events
     todays_events = Event.objects.filter(date=today)
 
     context = {
@@ -160,10 +151,8 @@ def organizer_dashboard(request):
 
 
 def get_event_stats(request):
-    # Get current date
     today = timezone.now().date()
 
-    # Stats
     total_events = Event.objects.count()
     upcoming_events = Event.objects.filter(date__gt=today).count()
     past_events = Event.objects.filter(date__lt=today).count()
@@ -184,7 +173,7 @@ def get_events(request):
         events = Event.objects.filter(date__gt=today)
     elif event_type == 'past':
         events = Event.objects.filter(date__lt=today)
-    else:  # 'all'
+    else:
         events = Event.objects.all()
 
     event_list = [{
@@ -199,7 +188,6 @@ def get_events(request):
 
 def event_detail(request, event_id):
     event = get_object_or_404(Event, id=event_id)
-    # Assuming a related name for participants
     participants = event.participants.all()
     return render(request, 'event_detail.html', {'event': event, 'participants': participants})
 
@@ -208,4 +196,6 @@ def home(request):
 
     events = Event.objects.annotate(
         participant_count=Count('participants')).all()
+    for i in events:
+        print(i)
     return render(request, 'home.html', {'events': events})

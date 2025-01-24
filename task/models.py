@@ -12,6 +12,7 @@ class Category(models.Model):
 
 
 class Event(models.Model):
+    image = models.URLField(blank=True, null=True)
     name = models.CharField(max_length=100)
     description = models.TextField()
     date = models.DateField()

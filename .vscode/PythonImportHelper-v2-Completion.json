@@ -25,6 +25,38 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -301,6 +333,24 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "task.migrations.0002_event_image",
+        "description": "task.migrations.0002_event_image",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('task', '0001_initial'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='event',\n            name='image',\n            field=models.ImageField(blank=True, null=True, upload_to=''),\n        ),",
+        "detail": "task.migrations.0002_event_image",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "task.migrations.0003_alter_event_image",
+        "description": "task.migrations.0003_alter_event_image",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('task', '0002_event_image'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='event',\n            name='image',\n            field=models.URLField(blank=True, null=True),\n        ),",
+        "detail": "task.migrations.0003_alter_event_image",
+        "documentation": {}
+    },
+    {
         "label": "TaskConfig",
         "kind": 6,
         "importPath": "task.apps",
@@ -341,7 +391,7 @@
         "kind": 6,
         "importPath": "task.models",
         "description": "task.models",
-        "peekOfCode": "class Category(models.Model):\n    name = models.CharField(max_length=100)\n    description = models.TextField()\n    def __str__(self):\n        return self.name\nclass Event(models.Model):\n    name = models.CharField(max_length=100)\n    description = models.TextField()\n    date = models.DateField()\n    time = models.TimeField()",
+        "peekOfCode": "class Category(models.Model):\n    name = models.CharField(max_length=100)\n    description = models.TextField()\n    def __str__(self):\n        return self.name\nclass Event(models.Model):\n    image = models.URLField(blank=True, null=True)\n    name = models.CharField(max_length=100)\n    description = models.TextField()\n    date = models.DateField()",
         "detail": "task.models",
         "documentation": {}
     },
@@ -350,7 +400,7 @@
         "kind": 6,
         "importPath": "task.models",
         "description": "task.models",
-        "peekOfCode": "class Event(models.Model):\n    name = models.CharField(max_length=100)\n    description = models.TextField()\n    date = models.DateField()\n    time = models.TimeField()\n    location = models.CharField(max_length=100)\n    category = models.ForeignKey(\n        Category, on_delete=models.CASCADE, related_name='events')\n    def __str__(self):\n        return self.name",
+        "peekOfCode": "class Event(models.Model):\n    image = models.URLField(blank=True, null=True)\n    name = models.CharField(max_length=100)\n    description = models.TextField()\n    date = models.DateField()\n    time = models.TimeField()\n    location = models.CharField(max_length=100)\n    category = models.ForeignKey(\n        Category, on_delete=models.CASCADE, related_name='events')\n    def __str__(self):",
         "detail": "task.models",
         "documentation": {}
     },
@@ -377,7 +427,7 @@
         "kind": 2,
         "importPath": "task.views",
         "description": "task.views",
-        "peekOfCode": "def category_list(request):\n    categories = Category.objects.all()\n    form = CategoryForm()\n    category_to_edit = None  # To determine if we are editing\n    if request.method == \"POST\":\n        if \"create\" in request.POST:  # Handle new category creation\n            form = CategoryForm(request.POST)\n            if form.is_valid():\n                form.save()\n                return redirect(\"create_category\")",
+        "peekOfCode": "def category_list(request):\n    categories = Category.objects.all()\n    form = CategoryForm()\n    category_to_edit = None\n    if request.method == \"POST\":\n        if \"create\" in request.POST:\n            form = CategoryForm(request.POST)\n            if form.is_valid():\n                form.save()\n                return redirect(\"create_category\")",
         "detail": "task.views",
         "documentation": {}
     },
@@ -386,7 +436,7 @@
         "kind": 2,
         "importPath": "task.views",
         "description": "task.views",
-        "peekOfCode": "def event_list(request):\n    events = Event.objects.all()\n    categories = Category.objects.all()  # Fetch all categories\n    event_to_edit = None  # To determine if we are editing\n    form = EventForm()  # Initialize the form\n    if request.method == \"POST\":\n        if \"create\" in request.POST:  # Handle new event creation\n            form = EventForm(request.POST)\n            if form.is_valid():\n                form.save()",
+        "peekOfCode": "def event_list(request):\n    events = Event.objects.all()\n    categories = Category.objects.all()\n    event_to_edit = None\n    form = EventForm()\n    if request.method == \"POST\":\n        if \"create\" in request.POST:\n            form = EventForm(request.POST)\n            if form.is_valid():\n                form.save()",
         "detail": "task.views",
         "documentation": {}
     },
@@ -395,7 +445,7 @@
         "kind": 2,
         "importPath": "task.views",
         "description": "task.views",
-        "peekOfCode": "def participant_list(request):\n    participants = Participant.objects.all()\n    form = ParticipantForm()\n    participant_to_edit = None  # To determine if we are editing\n    if request.method == \"POST\":\n        if \"create\" in request.POST:  # Handle new participant creation\n            form = ParticipantForm(request.POST)\n            if form.is_valid():\n                form.save()\n                # Redirect to the participant list",
+        "peekOfCode": "def participant_list(request):\n    participants = Participant.objects.all()\n    form = ParticipantForm()\n    participant_to_edit = None\n    if request.method == \"POST\":\n        if \"create\" in request.POST:\n            form = ParticipantForm(request.POST)\n            if form.is_valid():\n                form.save()\n                return redirect(\"participant_list\")",
         "detail": "task.views",
         "documentation": {}
     },
@@ -404,7 +454,7 @@
         "kind": 2,
         "importPath": "task.views",
         "description": "task.views",
-        "peekOfCode": "def organizer_dashboard(request):\n    # Get current date\n    today = timezone.now().date()\n    # Stats\n    total_participants = Participant.objects.count()\n    total_events = Event.objects.count()\n    upcoming_events = Event.objects.filter(date__gt=today).count()\n    past_events = Event.objects.filter(date__lt=today).count()\n    # Today's Events\n    todays_events = Event.objects.filter(date=today)",
+        "peekOfCode": "def organizer_dashboard(request):\n    today = timezone.now().date()\n    total_participants = Participant.objects.count()\n    total_events = Event.objects.count()\n    upcoming_events = Event.objects.filter(date__gt=today).count()\n    past_events = Event.objects.filter(date__lt=today).count()\n    todays_events = Event.objects.filter(date=today)\n    context = {\n        'total_participants': total_participants,\n        'total_events': total_events,",
         "detail": "task.views",
         "documentation": {}
     },
@@ -413,7 +463,7 @@
         "kind": 2,
         "importPath": "task.views",
         "description": "task.views",
-        "peekOfCode": "def get_event_stats(request):\n    # Get current date\n    today = timezone.now().date()\n    # Stats\n    total_events = Event.objects.count()\n    upcoming_events = Event.objects.filter(date__gt=today).count()\n    past_events = Event.objects.filter(date__lt=today).count()\n    data = {\n        'total_events': total_events,\n        'upcoming_events': upcoming_events,",
+        "peekOfCode": "def get_event_stats(request):\n    today = timezone.now().date()\n    total_events = Event.objects.count()\n    upcoming_events = Event.objects.filter(date__gt=today).count()\n    past_events = Event.objects.filter(date__lt=today).count()\n    data = {\n        'total_events': total_events,\n        'upcoming_events': upcoming_events,\n        'past_events': past_events,\n    }",
         "detail": "task.views",
         "documentation": {}
     },
@@ -422,7 +472,7 @@
         "kind": 2,
         "importPath": "task.views",
         "description": "task.views",
-        "peekOfCode": "def get_events(request):\n    event_type = request.GET.get('type', 'all')\n    today = timezone.now().date()\n    if event_type == 'upcoming':\n        events = Event.objects.filter(date__gt=today)\n    elif event_type == 'past':\n        events = Event.objects.filter(date__lt=today)\n    else:  # 'all'\n        events = Event.objects.all()\n    event_list = [{",
+        "peekOfCode": "def get_events(request):\n    event_type = request.GET.get('type', 'all')\n    today = timezone.now().date()\n    if event_type == 'upcoming':\n        events = Event.objects.filter(date__gt=today)\n    elif event_type == 'past':\n        events = Event.objects.filter(date__lt=today)\n    else:\n        events = Event.objects.all()\n    event_list = [{",
         "detail": "task.views",
         "documentation": {}
     },
@@ -431,7 +481,7 @@
         "kind": 2,
         "importPath": "task.views",
         "description": "task.views",
-        "peekOfCode": "def event_detail(request, event_id):\n    event = get_object_or_404(Event, id=event_id)\n    # Assuming a related name for participants\n    participants = event.participants.all()\n    return render(request, 'event_detail.html', {'event': event, 'participants': participants})\ndef home(request):\n    events = Event.objects.annotate(\n        participant_count=Count('participants')).all()\n    return render(request, 'home.html', {'events': events})",
+        "peekOfCode": "def event_detail(request, event_id):\n    event = get_object_or_404(Event, id=event_id)\n    participants = event.participants.all()\n    return render(request, 'event_detail.html', {'event': event, 'participants': participants})\ndef home(request):\n    events = Event.objects.annotate(\n        participant_count=Count('participants')).all()\n    for i in events:\n        print(i)\n    return render(request, 'home.html', {'events': events})",
         "detail": "task.views",
         "documentation": {}
     },
@@ -440,7 +490,7 @@
         "kind": 2,
         "importPath": "task.views",
         "description": "task.views",
-        "peekOfCode": "def home(request):\n    events = Event.objects.annotate(\n        participant_count=Count('participants')).all()\n    return render(request, 'home.html', {'events': events})",
+        "peekOfCode": "def home(request):\n    events = Event.objects.annotate(\n        participant_count=Count('participants')).all()\n    for i in events:\n        print(i)\n    return render(request, 'home.html', {'events': events})",
         "detail": "task.views",
         "documentation": {}
     },
