@@ -387,14 +387,6 @@
         "documentation": {}
     },
     {
-        "label": "debug_toolbar_urls",
-        "importPath": "debug_toolbar.toolbar",
-        "description": "debug_toolbar.toolbar",
-        "isExtraImport": true,
-        "detail": "debug_toolbar.toolbar",
-        "documentation": {}
-    },
-    {
         "label": "get_wsgi_application",
         "importPath": "django.core.wsgi",
         "description": "django.core.wsgi",
@@ -776,7 +768,7 @@
         "kind": 5,
         "importPath": "task_managemnt.urls",
         "description": "task_managemnt.urls",
-        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('', include('task.urls')),\n] + debug_toolbar_urls()",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('', include('task.urls')),\n]",
         "detail": "task_managemnt.urls",
         "documentation": {}
     },
