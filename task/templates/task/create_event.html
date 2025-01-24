@@ -10,49 +10,102 @@
     </h2>
     <form method="post" class="space-y-4">
       {% csrf_token %}
+      <!-- Image Field -->
       <div>
-        <label for="id_image" class="block text-sm font-medium text-gray-700">Event Image</label>
-        <input type="text" name="image" id="id_image" value="{{ form.image.value }}" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required>
+          <label for="id_image" class="block text-sm font-medium text-gray-700">Event Image</label>
+          <input type="text" name="image" id="id_image" 
+                 value="{{ form.image.value|default_if_none:'' }}" 
+                 class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+          {% if form.image.errors %}
+              <p class="text-red-500 text-sm mt-1">{{ form.image.errors.0 }}</p>
+          {% endif %}
       </div>
+  
+      <!-- Name Field -->
       <div>
-        <label for="id_name" class="block text-sm font-medium text-gray-700">Event Name</label>
-        <input type="text" name="name" id="id_name" value="{{ form.name.value }}" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required>
+          <label for="id_name" class="block text-sm font-medium text-gray-700">Event Name</label>
+          <input type="text" name="name" id="id_name" 
+                 value="{{ form.name.value|default_if_none:'' }}" 
+                 class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+          {% if form.name.errors %}
+              <p class="text-red-500 text-sm mt-1">{{ form.name.errors.0 }}</p>
+          {% endif %}
       </div>
+  
+      <!-- Description Field -->
       <div>
-        <label for="id_description" class="block text-sm font-medium text-gray-700">Description</label>
-        <textarea name="description" id="id_description" rows="4" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required>{{ form.description.value }}</textarea>
+          <label for="id_description" class="block text-sm font-medium text-gray-700">Description</label>
+          <textarea name="description" id="id_description" rows="4" 
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">{{ form.description.value|default_if_none:'' }}</textarea>
+          {% if form.description.errors %}
+              <p class="text-red-500 text-sm mt-1">{{ form.description.errors.0 }}</p>
+          {% endif %}
       </div>
+  
+      <!-- Date Field -->
       <div>
-        <label for="id_date" class="block text-sm font-medium text-gray-700">Date</label>
-        <input type="date" name="date" id="id_date" value="{{ form.date.value }}" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required>
+          <label for="id_date" class="block text-sm font-medium text-gray-700">Date</label>
+          <input type="date" name="date" id="id_date" 
+                 value="{{ form.date.value|default_if_none:'' }}" 
+                 class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+          {% if form.date.errors %}
+              <p class="text-red-500 text-sm mt-1">{{ form.date.errors.0 }}</p>
+          {% endif %}
       </div>
+  
+      <!-- Time Field -->
       <div>
-        <label for="id_time" class="block text-sm font-medium text-gray-700">Time</label>
-        <input type="time" name="time" id="id_time" value="{{ form.time.value }}" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required>
+          <label for="id_time" class="block text-sm font-medium text-gray-700">Time</label>
+          <input type="time" name="time" id="id_time" 
+                 value="{{ form.time.value|default_if_none:'' }}" 
+                 class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+          {% if form.time.errors %}
+              <p class="text-red-500 text-sm mt-1">{{ form.time.errors.0 }}</p>
+          {% endif %}
       </div>
+  
+      <!-- Location Field -->
       <div>
-        <label for="id_location" class="block text-sm font-medium text-gray-700">Location</label>
-        <input type="text" name="location" id="id_location" value="{{ form.location.value }}" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required>
+          <label for="id_location" class="block text-sm font-medium text-gray-700">Location</label>
+          <input type="text" name="location" id="id_location" 
+                 value="{{ form.location.value|default_if_none:'' }}" 
+                 class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+          {% if form.location.errors %}
+              <p class="text-red-500 text-sm mt-1">{{ form.location.errors.0 }}</p>
+          {% endif %}
       </div>
+  
+      <!-- Category Field -->
       <div>
-        <label for="id_category" class="block text-sm font-medium text-gray-700">Category</label>
-        
-        <select name="category" id="id_category" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required required>
-            <option value="">Select a category</option>
-            {% for category in categories %}
-              <option value="{{ category.id }}" {% if event_to_edit and event_to_edit.category.id == category.id %}selected{% endif %}>{{ category.name }}</option>
-            {% endfor %}
+          <label for="id_category" class="block text-sm font-medium text-gray-700">Category</label>
+          <select name="category" id="id_category" 
+                  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+              <option value="">Select a category</option>
+              {% for category in categories %}
+                  <option value="{{ category.id }}" 
+                          {% if event_to_edit and event_to_edit.category.id == category.id %}selected{% endif %}>
+                      {{ category.name }}
+                  </option>
+              {% endfor %}
           </select>
+          {% if form.category.errors %}
+              <p class="text-red-500 text-sm mt-1">{{ form.category.errors.0 }}</p>
+          {% endif %}
       </div>
-      {% if event_to_edit %}
-      <input type="hidden" name="event_id" value="{{ event_to_edit.id }}">
-      {% endif %}
-      <div class="text-right">
-        <button type="submit" name="{% if event_to_edit %}update{% else %}create{% endif %}" class="px-6 w-full cursor-pointer py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">
-          {% if event_to_edit %}Update{% else %}Add{% endif %}
-        </button>
+  
+      <!-- Submit Button -->
+      <div>
+          {% if event_to_edit %}
+              <button type="submit" name="update" 
+                      class="px-6 w-full cursor-pointer py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">Update Event</button>
+              <input type="hidden" name="event_id" value="{{ event_to_edit.id }}">
+          {% else %}
+              <button type="submit" name="create" 
+                      class="px-6 w-full cursor-pointer py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">Create Event</button>
+          {% endif %}
       </div>
-    </form>
+  </form>
+  
   </div>
 
   <!-- Responsive Table -->

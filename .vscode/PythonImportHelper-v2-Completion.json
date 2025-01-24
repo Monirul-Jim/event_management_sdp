@@ -121,6 +121,38 @@
         "documentation": {}
     },
     {
+        "label": "ValidationError",
+        "importPath": "django.core.exceptions",
+        "description": "django.core.exceptions",
+        "isExtraImport": true,
+        "detail": "django.core.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "ValidationError",
+        "importPath": "django.core.exceptions",
+        "description": "django.core.exceptions",
+        "isExtraImport": true,
+        "detail": "django.core.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "now",
+        "importPath": "django.utils.timezone",
+        "description": "django.utils.timezone",
+        "isExtraImport": true,
+        "detail": "django.utils.timezone",
+        "documentation": {}
+    },
+    {
+        "label": "now",
+        "importPath": "django.utils.timezone",
+        "description": "django.utils.timezone",
+        "isExtraImport": true,
+        "detail": "django.utils.timezone",
+        "documentation": {}
+    },
+    {
         "label": "TestCase",
         "importPath": "django.test",
         "description": "django.test",
@@ -225,6 +257,46 @@
         "documentation": {}
     },
     {
+        "label": "Count",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Prefetch",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Count",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Q",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
         "label": "render",
         "importPath": "django.shortcuts",
         "description": "django.shortcuts",
@@ -249,35 +321,11 @@
         "documentation": {}
     },
     {
-        "label": "CreateView",
-        "importPath": "django.views.generic.edit",
-        "description": "django.views.generic.edit",
-        "isExtraImport": true,
-        "detail": "django.views.generic.edit",
-        "documentation": {}
-    },
-    {
         "label": "timezone",
         "importPath": "django.utils",
         "description": "django.utils",
         "isExtraImport": true,
         "detail": "django.utils",
-        "documentation": {}
-    },
-    {
-        "label": "Count",
-        "importPath": "django.db.models",
-        "description": "django.db.models",
-        "isExtraImport": true,
-        "detail": "django.db.models",
-        "documentation": {}
-    },
-    {
-        "label": "Q",
-        "importPath": "django.db.models",
-        "description": "django.db.models",
-        "isExtraImport": true,
-        "detail": "django.db.models",
         "documentation": {}
     },
     {
@@ -396,7 +444,7 @@
         "kind": 6,
         "importPath": "task.forms",
         "description": "task.forms",
-        "peekOfCode": "class EventForm(forms.ModelForm):\n    class Meta:\n        model = Event\n        fields = '__all__'\nclass ParticipantForm(forms.ModelForm):\n    class Meta:\n        model = Participant\n        fields = '__all__'\nclass CategoryForm(forms.ModelForm):\n    class Meta:",
+        "peekOfCode": "class EventForm(forms.ModelForm):\n    class Meta:\n        model = Event\n        fields = '__all__'\n    def clean_image(self):\n        image = self.cleaned_data.get('image')\n        if image and not image.startswith(('http://', 'https://')):\n            raise ValidationError(\"Please provide a valid URL for the image.\")\n        return image\n    def clean_name(self):",
         "detail": "task.forms",
         "documentation": {}
     },
@@ -405,7 +453,7 @@
         "kind": 6,
         "importPath": "task.forms",
         "description": "task.forms",
-        "peekOfCode": "class ParticipantForm(forms.ModelForm):\n    class Meta:\n        model = Participant\n        fields = '__all__'\nclass CategoryForm(forms.ModelForm):\n    class Meta:\n        model = Category\n        fields = ['name', 'description']\n        widgets = {\n            'name': forms.TextInput(attrs={",
+        "peekOfCode": "class ParticipantForm(forms.ModelForm):\n    class Meta:\n        model = Participant\n        fields = '__all__'\n    def clean_name(self):\n        name = self.cleaned_data.get('name')\n        if len(name) < 3:\n            raise ValidationError(\n                \"Participant name must be at least 3 characters long.\")\n        return name",
         "detail": "task.forms",
         "documentation": {}
     },
@@ -468,7 +516,7 @@
         "kind": 2,
         "importPath": "task.views",
         "description": "task.views",
-        "peekOfCode": "def event_list(request):\n    events = Event.objects.all()\n    categories = Category.objects.all()\n    event_to_edit = None\n    form = EventForm()\n    if request.method == \"POST\":\n        if \"create\" in request.POST:\n            form = EventForm(request.POST)\n            if form.is_valid():\n                form.save()",
+        "peekOfCode": "def event_list(request):\n    # events = Event.objects.all()\n    # categories = Category.objects.all()\n    events = Event.objects.select_related('category').all()\n    categories = Category.objects.prefetch_related('events').all()\n    event_to_edit = None\n    form = EventForm()\n    if request.method == \"POST\":\n        if \"create\" in request.POST:\n            form = EventForm(request.POST)",
         "detail": "task.views",
         "documentation": {}
     },
@@ -477,7 +525,7 @@
         "kind": 2,
         "importPath": "task.views",
         "description": "task.views",
-        "peekOfCode": "def participant_list(request):\n    participants = Participant.objects.all()\n    form = ParticipantForm()\n    participant_to_edit = None\n    if request.method == \"POST\":\n        if \"create\" in request.POST:\n            form = ParticipantForm(request.POST)\n            if form.is_valid():\n                form.save()\n                return redirect(\"participant_list\")",
+        "peekOfCode": "def participant_list(request):\n    # participants = Participant.objects.all()\n    participants = Participant.objects.prefetch_related('events').all()\n    form = ParticipantForm()\n    participant_to_edit = None\n    if request.method == \"POST\":\n        if \"create\" in request.POST:\n            form = ParticipantForm(request.POST)\n            if form.is_valid():\n                form.save()",
         "detail": "task.views",
         "documentation": {}
     },
@@ -513,7 +561,7 @@
         "kind": 2,
         "importPath": "task.views",
         "description": "task.views",
-        "peekOfCode": "def event_detail(request, event_id):\n    event = get_object_or_404(Event, id=event_id)\n    participants = event.participants.all()\n    return render(request, 'event_detail.html', {'event': event, 'participants': participants})\n# def home(request):\n#     events = Event.objects.annotate(\n#         participant_count=Count('participants')).all()\n#     for i in events:\n#         print(i)\n#     return render(request, 'home.html', {'events': events})",
+        "peekOfCode": "def event_detail(request, event_id):\n    event = get_object_or_404(Event.objects.select_related(\n        'category').prefetch_related('participants'), id=event_id)\n    participants = event.participants.all()\n    return render(request, 'event_detail.html', {'event': event, 'participants': participants})\n# def home(request):\n#     today = date.today()\n#     events = Event.objects.annotate(\n#         participant_count=Count('participants')).all()\n#     upcoming_events = Event.objects.filter(date__gte=today).annotate(",
         "detail": "task.views",
         "documentation": {}
     },
@@ -522,7 +570,7 @@
         "kind": 2,
         "importPath": "task.views",
         "description": "task.views",
-        "peekOfCode": "def home(request):\n    # Get today's date\n    today = date.today()\n    # Get all events and annotate with participant count\n    events = Event.objects.annotate(\n        participant_count=Count('participants')).all()\n    # Filter upcoming events (events that are on or after today's date)\n    upcoming_events = Event.objects.filter(date__gte=today).annotate(\n        participant_count=Count('participants')).order_by('date')\n    return render(request, 'home.html', {'events': events, 'upcoming_events': upcoming_events})",
+        "peekOfCode": "def home(request):\n    today = date.today()\n    events = Event.objects.annotate(participant_count=Count('participants')) \\\n        .select_related('category') \\\n        .prefetch_related('participants') \\\n        .all()\n    upcoming_events = Event.objects.filter(date__gte=today) \\\n        .annotate(participant_count=Count('participants')) \\\n        .select_related('category') \\\n        .prefetch_related('participants') \\",
         "detail": "task.views",
         "documentation": {}
     },

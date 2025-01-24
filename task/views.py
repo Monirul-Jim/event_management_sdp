@@ -1,5 +1,7 @@
+from django.db.models import Count, Prefetch
+from .models import Event
+from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404
-from django.views.generic.edit import CreateView
 
 from .models import Event, Participant, Category
 from .forms import EventForm, ParticipantForm, CategoryForm
@@ -50,8 +52,10 @@ def category_list(request):
 
 
 def event_list(request):
-    events = Event.objects.all()
-    categories = Category.objects.all()
+    # events = Event.objects.all()
+    # categories = Category.objects.all()
+    events = Event.objects.select_related('category').all()
+    categories = Category.objects.prefetch_related('events').all()
     event_to_edit = None
     form = EventForm()
 
@@ -92,7 +96,9 @@ def event_list(request):
 
 
 def participant_list(request):
-    participants = Participant.objects.all()
+    # participants = Participant.objects.all()
+    participants = Participant.objects.prefetch_related('events').all()
+
     form = ParticipantForm()
     participant_to_edit = None
 
@@ -188,30 +194,40 @@ def get_events(request):
     return JsonResponse({'events': event_list})
 
 
+# def event_detail(request, event_id):
+#     event = get_object_or_404(Event, id=event_id)
+#     participants = event.participants.all()
+#     return render(request, 'event_detail.html', {'event': event, 'participants': participants})
+
 def event_detail(request, event_id):
-    event = get_object_or_404(Event, id=event_id)
+    event = get_object_or_404(Event.objects.select_related(
+        'category').prefetch_related('participants'), id=event_id)
     participants = event.participants.all()
+
     return render(request, 'event_detail.html', {'event': event, 'participants': participants})
 
-
 # def home(request):
-
+#     today = date.today()
 #     events = Event.objects.annotate(
 #         participant_count=Count('participants')).all()
-#     for i in events:
-#         print(i)
-#     return render(request, 'home.html', {'events': events})
+#     upcoming_events = Event.objects.filter(date__gte=today).annotate(
+#         participant_count=Count('participants')).order_by('date')
+#     return render(request, 'home.html', {'events': events, 'upcoming_events': upcoming_events})
+
+
 def home(request):
-    # Get today's date
     today = date.today()
 
-    # Get all events and annotate with participant count
-    events = Event.objects.annotate(
-        participant_count=Count('participants')).all()
+    events = Event.objects.annotate(participant_count=Count('participants')) \
+        .select_related('category') \
+        .prefetch_related('participants') \
+        .all()
 
-    # Filter upcoming events (events that are on or after today's date)
-    upcoming_events = Event.objects.filter(date__gte=today).annotate(
-        participant_count=Count('participants')).order_by('date')
+    upcoming_events = Event.objects.filter(date__gte=today) \
+        .annotate(participant_count=Count('participants')) \
+        .select_related('category') \
+        .prefetch_related('participants') \
+        .order_by('date')
 
     return render(request, 'home.html', {'events': events, 'upcoming_events': upcoming_events})
 
