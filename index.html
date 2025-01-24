@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 min-h-screen font-sans max-w-[1400px] mx-auto">
+    <header class="flex items-center justify-between py-2 mb-2">
+      <!-- Left Side: Dashboard -->
+      <h1 class="text-xl font-semibold text-gray-700">Dashboard</h1>
+
+      <!-- Right Side: Notification and B button -->
+      <div class="flex items-center space-x-4">
+        <!-- Notification Icon -->
+        <button
+          class="relative p-2 bg-gray-100 rounded-full hover:bg-gray-200 focus:ring-2 focus:ring-blue-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6 text-gray-700"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
+            />
+          </svg>
+        </button>
+
+        <!-- B Button -->
+        <button
+          class="w-8 h-8 bg-blue-500 text-white text-sm font-medium rounded-full flex items-center justify-center hover:bg-blue-600 focus:ring-2 focus:ring-blue-300"
+        >
+          B
+        </button>
+      </div>
+    </header>
+    <div class="">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 text-center"
+      >
+        <!-- Total Tasks -->
+        <div class="bg-white p-6 flex items-center justify-between">
+          <div class="text-left">
+            <h2 class="text-sm font-medium text-gray-500 mb-1">TOTAL TASKS</h2>
+            <p class="text-3xl font-bold text-gray-800">3</p>
+            <p class="text-sm text-gray-400">Till last month</p>
+          </div>
+          <div class="bg-blue-100 p-3 rounded-full">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              class="w-5 h-5 text-blue-500"
+            >
+              <path
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.666 3.888A2.25 2.25 0 0 0 13.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 0 1-.75.75H9a.75.75 0 0 1-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 0 1 1.927-.184"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Completed Task -->
+        <div class="bg-white p-6 flex items-center justify-between">
+          <div class="text-left">
+            <h2 class="text-sm font-medium text-gray-500 mb-1">
+              COMPLETED TASK
+            </h2>
+            <p class="text-3xl font-bold text-green-500">1</p>
+            <p class="text-sm text-gray-400">Till last month</p>
+          </div>
+          <div class="bg-green-100 p-3 rounded-full">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+            >
+              <path
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Task In Progress -->
+        <div class="bg-white p-6 flex items-center justify-between">
+          <div class="text-left">
+            <h2 class="text-sm font-medium text-gray-500 mb-1">
+              TASK IN PROGRESS
+            </h2>
+            <p class="text-3xl font-bold text-yellow-500">1</p>
+            <p class="text-sm text-gray-400">Till last month</p>
+          </div>
+          <div class="bg-yellow-100 p-3 rounded-full">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Todos -->
+        <div class="bg-white p-6 flex items-center justify-between">
+          <div class="text-left">
+            <h2 class="text-sm font-medium text-gray-500 mb-1">TODOS</h2>
+            <p class="text-3xl font-bold text-blue-500">1</p>
+            <p class="text-sm text-gray-400">Till last month</p>
+          </div>
+          <div class="bg-violet-200 p-3 rounded-full">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              class="w-6 h-6 text-blue-500"
+            >
+              <path
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.666 3.888A2.25 2.25 0 0 0 13.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 0 1-.75.75H9a.75.75 0 0 1-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 0 1 1.927-.184"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-lg">
+        <!-- Content Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Today's Tasks -->
+          <div class="bg-white p-6 rounded-lg shadow-sm">
+            <h3 class="text-lg font-semibold text-gray-700 mb-4">
+              Today's Tasks
+            </h3>
+            <ul class="space-y-2">
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                <p class="text-gray-600 flex-1">Complete project proposal</p>
+                <span class="text-sm font-medium text-red-500">High</span>
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                <p class="text-gray-600 flex-1">Review team updates</p>
+                <span class="text-sm font-medium text-yellow-500">Normal</span>
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-gray-500 rounded-full mr-2"></span>
+                <p class="text-gray-600 flex-1">Prepare for client meeting</p>
+                <span class="text-sm font-medium text-blue-500">Low</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- All Tasks -->
+          <div class="bg-white p-6 rounded-lg shadow-sm">
+            <h3 class="text-lg font-semibold text-gray-700 mb-4">All Tasks</h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm text-left border-collapse">
+                <thead>
+                  <tr class="border-b">
+                    <th class="px-4 py-2 text-gray-500">Task Title</th>
+                    <th class="px-4 py-2 text-gray-500">Priority</th>
+                    <th class="px-4 py-2 text-gray-500">Team</th>
+                    <th class="px-4 py-2 text-gray-500">Created At</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b">
+                    <td class="px-4 py-2 font-semibold">Test Low Task</td>
+                    <td class="px-4 py-2 text-blue-500 font-semibold">Low</td>
+                    <td class="px-4 py-2">
+                      <div class="flex -space-x-2">
+                        <span
+                          class="w-6 h-6 bg-red-400 rounded-full border-2 border-white text-white text-xs flex items-center justify-center"
+                        >
+                          CA
+                        </span>
+                        <span
+                          class="w-6 h-6 bg-green-400 rounded-full border-2 border-white text-white text-xs flex items-center justify-center"
+                        >
+                          JS
+                        </span>
+                        <span
+                          class="w-6 h-6 bg-blue-400 rounded-full border-2 border-white text-white text-xs flex items-center justify-center"
+                        >
+                          B
+                        </span>
+                      </div>
+                    </td>
+
+                    <td class="px-4 py-2 text-gray-500">9 months ago</td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="px-4 py-2 font-semibold">Test Task</td>
+                    <td class="px-4 py-2 font-semibold">Normal</td>
+                    <td class="px-4 py-2">
+                      <div class="flex -space-x-2">
+                        <span
+                          class="w-6 h-6 bg-red-400 rounded-full border-2 border-white text-white text-xs flex items-center justify-center"
+                        >
+                          AE
+                        </span>
+                        <span
+                          class="w-6 h-6 bg-green-400 rounded-full border-2 border-white text-white text-xs flex items-center justify-center"
+                          >EV</span
+                        >
+                        <span
+                          class="w-6 h-6 bg-blue-400 rounded-full border-2 border-white text-white text-xs flex items-center justify-center"
+                          >B</span
+                        >
+                      </div>
+                    </td>
+                    <td class="px-4 py-2 text-gray-500">9 months ago</td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="px-4 py-2 font-semibold">Test Task</td>
+                    <td class="px-4 py-2 text-red-500 font-semibold">High</td>
+                    <td class="px-4 py-2">
+                      <div class="flex -space-x-2">
+                        <span
+                          class="w-6 h-6 bg-red-400 rounded-full border-2 border-white text-white text-xs flex items-center justify-center"
+                          >CA</span
+                        >
+                        <span
+                          class="w-6 h-6 bg-green-400 rounded-full border-2 border-white text-white text-xs flex items-center justify-center"
+                          >JS</span
+                        >
+                        <span
+                          class="w-6 h-6 bg-blue-400 rounded-full border-2 border-white text-white text-xs flex items-center justify-center"
+                          >AJ</span
+                        >
+                        <span
+                          class="w-6 h-6 bg-blue-400 rounded-full border-2 border-white text-white text-xs flex items-center justify-center"
+                          >PY</span
+                        >
+                        <span
+                          class="w-6 h-6 bg-blue-400 rounded-full border-2 border-white text-white text-xs flex items-center justify-center"
+                          >B</span
+                        >
+                      </div>
+                    </td>
+                    <td class="px-4 py-2 text-gray-500">10 months ago</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
