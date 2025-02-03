@@ -13,55 +13,98 @@
     </style>
 </head>
 <body class="max-w-7xl mx-auto">
-    <header >
-        <nav class="mx-auto flex items-center justify-between p-6 " aria-label="Global">
-           
+  
+    <header>
+        <nav class="mx-auto flex items-center justify-between p-2 lg:px-8" aria-label="Global">
             <div class="flex lg:flex-1">
                 <a href="/" class="-m-1.5 p-1.5 text-xl font-bold text-gray-900">
                     Event
                 </a>
             </div>
             
-            <div class="flex items-center gap-x-8">
+            <div class="lg:hidden">
+                <button id="menu-toggle" class="text-gray-900 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <div id="menu" class="hidden lg:flex lg:items-center gap-x-8">
                 <a href="{% url 'home' %}" class="text-sm font-semibold text-gray-900 hover:text-indigo-600">
                     Home
                 </a>
                 
                 <div class="relative group">
-                    <button 
-                        class="text-sm font-semibold text-gray-900 hover:text-indigo-600 focus:outline-none flex items-center gap-x-1">
+                    <button class="text-sm font-semibold text-gray-900 hover:text-indigo-600 flex items-center gap-x-1">
                         Manage
                         <svg class="w-4 h-4 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
-                    <div 
-                        class="dropdown-menu absolute hidden bg-white shadow-lg rounded-lg py-2 w-48 mt-1 z-50">
-                        <a 
-                            href="{% url 'create_category' %}" 
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-100 hover:text-indigo-700">
+                    <div class="dropdown-menu absolute hidden bg-white shadow-lg rounded-lg py-2 w-48 mt-1 z-50 group-hover:block">
+                        <a href="{% url 'create_category' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-100 hover:text-indigo-700">
                             Create Category
                         </a>
-                        <a 
-                            href="{% url 'event_list' %}" 
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-100 hover:text-indigo-700">
+                        <a href="{% url 'event_list' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-100 hover:text-indigo-700">
                             Event
                         </a>
-                        <a 
-                            href="{% url 'participant_list' %}" 
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-100 hover:text-indigo-700">
+                        <a href="{% url 'participant_list' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-100 hover:text-indigo-700">
                             Participant
+                        </a>
+                        
+          
+                    </div>
+                    
+                </div>
+                <form action="{% url 'search_events' %}" method="get" class="flex w-full max-w-md ml-6">
+                    <input 
+                        type="text" 
+                        name="search" 
+                        value="{{ request.GET.search|default:'' }}" 
+                        placeholder="Search by name or location..." 
+                        class="flex-grow px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    />
+                    <button 
+                        type="submit" 
+                        class="px-4 py-2 bg-indigo-500 text-white rounded-r-lg hover:bg-indigo-600">
+                        Search
+                    </button>
+                </form>
+                {% if user.is_authenticated %}
+                <div class="relative">
+                    <button id="user-menu-button" class="flex items-center focus:outline-none">
+                        <img class="h-8 w-10 rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5BSEPxHF0-PRxJlVMHla55wvcxWdSi8RU2g&s" alt="User">
+                    </button>
+                    <div id="user-menu" class="hidden absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2 z-50">
+                        <a href="{% url 'dashboard' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-100 hover:text-indigo-700">
+                            Organizer Dashboard
+                        </a>
+                        <a href="{% url 'admin_dashboard' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-100 hover:text-indigo-700">
+                             Dashboard
+                        </a>
+                        <a href="{% url 'logout' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-100 hover:text-indigo-700">
+                            Logout
                         </a>
                     </div>
                 </div>
-
-                <a 
-                    href="{% url 'dashboard' %}" 
-                    class="text-sm font-semibold text-gray-900 hover:text-indigo-600 ">
-                    Organizer Dashboard
+            {% else %}
+                <a href="{% url 'login' %}" class="text-sm font-semibold text-gray-900 hover:text-indigo-600">
+                    Login
                 </a>
+                <a href="{% url 'register' %}" class="text-sm font-semibold text-gray-900 hover:text-indigo-600">
+                    Sign Up
+                </a>
+            {% endif %}
+             
             </div>
-
+        </nav>
+        
+        <div id="mobile-menu" class="hidden lg:hidden p-4 space-y-4 bg-white shadow-md">
+            <a href="{% url 'home' %}" class="block text-sm font-semibold text-gray-900 hover:text-indigo-600">Home</a>
+            <a href="{% url 'create_category' %}" class="block text-sm font-semibold text-gray-900 hover:text-indigo-600">Create Category</a>
+            <a href="{% url 'event_list' %}" class="block text-sm font-semibold text-gray-900 hover:text-indigo-600">Event</a>
+            <a href="{% url 'participant_list' %}" class="block text-sm font-semibold text-gray-900 hover:text-indigo-600">Participant</a>
             <form action="{% url 'search_events' %}" method="get" class="flex w-full max-w-md ml-6">
                 <input 
                     type="text" 
@@ -76,8 +119,29 @@
                     Search
                 </button>
             </form>
-            
-        </nav>
+            {% if user.is_authenticated %}
+            <div class="relative">
+                <button id="user-menu-button" class="flex items-center focus:outline-none">
+                    <img class="h-8 w-10 rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5BSEPxHF0-PRxJlVMHla55wvcxWdSi8RU2g&s" alt="User">
+                </button>
+                <div id="user-menu" class="hidden absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2 z-50">
+                    <a href="{% url 'dashboard' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-100 hover:text-indigo-700">
+                        Organizer Dashboard
+                    </a>
+                    <a href="{% url 'logout' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-100 hover:text-indigo-700">
+                        Logout
+                    </a>
+                </div>
+            </div>
+        {% else %}
+            <a href="{% url 'login' %}" class="text-sm font-semibold text-gray-900 hover:text-indigo-600">
+                Login
+            </a>
+            <a href="{% url 'register' %}" class="text-sm font-semibold text-gray-900 hover:text-indigo-600">
+                Sign Up
+            </a>
+        {% endif %}
+        </div>
     </header>
     
     <div>{% block content %}{% endblock %}</div>
@@ -129,6 +193,14 @@
             <p class="text-xs text-gray-500 text-center border-t ">&copy; 2025. Your Company Name. All rights reserved.</p>
         </div>
     </footer>
-    
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        
+        document.getElementById('user-menu-button').addEventListener('click', function() {
+            document.getElementById('user-menu').classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>

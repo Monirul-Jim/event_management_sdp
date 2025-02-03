@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="flex h-screen">
+        <div id="sidebar" class="w-1/4 bg-gray-800 text-white p-6 space-y-6 hidden lg:block">
+            <h2 class="text-2xl font-semibold">Admin Panel</h2>
+            <nav class="space-y-4">
+                <a href="#" class="block py-2 px-4 rounded hover:bg-gray-700">Dashboard</a>
+                <a href="#" class="block py-2 px-4 rounded hover:bg-gray-700">Create Event</a>
+                <a href="#" class="block py-2 px-4 rounded hover:bg-gray-700">Manage Users</a>
+                <a href="#" class="block py-2 px-4 rounded hover:bg-gray-700">Settings</a>
+            </nav>
+        </div>
+
+        <div class="w-full lg:w-3/4 p-6 bg-gray-100">
+            <div class="lg:hidden flex justify-between items-center mb-6">
+                <button id="menu-btn" class="text-gray-800 p-2 rounded focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        <div id="mobile-sidebar" class="lg:hidden fixed inset-0 bg-gray-800 bg-opacity-75 z-50 transform -translate-x-full transition-transform duration-300">
+            <div class="w-2/3 bg-gray-800 p-6 space-y-6">
+                <button id="close-btn" class="text-white text-3xl absolute top-4 right-4 focus:outline-none">
+                    &times;
+                </button>
+                <h2 class="text-2xl font-semibold text-white">Admin Panel</h2>
+                <nav class="space-y-4">
+                    <a href="#" class="block py-2 px-4 rounded text-white hover:bg-gray-700">Dashboard</a>
+                    <a href="#" class="block py-2 px-4 rounded text-white hover:bg-gray-700">Create Event</a>
+                    <a href="#" class="block py-2 px-4 rounded text-white hover:bg-gray-700">Manage Users</a>
+                    <a href="#" class="block py-2 px-4 rounded text-white hover:bg-gray-700">Settings</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for toggling the sidebar on mobile
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-btn');
+        const mobileSidebar = document.getElementById('mobile-sidebar');
+
+        // Open the mobile sidebar
+        menuBtn.addEventListener('click', () => {
+            mobileSidebar.classList.remove('-translate-x-full');
+        });
+
+        // Close the mobile sidebar
+        closeBtn.addEventListener('click', () => {
+            mobileSidebar.classList.add('-translate-x-full');
+        });
+    </script>
+</body>
+</html>

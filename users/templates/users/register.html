@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mx-auto mt-10 px-4">
+        <h1 class="text-3xl font-semibold text-center mb-6">Create an Account</h1>
+
+        <div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg">
+            <form method="POST">
+                {% csrf_token %}
+                
+                <!-- Username -->
+                <div class="mb-4">
+                    <label for="username" class="block text-lg font-medium text-gray-700">Username</label>
+                    <input type="text" name="username" id="username" value="{{ form.username.value|default:'' }}"
+                           class="mt-2 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    {% if form.username.errors %}
+                        <div class="text-red-500 text-sm mt-1">
+                            {% for error in form.username.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- First Name -->
+                <div class="mb-4">
+                    <label for="first_name" class="block text-lg font-medium text-gray-700">First Name</label>
+                    <input type="text" name="first_name" id="first_name" value="{{ form.first_name.value|default:'' }}"
+                           class="mt-2 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    {% if form.first_name.errors %}
+                        <div class="text-red-500 text-sm mt-1">
+                            {% for error in form.first_name.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- Last Name -->
+                <div class="mb-4">
+                    <label for="last_name" class="block text-lg font-medium text-gray-700">Last Name</label>
+                    <input type="text" name="last_name" id="last_name" value="{{ form.last_name.value|default:'' }}"
+                           class="mt-2 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    {% if form.last_name.errors %}
+                        <div class="text-red-500 text-sm mt-1">
+                            {% for error in form.last_name.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- Email -->
+                <div class="mb-4">
+                    <label for="email" class="block text-lg font-medium text-gray-700">Email</label>
+                    <input type="email" name="email" id="email" value="{{ form.email.value|default:'' }}"
+                           class="mt-2 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    {% if form.email.errors %}
+                        <div class="text-red-500 text-sm mt-1">
+                            {% for error in form.email.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- Password -->
+                <div class="mb-4">
+                    <label for="password1" class="block text-lg font-medium text-gray-700">Password</label>
+                    <input type="password" name="password1" id="password1"
+                           class="mt-2 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    {% if form.password1.errors %}
+                        <div class="text-red-500 text-sm mt-1">
+                            {% for error in form.password1.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="mb-6">
+                    <label for="confirm_password" class="block text-lg font-medium text-gray-700">Confirm Password</label>
+                    <input type="password" name="confirm_password" id="confirm_password"
+                           class="mt-2 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    {% if form.confirm_password.errors %}
+                        <div class="text-red-500 text-sm mt-1">
+                            {% for error in form.confirm_password.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- Show Password Toggle -->
+                <div class="flex items-center mb-4">
+                    <input type="checkbox" id="show-password" class="mr-2" />
+                    <label for="show-password" class="text-sm text-gray-600">Show Password</label>
+                </div>
+
+                <button type="submit" class="w-full py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition duration-200">Register</button>
+            </form>
+
+            <div class="mt-4">
+                {% if messages %}
+                    <ul>
+                        {% for message in messages %}
+                            <li class="text-red-500 text-sm">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Show Password -->
+    <script>
+        const showPasswordCheckbox = document.getElementById('show-password');
+        const passwordFields = document.querySelectorAll('#password1, #confirm_password');
+
+        showPasswordCheckbox.addEventListener('change', () => {
+            passwordFields.forEach(field => {
+                field.type = showPasswordCheckbox.checked ? 'text' : 'password';
+            });
+        });
+    </script>
+{% endblock %}
