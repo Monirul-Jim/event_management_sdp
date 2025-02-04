@@ -129,6 +129,30 @@
         "documentation": {}
     },
     {
+        "label": "Event",
+        "importPath": "task.models",
+        "description": "task.models",
+        "isExtraImport": true,
+        "detail": "task.models",
+        "documentation": {}
+    },
+    {
+        "label": "Participant",
+        "importPath": "task.models",
+        "description": "task.models",
+        "isExtraImport": true,
+        "detail": "task.models",
+        "documentation": {}
+    },
+    {
+        "label": "Category",
+        "importPath": "task.models",
+        "description": "task.models",
+        "isExtraImport": true,
+        "detail": "task.models",
+        "documentation": {}
+    },
+    {
         "label": "AppConfig",
         "importPath": "django.apps",
         "description": "django.apps",
@@ -393,6 +417,14 @@
         "documentation": {}
     },
     {
+        "label": "get_object_or_404",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
         "label": "render",
         "importPath": "django.shortcuts",
         "description": "django.shortcuts",
@@ -414,6 +446,22 @@
         "description": "django.utils",
         "isExtraImport": true,
         "detail": "django.utils",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "django.utils",
+        "description": "django.utils",
+        "isExtraImport": true,
+        "detail": "django.utils",
+        "documentation": {}
+    },
+    {
+        "label": "JsonResponse",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
         "documentation": {}
     },
     {
@@ -651,7 +699,111 @@
         "documentation": {}
     },
     {
+        "label": "create_group",
+        "importPath": "users.views",
+        "description": "users.views",
+        "isExtraImport": true,
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "change_role",
+        "importPath": "users.views",
+        "description": "users.views",
+        "isExtraImport": true,
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "group_list",
+        "importPath": "users.views",
+        "description": "users.views",
+        "isExtraImport": true,
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "delete_group",
+        "importPath": "users.views",
+        "description": "users.views",
+        "isExtraImport": true,
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "delete_participant",
+        "importPath": "users.views",
+        "description": "users.views",
+        "isExtraImport": true,
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "assign_role",
+        "importPath": "users.views",
+        "description": "users.views",
+        "isExtraImport": true,
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "dashboard_redirect",
+        "importPath": "users.views",
+        "description": "users.views",
+        "isExtraImport": true,
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
         "label": "admin_dashboard",
+        "importPath": "users.views",
+        "description": "users.views",
+        "isExtraImport": true,
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "organizer_dashboard",
+        "importPath": "users.views",
+        "description": "users.views",
+        "isExtraImport": true,
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "participant_dashboard",
+        "importPath": "users.views",
+        "description": "users.views",
+        "isExtraImport": true,
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "organizer_category",
+        "importPath": "users.views",
+        "description": "users.views",
+        "isExtraImport": true,
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "organizer_event",
+        "importPath": "users.views",
+        "description": "users.views",
+        "isExtraImport": true,
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "get_event_stats",
+        "importPath": "users.views",
+        "description": "users.views",
+        "isExtraImport": true,
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "organizer_dashboard_stats",
         "importPath": "users.views",
         "description": "users.views",
         "isExtraImport": true,
@@ -704,6 +856,30 @@
         "description": "django.contrib.auth.decorators",
         "isExtraImport": true,
         "detail": "django.contrib.auth.decorators",
+        "documentation": {}
+    },
+    {
+        "label": "EventForm",
+        "importPath": "task.forms",
+        "description": "task.forms",
+        "isExtraImport": true,
+        "detail": "task.forms",
+        "documentation": {}
+    },
+    {
+        "label": "ParticipantForm",
+        "importPath": "task.forms",
+        "description": "task.forms",
+        "isExtraImport": true,
+        "detail": "task.forms",
+        "documentation": {}
+    },
+    {
+        "label": "CategoryForm",
+        "importPath": "task.forms",
+        "description": "task.forms",
+        "isExtraImport": true,
+        "detail": "task.forms",
         "documentation": {}
     },
     {
@@ -1260,7 +1436,7 @@
         "kind": 5,
         "importPath": "users.urls",
         "description": "users.urls",
-        "peekOfCode": "urlpatterns = [\n    path('login/', user_login, name='login'),\n    path('register/', user_register, name='register'),\n    path('user-logout/', user_logout, name='logout'),\n    path('admin/dashboard/', admin_dashboard, name='admin_dashboard'),\n]",
+        "peekOfCode": "urlpatterns = [\n    path('login/', user_login, name='login'),\n    path('register/', user_register, name='register'),\n    path('user-logout/', user_logout, name='logout'),\n    path('dashboard/', dashboard_redirect, name='dashboard_redirect'),\n    path('admin/dashboard/', admin_dashboard, name='admin_dashboard'),\n    path('organizer/dashboard/', organizer_dashboard, name='organizer_dashboard'),\n    path('organizer/organizer-category/',\n         organizer_category, name='organizer_category'),\n    path('organizer/organizer-event/',",
         "detail": "users.urls",
         "documentation": {}
     },
@@ -1287,7 +1463,16 @@
         "kind": 2,
         "importPath": "users.views",
         "description": "users.views",
-        "peekOfCode": "def user_logout(request):\n    logout(request)\n    return redirect('login')\ndef admin_dashboard(request):\n    users = User.objects.prefetch_related(\n        Prefetch('groups', queryset=Group.objects.all(), to_attr='all_groups')\n    ).all()\n    print(users)\n    for user in users:\n        if user.all_groups:",
+        "peekOfCode": "def user_logout(request):\n    logout(request)\n    return redirect('login')\n# def admin_dashboard(request):\n#     return render(request, 'admin/dashboard.html')\n@login_required\ndef dashboard_redirect(request):\n    user = request.user\n    if user.groups.filter(name=\"Admin\").exists():\n        return redirect('admin_dashboard')",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "dashboard_redirect",
+        "kind": 2,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "def dashboard_redirect(request):\n    user = request.user\n    if user.groups.filter(name=\"Admin\").exists():\n        return redirect('admin_dashboard')\n    elif user.groups.filter(name=\"Organizer\").exists():\n        return redirect('organizer_dashboard')\n    elif user.groups.filter(name=\"Participant\").exists():\n        return redirect('participant_dashboard')\n    else:\n        return redirect('home')",
         "detail": "users.views",
         "documentation": {}
     },
@@ -1296,7 +1481,43 @@
         "kind": 2,
         "importPath": "users.views",
         "description": "users.views",
-        "peekOfCode": "def admin_dashboard(request):\n    users = User.objects.prefetch_related(\n        Prefetch('groups', queryset=Group.objects.all(), to_attr='all_groups')\n    ).all()\n    print(users)\n    for user in users:\n        if user.all_groups:\n            user.group_name = user.all_groups[0].name\n        else:\n            user.group_name = 'No Group Assigned'",
+        "peekOfCode": "def admin_dashboard(request):\n    return render(request, 'admin/dashboard.html')\n@login_required\ndef organizer_dashboard(request):\n    return render(request, 'organizer/dashboard.html')\ndef organizer_category(request):\n    categories = Category.objects.all()\n    form = CategoryForm()\n    category_to_edit = None\n    if request.method == \"POST\":",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "organizer_dashboard",
+        "kind": 2,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "def organizer_dashboard(request):\n    return render(request, 'organizer/dashboard.html')\ndef organizer_category(request):\n    categories = Category.objects.all()\n    form = CategoryForm()\n    category_to_edit = None\n    if request.method == \"POST\":\n        if \"create\" in request.POST:\n            form = CategoryForm(request.POST)\n            if form.is_valid():",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "organizer_category",
+        "kind": 2,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "def organizer_category(request):\n    categories = Category.objects.all()\n    form = CategoryForm()\n    category_to_edit = None\n    if request.method == \"POST\":\n        if \"create\" in request.POST:\n            form = CategoryForm(request.POST)\n            if form.is_valid():\n                form.save()\n                return redirect(\"organizer_category\")",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "organizer_event",
+        "kind": 2,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "def organizer_event(request):\n    events = Event.objects.select_related('category').all()\n    categories = Category.objects.prefetch_related('events').all()\n    event_to_edit = None\n    form = EventForm()\n    if request.method == \"POST\":\n        if \"create\" in request.POST:\n            form = EventForm(request.POST)\n            if form.is_valid():\n                form.save()",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "participant_dashboard",
+        "kind": 2,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "def participant_dashboard(request):\n    return render(request, 'participant/dashboard.html')\ndef assign_role(request, user_id):\n    user = User.objects.get(id=user_id)\n    form = AssignRoleForm()\n    if request.method == 'POST':\n        form = AssignRoleForm(request.POST)\n        if form.is_valid():\n            role = form.cleaned_data.get('role')\n            user.groups.clear()  # Remove old roles",
         "detail": "users.views",
         "documentation": {}
     },
@@ -1314,7 +1535,7 @@
         "kind": 2,
         "importPath": "users.views",
         "description": "users.views",
-        "peekOfCode": "def create_group(request):\n    form = CreateGroupForm()\n    if request.method == 'POST':\n        form = CreateGroupForm(request.POST)\n        if form.is_valid():\n            group = form.save()\n            messages.success(request, f\"Group {\n                             group.name} has been created successfully\")\n            return redirect('create-group')\n    return render(request, 'admin/create_group.html', {'form': form})",
+        "peekOfCode": "def create_group(request):\n    form = CreateGroupForm()\n    if request.method == 'POST':\n        form = CreateGroupForm(request.POST)\n        if form.is_valid():\n            group = form.save()\n            messages.success(request, f\"Group {\n                             group.name} has been created successfully\")\n            return redirect('create_group')\n    return render(request, 'admin/create_group.html', {'form': form})",
         "detail": "users.views",
         "documentation": {}
     },
@@ -1323,7 +1544,61 @@
         "kind": 2,
         "importPath": "users.views",
         "description": "users.views",
-        "peekOfCode": "def group_list(request):\n    groups = Group.objects.prefetch_related('permissions').all()\n    return render(request, 'admin/group_list.html', {'groups': groups})\n# from django.shortcuts import render, redirect\n# from users.forms import CustomRegistrationForm\n# from django.contrib import messages\n# from django.contrib.auth import get_user_model\n# from django.utils.http import urlsafe_base64_encode\n# from django.utils.encoding import force_bytes\n# from django.contrib.auth.tokens import default_token_generator",
+        "peekOfCode": "def group_list(request):\n    groups = Group.objects.prefetch_related('permissions').all()\n    return render(request, 'admin/group_list.html', {'groups': groups})\ndef change_role(request):\n    users = User.objects.prefetch_related(\n        Prefetch('groups', queryset=Group.objects.all(), to_attr='all_groups')\n    ).all()\n    for user in users:\n        if user.all_groups:\n            user.group_name = user.all_groups[0].name",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "change_role",
+        "kind": 2,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "def change_role(request):\n    users = User.objects.prefetch_related(\n        Prefetch('groups', queryset=Group.objects.all(), to_attr='all_groups')\n    ).all()\n    for user in users:\n        if user.all_groups:\n            user.group_name = user.all_groups[0].name\n        else:\n            user.group_name = 'No Group Assigned'\n    return render(request, 'admin/change_role.html', {\"users\": users})",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "delete_group",
+        "kind": 2,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "def delete_group(request, group_id):\n    group = get_object_or_404(Group, id=group_id)\n    if request.method == \"POST\":\n        group.delete()\n        messages.success(request, f\"Group '{\n                         group.name}' has been deleted successfully.\")\n        return redirect('group_list')  # Redirect to the groups list page\n    return render(request, 'admin/delete_group.html', {\"group\": group})\ndef delete_participant(request):\n    return render(request, 'admin/delete_participants.html')",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "delete_participant",
+        "kind": 2,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "def delete_participant(request):\n    return render(request, 'admin/delete_participants.html')\ndef organizer_dashboard_stats(request):\n    today = timezone.now().date()\n    total_participants = Participant.objects.count()\n    total_events = Event.objects.count()\n    upcoming_events = Event.objects.filter(date__gt=today).count()\n    past_events = Event.objects.filter(date__lt=today).count()\n    todays_events = Event.objects.filter(date=today)\n    context = {",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "organizer_dashboard_stats",
+        "kind": 2,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "def organizer_dashboard_stats(request):\n    today = timezone.now().date()\n    total_participants = Participant.objects.count()\n    total_events = Event.objects.count()\n    upcoming_events = Event.objects.filter(date__gt=today).count()\n    past_events = Event.objects.filter(date__lt=today).count()\n    todays_events = Event.objects.filter(date=today)\n    context = {\n        'total_participants': total_participants,\n        'total_events': total_events,",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "get_event_stats",
+        "kind": 2,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "def get_event_stats(request):\n    today = timezone.now().date()\n    total_events = Event.objects.count()\n    upcoming_events = Event.objects.filter(date__gt=today).count()\n    past_events = Event.objects.filter(date__lt=today).count()\n    data = {\n        'total_events': total_events,\n        'upcoming_events': upcoming_events,\n        'past_events': past_events,\n    }",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "get_events",
+        "kind": 2,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "def get_events(request):\n    event_type = request.GET.get('type', 'all')\n    today = timezone.now().date()\n    if event_type == 'upcoming':\n        events = Event.objects.filter(date__gt=today)\n    elif event_type == 'past':\n        events = Event.objects.filter(date__lt=today)\n    else:\n        events = Event.objects.all()\n    event_list = [{",
         "detail": "users.views",
         "documentation": {}
     },

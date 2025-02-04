@@ -1,0 +1,47 @@
+{% extends "base_dashboard.html" %}
+
+{% block content %}
+<div class=" p-6 rounded-lg shadow-lg overflow-x-auto">
+    <h2 class="text-2xl font-bold mb-4">Groups and Permissions</h2>
+
+    <div class="overflow-x-auto">
+        <table class="table-auto w-full border-collapse border border-gray-300">
+            <thead>
+                <tr class="bg-gray-100">
+                    <th class="border border-gray-300 px-4 py-2 text-left">Group Name</th>
+                    <th class="border border-gray-300 px-4 py-2 text-left">Permissions</th>
+                    <th class="border border-gray-300 px-4 py-2 text-left">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for group in groups %}
+                <tr class="odd:bg-white even:bg-gray-50">
+                    <td class="border border-gray-300 px-4 py-2 font-medium">{{ group.name }}</td>
+                    <td class="border border-gray-300 px-4 py-2">
+                        {% if group.permissions.all %}
+                        <ul class="list-disc list-inside text-sm">
+                            {% for permission in group.permissions.all %}
+                            <li class="text-gray-700">{{ permission.name }} <span class="text-gray-400 text-xs">({{ permission.codename }})</span></li>
+                            {% endfor %}
+                        </ul>
+                        {% else %}
+                        <span class="text-gray-500 italic">No permissions assigned</span>
+                        {% endif %}
+                    </td>
+                    <td class="border border-gray-300 px-4 py-2">
+                        <a href="{% url 'delete_group' group.id %}" 
+                           class="px-3 py-1 text-white bg-red-500 rounded-md hover:bg-red-600 transition">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="2" class="px-4 py-3 text-center text-gray-500 italic">No groups found</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

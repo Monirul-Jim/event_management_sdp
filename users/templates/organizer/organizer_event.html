@@ -1,0 +1,156 @@
+{% extends "base_dashboard.html" %}
+{% block content %}
+<div class="mx-auto mt-10">
+  <h1 class="text-3xl font-bold text-gray-800 text-center mb-6">Event Management</h1>
+  
+  <div class="mt-8">
+    <h2 class="text-2xl font-bold text-gray-800 mb-4">
+      {% if event_to_edit %}Edit Event{% else %}Add New Event{% endif %}
+    </h2>
+    <form method="post" class="space-y-4">
+      {% csrf_token %}
+      <!-- Image Field -->
+      <div>
+          <label for="id_image" class="block text-sm font-medium text-gray-700">Event Image</label>
+          <input type="text" name="image" id="id_image" 
+                 value="{{ form.image.value|default_if_none:'' }}" 
+                 class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+          {% if form.image.errors %}
+              <p class="text-red-500 text-sm mt-1">{{ form.image.errors.0 }}</p>
+          {% endif %}
+      </div>
+  
+      <!-- Name Field -->
+      <div>
+          <label for="id_name" class="block text-sm font-medium text-gray-700">Event Name</label>
+          <input type="text" name="name" id="id_name" 
+                 value="{{ form.name.value|default_if_none:'' }}" 
+                 class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+          {% if form.name.errors %}
+              <p class="text-red-500 text-sm mt-1">{{ form.name.errors.0 }}</p>
+          {% endif %}
+      </div>
+  
+      <!-- Description Field -->
+      <div>
+          <label for="id_description" class="block text-sm font-medium text-gray-700">Description</label>
+          <textarea name="description" id="id_description" rows="4" 
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">{{ form.description.value|default_if_none:'' }}</textarea>
+          {% if form.description.errors %}
+              <p class="text-red-500 text-sm mt-1">{{ form.description.errors.0 }}</p>
+          {% endif %}
+      </div>
+  
+      <!-- Date Field -->
+      <div>
+          <label for="id_date" class="block text-sm font-medium text-gray-700">Date</label>
+          <input type="date" name="date" id="id_date" 
+                 value="{{ form.date.value|default_if_none:'' }}" 
+                 class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+          {% if form.date.errors %}
+              <p class="text-red-500 text-sm mt-1">{{ form.date.errors.0 }}</p>
+          {% endif %}
+      </div>
+  
+      <!-- Time Field -->
+      <div>
+          <label for="id_time" class="block text-sm font-medium text-gray-700">Time</label>
+          <input type="time" name="time" id="id_time" 
+                 value="{{ form.time.value|default_if_none:'' }}" 
+                 class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+          {% if form.time.errors %}
+              <p class="text-red-500 text-sm mt-1">{{ form.time.errors.0 }}</p>
+          {% endif %}
+      </div>
+  
+      <!-- Location Field -->
+      <div>
+          <label for="id_location" class="block text-sm font-medium text-gray-700">Location</label>
+          <input type="text" name="location" id="id_location" 
+                 value="{{ form.location.value|default_if_none:'' }}" 
+                 class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+          {% if form.location.errors %}
+              <p class="text-red-500 text-sm mt-1">{{ form.location.errors.0 }}</p>
+          {% endif %}
+      </div>
+  
+      <!-- Category Field -->
+      <div>
+          <label for="id_category" class="block text-sm font-medium text-gray-700">Category</label>
+          <select name="category" id="id_category" 
+                  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+              <option value="">Select a category</option>
+              {% for category in categories %}
+                  <option value="{{ category.id }}" 
+                          {% if event_to_edit and event_to_edit.category.id == category.id %}selected{% endif %}>
+                      {{ category.name }}
+                  </option>
+              {% endfor %}
+          </select>
+          {% if form.category.errors %}
+              <p class="text-red-500 text-sm mt-1">{{ form.category.errors.0 }}</p>
+          {% endif %}
+      </div>
+  
+      <!-- Submit Button -->
+      <div>
+          {% if event_to_edit %}
+              <button type="submit" name="update" 
+                      class="px-6 w-full cursor-pointer py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">Update Event</button>
+              <input type="hidden" name="event_id" value="{{ event_to_edit.id }}">
+          {% else %}
+              <button type="submit" name="create" 
+                      class="px-6 w-full cursor-pointer py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">Create Event</button>
+          {% endif %}
+      </div>
+  </form>
+  
+  </div>
+
+  <div class="overflow-x-auto">
+    <table class="table-auto w-full border-collapse border border-gray-300">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-2 text-left">Name</th>
+          <th class="border border-gray-300 px-4 py-2 text-left">Image</th>
+          <th class="border border-gray-300 px-4 py-2 text-left">Description</th>
+          <th class="border border-gray-300 px-4 py-2 text-left">Date</th>
+          <th class="border border-gray-300 px-4 py-2 text-left">Time</th>
+          <th class="border border-gray-300 px-4 py-2 text-left">Location</th>
+          <th class="border border-gray-300 px-4 py-2 text-left">Category</th>
+          <th class="border border-gray-300 px-4 py-2 text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for event in events %}
+        <tr class="bg-white hover:bg-gray-50">
+          <td class="border border-gray-300 px-4 py-2">{{ event.name }}</td>
+          <td class="border border-gray-300 px-4 py-2 h-4 w-4"><img src="{{ event.image }}" alt="{{ event.name }}"></td>
+          <td class="border border-gray-300 px-4 py-2">{{ event.description }}</td>
+          <td class="border border-gray-300 px-4 py-2">{{ event.date }}</td>
+          <td class="border border-gray-300 px-4 py-2">{{ event.time }}</td>
+          <td class="border border-gray-300 px-4 py-2">{{ event.location }}</td>
+          <td class="border border-gray-300 px-4 py-2">{{ event.category }}</td>
+          <td class="border border-gray-300 px-4 py-2 text-center">
+            <form method="post" class="inline">
+              {% csrf_token %}
+              <input type="hidden" name="event_id" value="{{ event.id }}">
+              <button type="submit" name="delete" class="px-4 cursor-pointer py-2 bg-red-500 text-white rounded-md hover:bg-red-600">Delete</button>
+            </form>
+            <form method="post" class="inline">
+              {% csrf_token %}
+              <input type="hidden" name="event_id" value="{{ event.id }}">
+              <button type="submit" name="update_form" class="px-4 cursor-pointer py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">Edit</button>
+            </form>
+          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="6" class="text-center p-4">No events found.</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

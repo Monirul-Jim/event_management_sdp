@@ -1,9 +1,42 @@
 
 from django.urls import path
-from users.views import user_login, user_register, user_logout, admin_dashboard
+from users.views import (user_login, user_register,
+                         user_logout, create_group,
+                         change_role, group_list,
+                         delete_group, delete_participant,
+                         assign_role, dashboard_redirect,
+                         admin_dashboard,
+                         organizer_dashboard,
+                         participant_dashboard,
+                         organizer_category,
+                         organizer_event,
+                         get_event_stats,
+                         organizer_dashboard_stats
+                         )
 urlpatterns = [
     path('login/', user_login, name='login'),
     path('register/', user_register, name='register'),
     path('user-logout/', user_logout, name='logout'),
+    path('dashboard/', dashboard_redirect, name='dashboard_redirect'),
     path('admin/dashboard/', admin_dashboard, name='admin_dashboard'),
+    path('organizer/dashboard/', organizer_dashboard, name='organizer_dashboard'),
+    path('organizer/organizer-category/',
+         organizer_category, name='organizer_category'),
+    path('organizer/organizer-event/',
+         organizer_event, name='organizer_event'),
+    path('organizer/stats', organizer_dashboard_stats,
+         name='organizer_dashboard_stats'),
+    path('organizer/organizer-event-stats/',
+         get_event_stats, name='get_event_stats'),
+    path('participant/dashboard/', participant_dashboard,
+         name='participant_dashboard'),
+    path('admin/create-group/', create_group, name='create_group'),
+    path('admin/change-role/', change_role, name='change_role'),
+    path('admin/group-list/', group_list, name='group_list'),
+    path('admin/delete-group/<int:group_id>/',
+         delete_group, name='delete_group'),
+    path('admin/delete-participants/',
+         delete_participant, name='delete_participant'),
+    path('admin/<int:user_id>/assign-role/', assign_role, name='assign_role'),
+
 ]

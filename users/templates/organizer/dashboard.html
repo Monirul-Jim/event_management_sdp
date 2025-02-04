@@ -1,0 +1,41 @@
+{% extends "base_dashboard.html" %}
+{% block content %}
+    <div class="container mx-auto p-8">
+        <h1 class="text-3xl font-semibold mb-6 text-center">Organizer Dashboard</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <div class="bg-white rounded-lg shadow-md p-6 hover:scale-105 transition duration-300">
+                <i class="fas fa-calendar-alt text-4xl text-blue-500 mb-4"></i> <h2 class="text-xl font-medium mb-2">Manage Events</h2>
+                <p class="text-gray-600">Create, update, and manage your upcoming events.</p>
+                <a href="{% url 'organizer_event' %}" class="text-blue-500 hover:underline mt-4 inline-block">Go to Events</a>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6 hover:scale-105 transition duration-300">
+                <i class="fas fa-list-alt text-4xl text-green-500 mb-4"></i> <h2 class="text-xl font-medium mb-2">Manage Categories</h2>
+                <p class="text-gray-600">Create and manage event categories.</p>
+                <a href="{% url 'organizer_category' %}" class="text-green-500 hover:underline mt-4 inline-block">Go to Categories</a>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6 hover:scale-105 transition duration-300">
+                <i class="fas fa-chart-line text-4xl text-yellow-500 mb-4"></i> <h2 class="text-xl font-medium mb-2">Event Statistics</h2>
+                <p class="text-gray-600">View statistics and analytics for your events.</p>
+                <a href="{% url 'organizer_dashboard_stats' %}" class="text-yellow-500 hover:underline mt-4 inline-block">View Stats (Coming Soon)</a>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6 hover:scale-105 transition duration-300">
+                <i class="fas fa-users text-4xl text-red-500 mb-4"></i> <h2 class="text-xl font-medium mb-2">Manage Participants</h2>
+                <p class="text-gray-600">Manage event participants.</p>
+                <a href="#" class="text-red-500 hover:underline mt-4 inline-block">Manage Participants (Coming Soon)</a>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6 hover:scale-105 transition duration-300">
+                <i class="fas fa-cog text-4xl text-gray-500 mb-4"></i> <h2 class="text-xl font-medium mb-2">Settings</h2>
+                <p class="text-gray-600">Manage your profile and account settings.</p>
+                <a href="#" class="text-gray-500 hover:underline mt-4 inline-block">Go to Settings (Coming Soon)</a>
+            </div>
+            
+
+        </div>
+    </div>
+{% endblock %}
