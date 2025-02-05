@@ -2,7 +2,7 @@ from django.db.models import Count, Prefetch
 from .models import Event
 from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404
-
+from django.contrib.auth.decorators import login_required
 from .models import Event, Participant, Category
 from .forms import EventForm, ParticipantForm, CategoryForm
 from django.shortcuts import redirect
@@ -136,6 +136,14 @@ def participant_list(request):
         "participant_to_edit": participant_to_edit,
         "events": Event.objects.all()
     })
+
+
+@login_required
+def join_event(request, event_id):
+    event = get_object_or_404(Event, id=event_id)
+    participant, created = Participant.objects.get_or_create(user=request.user)
+    participant.events.add(event)
+    return redirect('event_detail', event_id=event.id)
 
 
 def organizer_dashboard(request):

@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from users.forms import CustomRegistrationForm, LoginForm, AssignRoleForm, CreateGroupForm
 from django.contrib import messages
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth.tokens import default_token_generator
 from django.contrib.auth.models import User, Group
 from django.db.models import Prefetch
 from task.models import Event, Participant, Category
@@ -45,6 +46,20 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect('login')
+
+
+def activate_user(request, user_id, token):
+    try:
+        user = User.objects.get(id=user_id)
+        if default_token_generator.check_token(user, token):
+            user.is_active = True
+            user.save()
+            return redirect('login')
+        else:
+            return HttpResponse('Invalid Id or token')
+
+    except User.DoesNotExist:
+        return HttpResponse('User not found')
 
 
 # def admin_dashboard(request):

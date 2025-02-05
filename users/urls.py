@@ -1,6 +1,6 @@
 
 from django.urls import path
-from users.views import (user_login, user_register,
+from users.views import (user_login, user_register, activate_user,
                          user_logout, create_group,
                          change_role, group_list,
                          delete_group, delete_participant,
@@ -17,6 +17,7 @@ urlpatterns = [
     path('login/', user_login, name='login'),
     path('register/', user_register, name='register'),
     path('user-logout/', user_logout, name='logout'),
+    path('activate/<int:user_id>/<str:token>/', activate_user),
     path('dashboard/', dashboard_redirect, name='dashboard_redirect'),
     path('admin/dashboard/', admin_dashboard, name='admin_dashboard'),
     path('organizer/dashboard/', organizer_dashboard, name='organizer_dashboard'),

@@ -91,6 +91,7 @@
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {% for event in events %}
+                <a href="{% url 'event_detail' event.id %}" class="block bg-blue-500 text-white font-medium rounded-lg py-2 transition hover:bg-blue-600" >
                 <div class="bg-white shadow-lg hover:shadow-2xl rounded-lg overflow-hidden transition-shadow duration-300 flex flex-col">
                   {% if event.image %}
                   <div class="w-full h-48 bg-gray-200">
@@ -109,11 +110,47 @@
                     <p class="text-gray-700 leading-relaxed mb-4">{{ event.description|truncatewords:20 }}</p>
                   
                     <div class="mt-auto">
-                      <a href="{% url 'event_detail' event.id %}" class="block text-center bg-blue-500 text-white font-medium rounded-lg py-2 transition hover:bg-blue-600">
-                        View Details
-                      </a>
+                        <button  class="block w-full text-center bg-blue-500 text-white font-medium rounded-lg py-2 transition hover:bg-blue-600">
+                            Join Event
+                          </button>
                     </div>
                   </div>
+                </div>
+                     </a>
+                {% empty %}
+                <p class="text-gray-600 text-center col-span-full">No events available.</p>
+                {% endfor %}
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {% for event in events %}
+                <div class="bg-white shadow-lg hover:shadow-2xl rounded-lg overflow-hidden transition-shadow duration-300 flex flex-col">
+                    {% if event.image %}
+                    <div class="w-full h-48 bg-gray-200">
+                        <img src="{{ event.image }}" alt="{{ event.name }}" class="w-full h-full object-cover">
+                    </div>
+                    {% endif %}
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-2">{{ event.name }}</h2>
+                        <p class="text-sm text-gray-500 mb-4">{{ event.category }}</p>
+                        <div class="text-gray-600 text-sm space-y-1 mb-4">
+                            <p><strong>Date:</strong> {{ event.date }}</p>
+                            <p><strong>Time:</strong> {{ event.time }}</p>
+                            <p><strong>Location:</strong> {{ event.location }}</p>
+                            <p><strong>Participants:</strong> {{ event.participants.count }}</p>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed mb-4">{{ event.description|truncatewords:20 }}</p>
+                        <div class="mt-auto flex gap-2">
+                            <button onclick="joinEvent({{ event.id }})" 
+                                class="flex-1 text-center bg-blue-500 text-white font-medium rounded-lg py-2 px-4 transition hover:bg-blue-600">
+                                Join Event
+                            </button>
+                            <a href="{% url 'event_detail' event.id %}" 
+                                class="flex-1 text-center bg-gray-200 text-gray-800 font-medium rounded-lg py-2 px-4 transition hover:bg-gray-300">
+                                See Details
+                            </a>
+                        </div>
+                        
+                    </div>
                 </div>
                 {% empty %}
                 <p class="text-gray-600 text-center col-span-full">No events available.</p>
@@ -292,6 +329,19 @@
             filterSection.scrollIntoView({ behavior: 'smooth' });
         }
     }
+        function joinEvent(eventId) {
+            fetch(`/event/${eventId}/join/`, {
+                method: "POST",
+                headers: {
+                    "X-CSRFToken": "{{ csrf_token }}",
+                    "Content-Type": "application/json"
+                }
+            }).then(response => {
+                if (response.ok) {
+                    location.reload();
+                }
+            });
+        }
 </script>
 
 </body>

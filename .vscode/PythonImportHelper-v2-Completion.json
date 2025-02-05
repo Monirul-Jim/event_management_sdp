@@ -57,6 +57,14 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -70,6 +78,30 @@
         "description": "django.db",
         "isExtraImport": true,
         "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
         "documentation": {}
     },
     {
@@ -217,6 +249,102 @@
         "documentation": {}
     },
     {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "Permission",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "Group",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "Group",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "Group",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "post_save",
+        "importPath": "django.db.models.signals",
+        "description": "django.db.models.signals",
+        "isExtraImport": true,
+        "detail": "django.db.models.signals",
+        "documentation": {}
+    },
+    {
+        "label": "post_save",
+        "importPath": "django.db.models.signals",
+        "description": "django.db.models.signals",
+        "isExtraImport": true,
+        "detail": "django.db.models.signals",
+        "documentation": {}
+    },
+    {
+        "label": "receiver",
+        "importPath": "django.dispatch",
+        "description": "django.dispatch",
+        "isExtraImport": true,
+        "detail": "django.dispatch",
+        "documentation": {}
+    },
+    {
+        "label": "receiver",
+        "importPath": "django.dispatch",
+        "description": "django.dispatch",
+        "isExtraImport": true,
+        "detail": "django.dispatch",
+        "documentation": {}
+    },
+    {
+        "label": "send_mail",
+        "importPath": "django.core.mail",
+        "description": "django.core.mail",
+        "isExtraImport": true,
+        "detail": "django.core.mail",
+        "documentation": {}
+    },
+    {
+        "label": "send_mail",
+        "importPath": "django.core.mail",
+        "description": "django.core.mail",
+        "isExtraImport": true,
+        "detail": "django.core.mail",
+        "documentation": {}
+    },
+    {
         "label": "TestCase",
         "importPath": "django.test",
         "description": "django.test",
@@ -337,6 +465,14 @@
         "documentation": {}
     },
     {
+        "label": "join_event",
+        "importPath": "task.views",
+        "description": "task.views",
+        "isExtraImport": true,
+        "detail": "task.views",
+        "documentation": {}
+    },
+    {
         "label": "Count",
         "importPath": "django.db.models",
         "description": "django.db.models",
@@ -438,6 +574,38 @@
         "description": "django.shortcuts",
         "isExtraImport": true,
         "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "HttpResponse",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "login_required",
+        "importPath": "django.contrib.auth.decorators",
+        "description": "django.contrib.auth.decorators",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.decorators",
+        "documentation": {}
+    },
+    {
+        "label": "login_required",
+        "importPath": "django.contrib.auth.decorators",
+        "description": "django.contrib.auth.decorators",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.decorators",
+        "documentation": {}
+    },
+    {
+        "label": "user_passes_test",
+        "importPath": "django.contrib.auth.decorators",
+        "description": "django.contrib.auth.decorators",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.decorators",
         "documentation": {}
     },
     {
@@ -563,46 +731,6 @@
         "documentation": {}
     },
     {
-        "label": "Permission",
-        "importPath": "django.contrib.auth.models",
-        "description": "django.contrib.auth.models",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.models",
-        "documentation": {}
-    },
-    {
-        "label": "Group",
-        "importPath": "django.contrib.auth.models",
-        "description": "django.contrib.auth.models",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.models",
-        "documentation": {}
-    },
-    {
-        "label": "Group",
-        "importPath": "django.contrib.auth.models",
-        "description": "django.contrib.auth.models",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.models",
-        "documentation": {}
-    },
-    {
-        "label": "User",
-        "importPath": "django.contrib.auth.models",
-        "description": "django.contrib.auth.models",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.models",
-        "documentation": {}
-    },
-    {
-        "label": "Group",
-        "importPath": "django.contrib.auth.models",
-        "description": "django.contrib.auth.models",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.models",
-        "documentation": {}
-    },
-    {
         "label": "get_user_model",
         "importPath": "django.contrib.auth",
         "description": "django.contrib.auth",
@@ -635,22 +763,6 @@
         "documentation": {}
     },
     {
-        "label": "receiver",
-        "importPath": "django.dispatch",
-        "description": "django.dispatch",
-        "isExtraImport": true,
-        "detail": "django.dispatch",
-        "documentation": {}
-    },
-    {
-        "label": "post_save",
-        "importPath": "django.db.models.signals",
-        "description": "django.db.models.signals",
-        "isExtraImport": true,
-        "detail": "django.db.models.signals",
-        "documentation": {}
-    },
-    {
         "label": "default_token_generator",
         "importPath": "django.contrib.auth.tokens",
         "description": "django.contrib.auth.tokens",
@@ -659,19 +771,11 @@
         "documentation": {}
     },
     {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
+        "label": "default_token_generator",
+        "importPath": "django.contrib.auth.tokens",
+        "description": "django.contrib.auth.tokens",
         "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
-        "label": "send_mail",
-        "importPath": "django.core.mail",
-        "description": "django.core.mail",
-        "isExtraImport": true,
-        "detail": "django.core.mail",
+        "detail": "django.contrib.auth.tokens",
         "documentation": {}
     },
     {
@@ -684,6 +788,14 @@
     },
     {
         "label": "user_register",
+        "importPath": "users.views",
+        "description": "users.views",
+        "isExtraImport": true,
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "activate_user",
         "importPath": "users.views",
         "description": "users.views",
         "isExtraImport": true,
@@ -843,22 +955,6 @@
         "documentation": {}
     },
     {
-        "label": "login_required",
-        "importPath": "django.contrib.auth.decorators",
-        "description": "django.contrib.auth.decorators",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.decorators",
-        "documentation": {}
-    },
-    {
-        "label": "user_passes_test",
-        "importPath": "django.contrib.auth.decorators",
-        "description": "django.contrib.auth.decorators",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.decorators",
-        "documentation": {}
-    },
-    {
         "label": "EventForm",
         "importPath": "task.forms",
         "description": "task.forms",
@@ -916,6 +1012,15 @@
         "description": "task.migrations.0003_alter_event_image",
         "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('task', '0002_event_image'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='event',\n            name='image',\n            field=models.URLField(blank=True, null=True),\n        ),",
         "detail": "task.migrations.0003_alter_event_image",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "task.migrations.0004_remove_participant_email_remove_participant_name_and_more",
+        "description": "task.migrations.0004_remove_participant_email_remove_participant_name_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('task', '0003_alter_event_image'),\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name='participant',\n            name='email',\n        ),",
+        "detail": "task.migrations.0004_remove_participant_email_remove_participant_name_and_more",
         "documentation": {}
     },
     {
@@ -977,7 +1082,16 @@
         "kind": 6,
         "importPath": "task.models",
         "description": "task.models",
-        "peekOfCode": "class Participant(models.Model):\n    name = models.CharField(max_length=100)\n    email = models.EmailField(unique=True)\n    events = models.ManyToManyField(Event, related_name='participants')\n    def __str__(self):\n        return self.name",
+        "peekOfCode": "class Participant(models.Model):\n    user = models.OneToOneField(\n        User, on_delete=models.CASCADE, related_name='participant_profile', null=True, blank=True)\n    events = models.ManyToManyField(Event, related_name='participants')\n    def __str__(self):\n        return self.user.username\n@receiver(post_save, sender=Participant)\ndef notify_user_participate(sender, instance, created, **kwargs):\n    if created and instance.user:  # Check if it's a new participant\n        event_names = \", \".join(",
+        "detail": "task.models",
+        "documentation": {}
+    },
+    {
+        "label": "notify_user_participate",
+        "kind": 2,
+        "importPath": "task.models",
+        "description": "task.models",
+        "peekOfCode": "def notify_user_participate(sender, instance, created, **kwargs):\n    if created and instance.user:  # Check if it's a new participant\n        event_names = \", \".join(\n            [event.name for event in instance.events.all()])\n        subject = \"Thank You for Joining Our Event!\"\n        message = f\"Hello {instance.user.username},\\n\\n\" \\\n            f\"Thank you for joining our event.\\n\" \\\n            f\"Your joined event(s): {event_names}.\\n\\n\" \\\n            \"We look forward to seeing you there!\\n\\n\" \\\n            \"Best regards,\\nEvent Team\"",
         "detail": "task.models",
         "documentation": {}
     },
@@ -986,7 +1100,7 @@
         "kind": 5,
         "importPath": "task.urls",
         "description": "task.urls",
-        "peekOfCode": "urlpatterns = [\n    path('', home, name='home'),\n    path(\"category/add\", category_list, name=\"create_category\"),\n    path('events/add', event_list, name='event_list'),\n    path('participant/add', participant_list, name='participant_list'),\n    path('organizer/', organizer_dashboard, name='dashboard'),\n    path('api/event-stats/', get_event_stats, name='get_event_stats'),\n    path('api/events/', get_events, name='get_events'),\n    path('event-details/<int:event_id>/', event_detail, name='event_detail'),\n    path('search/', search_events, name='search_events'),",
+        "peekOfCode": "urlpatterns = [\n    path('', home, name='home'),\n    path(\"category/add\", category_list, name=\"create_category\"),\n    path('event/<int:event_id>/join/', join_event, name='join_event'),\n    path('events/add', event_list, name='event_list'),\n    path('participant/add', participant_list, name='participant_list'),\n    path('organizer/', organizer_dashboard, name='dashboard'),\n    path('api/event-stats/', get_event_stats, name='get_event_stats'),\n    path('api/events/', get_events, name='get_events'),\n    path('event-details/<int:event_id>/', event_detail, name='event_detail'),",
         "detail": "task.urls",
         "documentation": {}
     },
@@ -1014,6 +1128,15 @@
         "importPath": "task.views",
         "description": "task.views",
         "peekOfCode": "def participant_list(request):\n    # participants = Participant.objects.all()\n    participants = Participant.objects.prefetch_related('events').all()\n    form = ParticipantForm()\n    participant_to_edit = None\n    if request.method == \"POST\":\n        if \"create\" in request.POST:\n            form = ParticipantForm(request.POST)\n            if form.is_valid():\n                form.save()",
+        "detail": "task.views",
+        "documentation": {}
+    },
+    {
+        "label": "join_event",
+        "kind": 2,
+        "importPath": "task.views",
+        "description": "task.views",
+        "peekOfCode": "def join_event(request, event_id):\n    event = get_object_or_404(Event, id=event_id)\n    participant, created = Participant.objects.get_or_create(user=request.user)\n    participant.events.add(event)\n    return redirect('event_detail', event_id=event.id)\ndef organizer_dashboard(request):\n    today = timezone.now().date()\n    total_participants = Participant.objects.count()\n    total_events = Event.objects.count()\n    upcoming_events = Event.objects.filter(date__gt=today).count()",
         "detail": "task.views",
         "documentation": {}
     },
@@ -1256,7 +1379,7 @@
         "kind": 5,
         "importPath": "task_managemnt.settings",
         "description": "task_managemnt.settings",
-        "peekOfCode": "EMAIL_HOST = config('EMAIL_HOST')\nEMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)\nEMAIL_PORT = config('EMAIL_PORT')\nEMAIL_HOST_USER = config('EMAIL_HOST_USER')\nEMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nFRONTEND_URL = 'http://127.0.0.1:8000'\nLOGIN_URL = '/users/login/'",
+        "peekOfCode": "EMAIL_HOST = config('EMAIL_HOST')\nEMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)\nEMAIL_PORT = config('EMAIL_PORT')\nEMAIL_HOST_USER = config('EMAIL_HOST_USER')\nEMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nFRONTEND_URL = 'http://127.0.0.1:8000'\nLOGIN_URL = 'login'",
         "detail": "task_managemnt.settings",
         "documentation": {}
     },
@@ -1265,7 +1388,7 @@
         "kind": 5,
         "importPath": "task_managemnt.settings",
         "description": "task_managemnt.settings",
-        "peekOfCode": "EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)\nEMAIL_PORT = config('EMAIL_PORT')\nEMAIL_HOST_USER = config('EMAIL_HOST_USER')\nEMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nFRONTEND_URL = 'http://127.0.0.1:8000'\nLOGIN_URL = '/users/login/'",
+        "peekOfCode": "EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)\nEMAIL_PORT = config('EMAIL_PORT')\nEMAIL_HOST_USER = config('EMAIL_HOST_USER')\nEMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nFRONTEND_URL = 'http://127.0.0.1:8000'\nLOGIN_URL = 'login'",
         "detail": "task_managemnt.settings",
         "documentation": {}
     },
@@ -1274,7 +1397,7 @@
         "kind": 5,
         "importPath": "task_managemnt.settings",
         "description": "task_managemnt.settings",
-        "peekOfCode": "EMAIL_PORT = config('EMAIL_PORT')\nEMAIL_HOST_USER = config('EMAIL_HOST_USER')\nEMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nFRONTEND_URL = 'http://127.0.0.1:8000'\nLOGIN_URL = '/users/login/'",
+        "peekOfCode": "EMAIL_PORT = config('EMAIL_PORT')\nEMAIL_HOST_USER = config('EMAIL_HOST_USER')\nEMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nFRONTEND_URL = 'http://127.0.0.1:8000'\nLOGIN_URL = 'login'",
         "detail": "task_managemnt.settings",
         "documentation": {}
     },
@@ -1283,7 +1406,7 @@
         "kind": 5,
         "importPath": "task_managemnt.settings",
         "description": "task_managemnt.settings",
-        "peekOfCode": "EMAIL_HOST_USER = config('EMAIL_HOST_USER')\nEMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nFRONTEND_URL = 'http://127.0.0.1:8000'\nLOGIN_URL = '/users/login/'",
+        "peekOfCode": "EMAIL_HOST_USER = config('EMAIL_HOST_USER')\nEMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nFRONTEND_URL = 'http://127.0.0.1:8000'\nLOGIN_URL = 'login'",
         "detail": "task_managemnt.settings",
         "documentation": {}
     },
@@ -1292,7 +1415,7 @@
         "kind": 5,
         "importPath": "task_managemnt.settings",
         "description": "task_managemnt.settings",
-        "peekOfCode": "EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nFRONTEND_URL = 'http://127.0.0.1:8000'\nLOGIN_URL = '/users/login/'",
+        "peekOfCode": "EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nFRONTEND_URL = 'http://127.0.0.1:8000'\nLOGIN_URL = 'login'",
         "detail": "task_managemnt.settings",
         "documentation": {}
     },
@@ -1301,7 +1424,7 @@
         "kind": 5,
         "importPath": "task_managemnt.settings",
         "description": "task_managemnt.settings",
-        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nFRONTEND_URL = 'http://127.0.0.1:8000'\nLOGIN_URL = '/users/login/'",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nFRONTEND_URL = 'http://127.0.0.1:8000'\nLOGIN_URL = 'login'",
         "detail": "task_managemnt.settings",
         "documentation": {}
     },
@@ -1310,7 +1433,7 @@
         "kind": 5,
         "importPath": "task_managemnt.settings",
         "description": "task_managemnt.settings",
-        "peekOfCode": "FRONTEND_URL = 'http://127.0.0.1:8000'\nLOGIN_URL = '/users/login/'",
+        "peekOfCode": "FRONTEND_URL = 'http://127.0.0.1:8000'\nLOGIN_URL = 'login'",
         "detail": "task_managemnt.settings",
         "documentation": {}
     },
@@ -1319,7 +1442,7 @@
         "kind": 5,
         "importPath": "task_managemnt.settings",
         "description": "task_managemnt.settings",
-        "peekOfCode": "LOGIN_URL = '/users/login/'",
+        "peekOfCode": "LOGIN_URL = 'login'",
         "detail": "task_managemnt.settings",
         "documentation": {}
     },
@@ -1409,7 +1532,7 @@
         "kind": 2,
         "importPath": "users.signals",
         "description": "users.signals",
-        "peekOfCode": "def send_activation_email(sender, instance, created, **kwargs):\n    if created:\n        print(f\"Signal triggered for {instance.email}\")\n        token = default_token_generator.make_token(instance)\n        activation_url = f\"{settings.FRONTEND_URL}/users/activate/{instance.id}/{token}/\"\n        subject = 'Activate Your Account'\n        message = f'Hi {instance.username}, \\n\\nPlease activate your account by clicking the link below: \\n{\n            activation_url}\\n\\nThank You!'\n        recipient_list = [instance.email]\n        try:",
+        "peekOfCode": "def send_activation_email(sender, instance, created, **kwargs):\n    if created:\n        print(f\"Signal triggered for {instance.email}\")\n        token = default_token_generator.make_token(instance)\n        activation_url = f\"{\n            settings.FRONTEND_URL}/user/activate/{instance.id}/{token}/\"\n        subject = 'Activate Your Account'\n        message = f'Hi {instance.username}, \\n\\nPlease activate your account by clicking the link below: \\n{\n            activation_url}\\n\\nThank You!'\n        recipient_list = [instance.email]",
         "detail": "users.signals",
         "documentation": {}
     },
@@ -1427,7 +1550,7 @@
         "kind": 5,
         "importPath": "users.signals",
         "description": "users.signals",
-        "peekOfCode": "User = get_user_model()\n@receiver(post_save, sender=User)\ndef send_activation_email(sender, instance, created, **kwargs):\n    if created:\n        print(f\"Signal triggered for {instance.email}\")\n        token = default_token_generator.make_token(instance)\n        activation_url = f\"{settings.FRONTEND_URL}/users/activate/{instance.id}/{token}/\"\n        subject = 'Activate Your Account'\n        message = f'Hi {instance.username}, \\n\\nPlease activate your account by clicking the link below: \\n{\n            activation_url}\\n\\nThank You!'",
+        "peekOfCode": "User = get_user_model()\n@receiver(post_save, sender=User)\ndef send_activation_email(sender, instance, created, **kwargs):\n    if created:\n        print(f\"Signal triggered for {instance.email}\")\n        token = default_token_generator.make_token(instance)\n        activation_url = f\"{\n            settings.FRONTEND_URL}/user/activate/{instance.id}/{token}/\"\n        subject = 'Activate Your Account'\n        message = f'Hi {instance.username}, \\n\\nPlease activate your account by clicking the link below: \\n{",
         "detail": "users.signals",
         "documentation": {}
     },
@@ -1436,7 +1559,7 @@
         "kind": 5,
         "importPath": "users.urls",
         "description": "users.urls",
-        "peekOfCode": "urlpatterns = [\n    path('login/', user_login, name='login'),\n    path('register/', user_register, name='register'),\n    path('user-logout/', user_logout, name='logout'),\n    path('dashboard/', dashboard_redirect, name='dashboard_redirect'),\n    path('admin/dashboard/', admin_dashboard, name='admin_dashboard'),\n    path('organizer/dashboard/', organizer_dashboard, name='organizer_dashboard'),\n    path('organizer/organizer-category/',\n         organizer_category, name='organizer_category'),\n    path('organizer/organizer-event/',",
+        "peekOfCode": "urlpatterns = [\n    path('login/', user_login, name='login'),\n    path('register/', user_register, name='register'),\n    path('user-logout/', user_logout, name='logout'),\n    path('activate/<int:user_id>/<str:token>/', activate_user),\n    path('dashboard/', dashboard_redirect, name='dashboard_redirect'),\n    path('admin/dashboard/', admin_dashboard, name='admin_dashboard'),\n    path('organizer/dashboard/', organizer_dashboard, name='organizer_dashboard'),\n    path('organizer/organizer-category/',\n         organizer_category, name='organizer_category'),",
         "detail": "users.urls",
         "documentation": {}
     },
@@ -1463,7 +1586,16 @@
         "kind": 2,
         "importPath": "users.views",
         "description": "users.views",
-        "peekOfCode": "def user_logout(request):\n    logout(request)\n    return redirect('login')\n# def admin_dashboard(request):\n#     return render(request, 'admin/dashboard.html')\n@login_required\ndef dashboard_redirect(request):\n    user = request.user\n    if user.groups.filter(name=\"Admin\").exists():\n        return redirect('admin_dashboard')",
+        "peekOfCode": "def user_logout(request):\n    logout(request)\n    return redirect('login')\ndef activate_user(request, user_id, token):\n    try:\n        user = User.objects.get(id=user_id)\n        if default_token_generator.check_token(user, token):\n            user.is_active = True\n            user.save()\n            return redirect('login')",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "activate_user",
+        "kind": 2,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "def activate_user(request, user_id, token):\n    try:\n        user = User.objects.get(id=user_id)\n        if default_token_generator.check_token(user, token):\n            user.is_active = True\n            user.save()\n            return redirect('login')\n        else:\n            return HttpResponse('Invalid Id or token')\n    except User.DoesNotExist:",
         "detail": "users.views",
         "documentation": {}
     },
