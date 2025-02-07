@@ -9,7 +9,7 @@
                     <div class="bg-white shadow-lg hover:shadow-2xl rounded-lg overflow-hidden transition-shadow duration-300 flex flex-col">
                         {% if event.image %}
                             <div class="w-full h-48 bg-gray-200">
-                                <img src="{{ event.image }}" alt="{{ event.name }}" class="w-full h-full object-cover">
+                                <img src="{% if event.image %}{{ event.image.url }}{% else %}https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyvetnLOz5AF4JPJGxqw0EJpwpBHl9swwqww&s{% endif %}" alt="{{ event.name }}"  class="w-full h-full object-cover">
                             </div>
                         {% endif %}
                         <div class="p-6 flex-grow">
