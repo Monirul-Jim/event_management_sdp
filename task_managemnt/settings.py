@@ -149,6 +149,6 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-FRONTEND_URL = 'http://127.0.0.1:8000'
+FRONTEND_URL = 'https://event-management-sdp.onrender.com'
 
 LOGIN_URL = 'login'

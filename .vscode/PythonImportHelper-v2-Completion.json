@@ -1511,7 +1511,7 @@
         "kind": 5,
         "importPath": "task_managemnt.settings",
         "description": "task_managemnt.settings",
-        "peekOfCode": "EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = config('EMAIL_HOST')\nEMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)\nEMAIL_PORT = config('EMAIL_PORT')\nEMAIL_HOST_USER = config('EMAIL_HOST_USER')\nEMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nFRONTEND_URL = 'http://127.0.0.1:8000'",
+        "peekOfCode": "EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = config('EMAIL_HOST')\nEMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)\nEMAIL_PORT = config('EMAIL_PORT')\nEMAIL_HOST_USER = config('EMAIL_HOST_USER')\nEMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nFRONTEND_URL = 'https://event-management-sdp.onrender.com'",
         "detail": "task_managemnt.settings",
         "documentation": {}
     },
@@ -1520,7 +1520,7 @@
         "kind": 5,
         "importPath": "task_managemnt.settings",
         "description": "task_managemnt.settings",
-        "peekOfCode": "EMAIL_HOST = config('EMAIL_HOST')\nEMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)\nEMAIL_PORT = config('EMAIL_PORT')\nEMAIL_HOST_USER = config('EMAIL_HOST_USER')\nEMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nFRONTEND_URL = 'http://127.0.0.1:8000'\nLOGIN_URL = 'login'",
+        "peekOfCode": "EMAIL_HOST = config('EMAIL_HOST')\nEMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)\nEMAIL_PORT = config('EMAIL_PORT')\nEMAIL_HOST_USER = config('EMAIL_HOST_USER')\nEMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nFRONTEND_URL = 'https://event-management-sdp.onrender.com'\nLOGIN_URL = 'login'",
         "detail": "task_managemnt.settings",
         "documentation": {}
     },
@@ -1529,7 +1529,7 @@
         "kind": 5,
         "importPath": "task_managemnt.settings",
         "description": "task_managemnt.settings",
-        "peekOfCode": "EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)\nEMAIL_PORT = config('EMAIL_PORT')\nEMAIL_HOST_USER = config('EMAIL_HOST_USER')\nEMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nFRONTEND_URL = 'http://127.0.0.1:8000'\nLOGIN_URL = 'login'",
+        "peekOfCode": "EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)\nEMAIL_PORT = config('EMAIL_PORT')\nEMAIL_HOST_USER = config('EMAIL_HOST_USER')\nEMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nFRONTEND_URL = 'https://event-management-sdp.onrender.com'\nLOGIN_URL = 'login'",
         "detail": "task_managemnt.settings",
         "documentation": {}
     },
@@ -1538,7 +1538,7 @@
         "kind": 5,
         "importPath": "task_managemnt.settings",
         "description": "task_managemnt.settings",
-        "peekOfCode": "EMAIL_PORT = config('EMAIL_PORT')\nEMAIL_HOST_USER = config('EMAIL_HOST_USER')\nEMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nFRONTEND_URL = 'http://127.0.0.1:8000'\nLOGIN_URL = 'login'",
+        "peekOfCode": "EMAIL_PORT = config('EMAIL_PORT')\nEMAIL_HOST_USER = config('EMAIL_HOST_USER')\nEMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nFRONTEND_URL = 'https://event-management-sdp.onrender.com'\nLOGIN_URL = 'login'",
         "detail": "task_managemnt.settings",
         "documentation": {}
     },
@@ -1547,7 +1547,7 @@
         "kind": 5,
         "importPath": "task_managemnt.settings",
         "description": "task_managemnt.settings",
-        "peekOfCode": "EMAIL_HOST_USER = config('EMAIL_HOST_USER')\nEMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nFRONTEND_URL = 'http://127.0.0.1:8000'\nLOGIN_URL = 'login'",
+        "peekOfCode": "EMAIL_HOST_USER = config('EMAIL_HOST_USER')\nEMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nFRONTEND_URL = 'https://event-management-sdp.onrender.com'\nLOGIN_URL = 'login'",
         "detail": "task_managemnt.settings",
         "documentation": {}
     },
@@ -1556,7 +1556,7 @@
         "kind": 5,
         "importPath": "task_managemnt.settings",
         "description": "task_managemnt.settings",
-        "peekOfCode": "EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nFRONTEND_URL = 'http://127.0.0.1:8000'\nLOGIN_URL = 'login'",
+        "peekOfCode": "EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nFRONTEND_URL = 'https://event-management-sdp.onrender.com'\nLOGIN_URL = 'login'",
         "detail": "task_managemnt.settings",
         "documentation": {}
     },
@@ -1565,7 +1565,7 @@
         "kind": 5,
         "importPath": "task_managemnt.settings",
         "description": "task_managemnt.settings",
-        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nFRONTEND_URL = 'http://127.0.0.1:8000'\nLOGIN_URL = 'login'",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nFRONTEND_URL = 'https://event-management-sdp.onrender.com'\nLOGIN_URL = 'login'",
         "detail": "task_managemnt.settings",
         "documentation": {}
     },
@@ -1574,7 +1574,7 @@
         "kind": 5,
         "importPath": "task_managemnt.settings",
         "description": "task_managemnt.settings",
-        "peekOfCode": "FRONTEND_URL = 'http://127.0.0.1:8000'\nLOGIN_URL = 'login'",
+        "peekOfCode": "FRONTEND_URL = 'https://event-management-sdp.onrender.com'\nLOGIN_URL = 'login'",
         "detail": "task_managemnt.settings",
         "documentation": {}
     },
