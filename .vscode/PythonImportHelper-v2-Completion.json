@@ -73,6 +73,14 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -86,6 +94,22 @@
         "description": "django.db",
         "isExtraImport": true,
         "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
         "documentation": {}
     },
     {
@@ -250,6 +274,14 @@
     },
     {
         "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "Group",
         "importPath": "django.contrib.auth.models",
         "description": "django.contrib.auth.models",
         "isExtraImport": true,
@@ -473,6 +505,46 @@
         "documentation": {}
     },
     {
+        "label": "no_permission",
+        "importPath": "task.views",
+        "description": "task.views",
+        "isExtraImport": true,
+        "detail": "task.views",
+        "documentation": {}
+    },
+    {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "Count",
         "importPath": "django.db.models",
         "description": "django.db.models",
@@ -530,6 +602,14 @@
     },
     {
         "label": "get_object_or_404",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
         "importPath": "django.shortcuts",
         "description": "django.shortcuts",
         "isExtraImport": true,
@@ -641,22 +721,6 @@
         "documentation": {}
     },
     {
-        "label": "date",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
@@ -695,6 +759,14 @@
         "description": "debug_toolbar.toolbar",
         "isExtraImport": true,
         "detail": "debug_toolbar.toolbar",
+        "documentation": {}
+    },
+    {
+        "label": "static",
+        "importPath": "django.conf.urls.static",
+        "description": "django.conf.urls.static",
+        "isExtraImport": true,
+        "detail": "django.conf.urls.static",
         "documentation": {}
     },
     {
@@ -776,6 +848,15 @@
         "description": "django.contrib.auth.tokens",
         "isExtraImport": true,
         "detail": "django.contrib.auth.tokens",
+        "documentation": {}
+    },
+    {
+        "label": "users.views",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "users.views",
+        "description": "users.views",
+        "detail": "users.views",
         "documentation": {}
     },
     {
@@ -923,6 +1004,30 @@
         "documentation": {}
     },
     {
+        "label": "participant_joined_event",
+        "importPath": "users.views",
+        "description": "users.views",
+        "isExtraImport": true,
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "remove_participant",
+        "importPath": "users.views",
+        "description": "users.views",
+        "isExtraImport": true,
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "remove_all_participants",
+        "importPath": "users.views",
+        "description": "users.views",
+        "isExtraImport": true,
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
         "label": "CustomRegistrationForm",
         "importPath": "users.forms",
         "description": "users.forms",
@@ -1024,6 +1129,15 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "task.migrations.0005_alter_event_image",
+        "description": "task.migrations.0005_alter_event_image",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('task', '0004_remove_participant_email_remove_participant_name_and_more'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='event',\n            name='image',\n            field=models.ImageField(blank=True, null=True, upload_to='event_images/'),\n        ),",
+        "detail": "task.migrations.0005_alter_event_image",
+        "documentation": {}
+    },
+    {
         "label": "TaskConfig",
         "kind": 6,
         "importPath": "task.apps",
@@ -1037,7 +1151,7 @@
         "kind": 6,
         "importPath": "task.forms",
         "description": "task.forms",
-        "peekOfCode": "class EventForm(forms.ModelForm):\n    class Meta:\n        model = Event\n        fields = '__all__'\n    def clean_image(self):\n        image = self.cleaned_data.get('image')\n        if image and not image.startswith(('http://', 'https://')):\n            raise ValidationError(\"Please provide a valid URL for the image.\")\n        return image\n    def clean_name(self):",
+        "peekOfCode": "class EventForm(forms.ModelForm):\n    class Meta:\n        model = Event\n        fields = '__all__'\n    # def clean_image(self):\n    #     image = self.cleaned_data.get('image')\n    #     if image and not image.startswith(('http://', 'https://')):\n    #         raise ValidationError(\"Please provide a valid URL for the image.\")\n    #     return image\n    def clean_name(self):",
         "detail": "task.forms",
         "documentation": {}
     },
@@ -1064,7 +1178,7 @@
         "kind": 6,
         "importPath": "task.models",
         "description": "task.models",
-        "peekOfCode": "class Category(models.Model):\n    name = models.CharField(max_length=100)\n    description = models.TextField()\n    def __str__(self):\n        return self.name\nclass Event(models.Model):\n    image = models.URLField(blank=True, null=True)\n    name = models.CharField(max_length=100)\n    description = models.TextField()\n    date = models.DateField()",
+        "peekOfCode": "class Category(models.Model):\n    name = models.CharField(max_length=100)\n    description = models.TextField()\n    def __str__(self):\n        return self.name\nclass Event(models.Model):\n    image = models.ImageField(upload_to='event_images/', blank=True, null=True)\n    name = models.CharField(max_length=100)\n    description = models.TextField()\n    date = models.DateField()",
         "detail": "task.models",
         "documentation": {}
     },
@@ -1073,7 +1187,7 @@
         "kind": 6,
         "importPath": "task.models",
         "description": "task.models",
-        "peekOfCode": "class Event(models.Model):\n    image = models.URLField(blank=True, null=True)\n    name = models.CharField(max_length=100)\n    description = models.TextField()\n    date = models.DateField()\n    time = models.TimeField()\n    location = models.CharField(max_length=100)\n    category = models.ForeignKey(\n        Category, on_delete=models.CASCADE, related_name='events')\n    def __str__(self):",
+        "peekOfCode": "class Event(models.Model):\n    image = models.ImageField(upload_to='event_images/', blank=True, null=True)\n    name = models.CharField(max_length=100)\n    description = models.TextField()\n    date = models.DateField()\n    time = models.TimeField()\n    location = models.CharField(max_length=100)\n    category = models.ForeignKey(\n        Category, on_delete=models.CASCADE, related_name='events')\n    def __str__(self):",
         "detail": "task.models",
         "documentation": {}
     },
@@ -1100,7 +1214,7 @@
         "kind": 5,
         "importPath": "task.urls",
         "description": "task.urls",
-        "peekOfCode": "urlpatterns = [\n    path('', home, name='home'),\n    path(\"category/add\", category_list, name=\"create_category\"),\n    path('event/<int:event_id>/join/', join_event, name='join_event'),\n    path('events/add', event_list, name='event_list'),\n    path('participant/add', participant_list, name='participant_list'),\n    path('organizer/', organizer_dashboard, name='dashboard'),\n    path('api/event-stats/', get_event_stats, name='get_event_stats'),\n    path('api/events/', get_events, name='get_events'),\n    path('event-details/<int:event_id>/', event_detail, name='event_detail'),",
+        "peekOfCode": "urlpatterns = [\n    path('', home, name='home'),\n    path(\"category/add\", category_list, name=\"create_category\"),\n    path('event/<int:event_id>/join/', join_event, name='join_event'),\n    path('events/add', event_list, name='event_list'),\n    path('participant/add', participant_list, name='participant_list'),\n    path('api/event-stats/', get_event_stats, name='get_event_stats'),\n    path('api/events/', get_events, name='get_events'),\n    path('event-details/<int:event_id>/', event_detail, name='event_detail'),\n    path('search/', search_events, name='search_events'),",
         "detail": "task.urls",
         "documentation": {}
     },
@@ -1136,7 +1250,7 @@
         "kind": 2,
         "importPath": "task.views",
         "description": "task.views",
-        "peekOfCode": "def join_event(request, event_id):\n    event = get_object_or_404(Event, id=event_id)\n    participant, created = Participant.objects.get_or_create(user=request.user)\n    participant.events.add(event)\n    return redirect('event_detail', event_id=event.id)\ndef organizer_dashboard(request):\n    today = timezone.now().date()\n    total_participants = Participant.objects.count()\n    total_events = Event.objects.count()\n    upcoming_events = Event.objects.filter(date__gt=today).count()",
+        "peekOfCode": "def join_event(request, event_id):\n    event = get_object_or_404(Event, id=event_id)\n    participant, created = Participant.objects.get_or_create(user=request.user)\n    # Check if the user is already in the event\n    if event in participant.events.all():\n        return JsonResponse({\"status\": \"already_joined\", \"participants_count\": event.participants.count()}, status=400)\n    # Add the user to the event\n    participant.events.add(event)\n    # Handle user groups\n    user_group, _ = Group.objects.get_or_create(name='User')",
         "detail": "task.views",
         "documentation": {}
     },
@@ -1190,7 +1304,16 @@
         "kind": 2,
         "importPath": "task.views",
         "description": "task.views",
-        "peekOfCode": "def search_events(request):\n    query = request.GET.get('search', '')\n    events = Event.objects.filter(\n        Q(name__icontains=query) | Q(location__icontains=query)\n    ) if query else Event.objects.none()\n    return render(request, 'task/search_results.html', {'events': events, 'query': query})",
+        "peekOfCode": "def search_events(request):\n    query = request.GET.get('search', '')\n    events = Event.objects.filter(\n        Q(name__icontains=query) | Q(location__icontains=query)\n    ) if query else Event.objects.none()\n    return render(request, 'task/search_results.html', {'events': events, 'query': query})\ndef no_permission(request):\n    return render(request, 'no_permission.html')",
+        "detail": "task.views",
+        "documentation": {}
+    },
+    {
+        "label": "no_permission",
+        "kind": 2,
+        "importPath": "task.views",
+        "description": "task.views",
+        "peekOfCode": "def no_permission(request):\n    return render(request, 'no_permission.html')",
         "detail": "task.views",
         "documentation": {}
     },
@@ -1325,7 +1448,7 @@
         "kind": 5,
         "importPath": "task_managemnt.settings",
         "description": "task_managemnt.settings",
-        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.1/howto/static-files/\nSTATIC_URL = 'static/'\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = config('EMAIL_HOST')\nEMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)",
+        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.1/howto/static-files/\nSTATIC_URL = 'static/'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = BASE_DIR/'media'\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'",
         "detail": "task_managemnt.settings",
         "documentation": {}
     },
@@ -1334,7 +1457,7 @@
         "kind": 5,
         "importPath": "task_managemnt.settings",
         "description": "task_managemnt.settings",
-        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.1/howto/static-files/\nSTATIC_URL = 'static/'\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = config('EMAIL_HOST')\nEMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)\nEMAIL_PORT = config('EMAIL_PORT')",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.1/howto/static-files/\nSTATIC_URL = 'static/'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = BASE_DIR/'media'\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = config('EMAIL_HOST')",
         "detail": "task_managemnt.settings",
         "documentation": {}
     },
@@ -1343,7 +1466,7 @@
         "kind": 5,
         "importPath": "task_managemnt.settings",
         "description": "task_managemnt.settings",
-        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.1/howto/static-files/\nSTATIC_URL = 'static/'\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = config('EMAIL_HOST')\nEMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)\nEMAIL_PORT = config('EMAIL_PORT')\nEMAIL_HOST_USER = config('EMAIL_HOST_USER')",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.1/howto/static-files/\nSTATIC_URL = 'static/'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = BASE_DIR/'media'\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = config('EMAIL_HOST')\nEMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)",
         "detail": "task_managemnt.settings",
         "documentation": {}
     },
@@ -1352,7 +1475,7 @@
         "kind": 5,
         "importPath": "task_managemnt.settings",
         "description": "task_managemnt.settings",
-        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.1/howto/static-files/\nSTATIC_URL = 'static/'\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = config('EMAIL_HOST')\nEMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)\nEMAIL_PORT = config('EMAIL_PORT')\nEMAIL_HOST_USER = config('EMAIL_HOST_USER')\nEMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.1/howto/static-files/\nSTATIC_URL = 'static/'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = BASE_DIR/'media'\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = config('EMAIL_HOST')\nEMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)\nEMAIL_PORT = config('EMAIL_PORT')",
         "detail": "task_managemnt.settings",
         "documentation": {}
     },
@@ -1361,7 +1484,25 @@
         "kind": 5,
         "importPath": "task_managemnt.settings",
         "description": "task_managemnt.settings",
-        "peekOfCode": "STATIC_URL = 'static/'\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = config('EMAIL_HOST')\nEMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)\nEMAIL_PORT = config('EMAIL_PORT')\nEMAIL_HOST_USER = config('EMAIL_HOST_USER')\nEMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "STATIC_URL = 'static/'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = BASE_DIR/'media'\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = config('EMAIL_HOST')\nEMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)\nEMAIL_PORT = config('EMAIL_PORT')\nEMAIL_HOST_USER = config('EMAIL_HOST_USER')\nEMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')\n# Default primary key field type",
+        "detail": "task_managemnt.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_URL",
+        "kind": 5,
+        "importPath": "task_managemnt.settings",
+        "description": "task_managemnt.settings",
+        "peekOfCode": "MEDIA_URL = '/media/'\nMEDIA_ROOT = BASE_DIR/'media'\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = config('EMAIL_HOST')\nEMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)\nEMAIL_PORT = config('EMAIL_PORT')\nEMAIL_HOST_USER = config('EMAIL_HOST_USER')\nEMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field",
+        "detail": "task_managemnt.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_ROOT",
+        "kind": 5,
+        "importPath": "task_managemnt.settings",
+        "description": "task_managemnt.settings",
+        "peekOfCode": "MEDIA_ROOT = BASE_DIR/'media'\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = config('EMAIL_HOST')\nEMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)\nEMAIL_PORT = config('EMAIL_PORT')\nEMAIL_HOST_USER = config('EMAIL_HOST_USER')\nEMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
         "detail": "task_managemnt.settings",
         "documentation": {}
     },
@@ -1451,7 +1592,7 @@
         "kind": 5,
         "importPath": "task_managemnt.urls",
         "description": "task_managemnt.urls",
-        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('', include('task.urls')),\n    path('user/', include('users.urls')),\n] + debug_toolbar_urls()",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('', include('task.urls')),\n    path('user/', include('users.urls')),\n] + debug_toolbar_urls()\nurlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)",
         "detail": "task_managemnt.urls",
         "documentation": {}
     },
@@ -1564,6 +1705,33 @@
         "documentation": {}
     },
     {
+        "label": "is_admin",
+        "kind": 2,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "def is_admin(user):\n    return user.groups.filter(name='Admin').exists()\ndef is_organizer(user):\n    return user.groups.filter(name='Organizer').exists()\ndef is_admin_or_organizer(user):\n    return is_admin(user) or is_organizer(user)\ndef user_register(request):\n    form = CustomRegistrationForm()\n    if request.method == 'POST':\n        form = CustomRegistrationForm(request.POST)",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "is_organizer",
+        "kind": 2,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "def is_organizer(user):\n    return user.groups.filter(name='Organizer').exists()\ndef is_admin_or_organizer(user):\n    return is_admin(user) or is_organizer(user)\ndef user_register(request):\n    form = CustomRegistrationForm()\n    if request.method == 'POST':\n        form = CustomRegistrationForm(request.POST)\n        if form.is_valid():\n            user = form.save(commit=False)",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "is_admin_or_organizer",
+        "kind": 2,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "def is_admin_or_organizer(user):\n    return is_admin(user) or is_organizer(user)\ndef user_register(request):\n    form = CustomRegistrationForm()\n    if request.method == 'POST':\n        form = CustomRegistrationForm(request.POST)\n        if form.is_valid():\n            user = form.save(commit=False)\n            user.set_password(form.cleaned_data.get('password1'))\n            user.is_active = False",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
         "label": "user_register",
         "kind": 2,
         "importPath": "users.views",
@@ -1613,7 +1781,7 @@
         "kind": 2,
         "importPath": "users.views",
         "description": "users.views",
-        "peekOfCode": "def admin_dashboard(request):\n    return render(request, 'admin/dashboard.html')\n@login_required\ndef organizer_dashboard(request):\n    return render(request, 'organizer/dashboard.html')\ndef organizer_category(request):\n    categories = Category.objects.all()\n    form = CategoryForm()\n    category_to_edit = None\n    if request.method == \"POST\":",
+        "peekOfCode": "def admin_dashboard(request):\n    return render(request, 'admin/dashboard.html')\n@user_passes_test(is_admin_or_organizer, login_url='no-permission')\ndef organizer_dashboard(request):\n    return render(request, 'organizer/dashboard.html')\n@user_passes_test(is_admin_or_organizer, login_url='no-permission')\ndef organizer_category(request):\n    categories = Category.objects.all()\n    form = CategoryForm()\n    category_to_edit = None",
         "detail": "users.views",
         "documentation": {}
     },
@@ -1622,7 +1790,7 @@
         "kind": 2,
         "importPath": "users.views",
         "description": "users.views",
-        "peekOfCode": "def organizer_dashboard(request):\n    return render(request, 'organizer/dashboard.html')\ndef organizer_category(request):\n    categories = Category.objects.all()\n    form = CategoryForm()\n    category_to_edit = None\n    if request.method == \"POST\":\n        if \"create\" in request.POST:\n            form = CategoryForm(request.POST)\n            if form.is_valid():",
+        "peekOfCode": "def organizer_dashboard(request):\n    return render(request, 'organizer/dashboard.html')\n@user_passes_test(is_admin_or_organizer, login_url='no-permission')\ndef organizer_category(request):\n    categories = Category.objects.all()\n    form = CategoryForm()\n    category_to_edit = None\n    if request.method == \"POST\":\n        if \"create\" in request.POST:\n            form = CategoryForm(request.POST)",
         "detail": "users.views",
         "documentation": {}
     },
@@ -1640,7 +1808,7 @@
         "kind": 2,
         "importPath": "users.views",
         "description": "users.views",
-        "peekOfCode": "def organizer_event(request):\n    events = Event.objects.select_related('category').all()\n    categories = Category.objects.prefetch_related('events').all()\n    event_to_edit = None\n    form = EventForm()\n    if request.method == \"POST\":\n        if \"create\" in request.POST:\n            form = EventForm(request.POST)\n            if form.is_valid():\n                form.save()",
+        "peekOfCode": "def organizer_event(request):\n    events = Event.objects.select_related('category').all()\n    categories = Category.objects.prefetch_related('events').all()\n    event_to_edit = None\n    form = EventForm()\n    if request.method == \"POST\":\n        if \"create\" in request.POST:\n            form = EventForm(request.POST, request.FILES)\n            if form.is_valid():\n                form.save()",
         "detail": "users.views",
         "documentation": {}
     },
@@ -1649,7 +1817,7 @@
         "kind": 2,
         "importPath": "users.views",
         "description": "users.views",
-        "peekOfCode": "def participant_dashboard(request):\n    return render(request, 'participant/dashboard.html')\ndef assign_role(request, user_id):\n    user = User.objects.get(id=user_id)\n    form = AssignRoleForm()\n    if request.method == 'POST':\n        form = AssignRoleForm(request.POST)\n        if form.is_valid():\n            role = form.cleaned_data.get('role')\n            user.groups.clear()  # Remove old roles",
+        "peekOfCode": "def participant_dashboard(request):\n    return render(request, 'participant/dashboard.html')\n@user_passes_test(is_admin, login_url='no-permission')\ndef assign_role(request, user_id):\n    user = User.objects.get(id=user_id)\n    form = AssignRoleForm()\n    if request.method == 'POST':\n        form = AssignRoleForm(request.POST)\n        if form.is_valid():\n            role = form.cleaned_data.get('role')",
         "detail": "users.views",
         "documentation": {}
     },
@@ -1676,7 +1844,7 @@
         "kind": 2,
         "importPath": "users.views",
         "description": "users.views",
-        "peekOfCode": "def group_list(request):\n    groups = Group.objects.prefetch_related('permissions').all()\n    return render(request, 'admin/group_list.html', {'groups': groups})\ndef change_role(request):\n    users = User.objects.prefetch_related(\n        Prefetch('groups', queryset=Group.objects.all(), to_attr='all_groups')\n    ).all()\n    for user in users:\n        if user.all_groups:\n            user.group_name = user.all_groups[0].name",
+        "peekOfCode": "def group_list(request):\n    groups = Group.objects.prefetch_related('permissions').all()\n    return render(request, 'admin/group_list.html', {'groups': groups})\n@user_passes_test(is_admin, login_url='no-permission')\ndef change_role(request):\n    users = User.objects.prefetch_related(\n        Prefetch('groups', queryset=Group.objects.all(), to_attr='all_groups')\n    ).all()\n    for user in users:\n        if user.all_groups:",
         "detail": "users.views",
         "documentation": {}
     },
@@ -1694,7 +1862,7 @@
         "kind": 2,
         "importPath": "users.views",
         "description": "users.views",
-        "peekOfCode": "def delete_group(request, group_id):\n    group = get_object_or_404(Group, id=group_id)\n    if request.method == \"POST\":\n        group.delete()\n        messages.success(request, f\"Group '{\n                         group.name}' has been deleted successfully.\")\n        return redirect('group_list')  # Redirect to the groups list page\n    return render(request, 'admin/delete_group.html', {\"group\": group})\ndef delete_participant(request):\n    return render(request, 'admin/delete_participants.html')",
+        "peekOfCode": "def delete_group(request, group_id):\n    group = get_object_or_404(Group, id=group_id)\n    if request.method == \"POST\":\n        group.delete()\n        messages.success(request, f\"Group '{\n                         group.name}' has been deleted successfully.\")\n        return redirect('group_list')  # Redirect to the groups list page\n    return render(request, 'admin/delete_group.html', {\"group\": group})\n@user_passes_test(is_admin, login_url='no-permission')\ndef delete_participant(request):",
         "detail": "users.views",
         "documentation": {}
     },
@@ -1703,7 +1871,25 @@
         "kind": 2,
         "importPath": "users.views",
         "description": "users.views",
-        "peekOfCode": "def delete_participant(request):\n    return render(request, 'admin/delete_participants.html')\ndef organizer_dashboard_stats(request):\n    today = timezone.now().date()\n    total_participants = Participant.objects.count()\n    total_events = Event.objects.count()\n    upcoming_events = Event.objects.filter(date__gt=today).count()\n    past_events = Event.objects.filter(date__lt=today).count()\n    todays_events = Event.objects.filter(date=today)\n    context = {",
+        "peekOfCode": "def delete_participant(request):\n    events = Event.objects.prefetch_related(\"participants__user\").all()\n    return render(request, 'admin/delete_participants.html', {\"events\": events})\n@user_passes_test(is_admin, login_url='no-permission')\ndef remove_participant(request, event_id, participant_id):\n    event = get_object_or_404(Event, id=event_id)\n    participant = get_object_or_404(Participant, id=participant_id)\n    participant.events.remove(event)\n    if participant.events.count() == 0:\n        participant.delete()",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "remove_participant",
+        "kind": 2,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "def remove_participant(request, event_id, participant_id):\n    event = get_object_or_404(Event, id=event_id)\n    participant = get_object_or_404(Participant, id=participant_id)\n    participant.events.remove(event)\n    if participant.events.count() == 0:\n        participant.delete()\n    messages.success(\n        request, f\"{participant.user.username} has been removed from {event.name}.\")\n    return redirect('delete_participant')\n@user_passes_test(is_admin, login_url='no-permission')",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "remove_all_participants",
+        "kind": 2,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "def remove_all_participants(request, event_id):\n    event = get_object_or_404(Event, id=event_id)\n    event.participants.clear()\n    messages.success(\n        request, f\"All participants have been removed from {event.name}.\")\n    return redirect('delete_participant')\ndef organizer_dashboard_stats(request):\n    today = timezone.now().date()\n    total_participants = Participant.objects.count()\n    total_events = Event.objects.count()",
         "detail": "users.views",
         "documentation": {}
     },
@@ -1731,6 +1917,15 @@
         "importPath": "users.views",
         "description": "users.views",
         "peekOfCode": "def get_events(request):\n    event_type = request.GET.get('type', 'all')\n    today = timezone.now().date()\n    if event_type == 'upcoming':\n        events = Event.objects.filter(date__gt=today)\n    elif event_type == 'past':\n        events = Event.objects.filter(date__lt=today)\n    else:\n        events = Event.objects.all()\n    event_list = [{",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "participant_joined_event",
+        "kind": 2,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "def participant_joined_event(request):\n    # Get the participant instance for the logged-in user\n    try:\n        # Using 'participant_profile' as related_name\n        participant = request.user.participant_profile\n        # Get all events the participant is in\n        participant_events = participant.events.all()\n    except Participant.DoesNotExist:\n        participant_events = []  # If the user doesn't have a participant profile yet\n    return render(request, 'participant/participant_joined_event.html', {'events': participant_events})",
         "detail": "users.views",
         "documentation": {}
     },

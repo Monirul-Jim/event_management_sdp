@@ -1,0 +1,33 @@
+{% extends "base_dashboard.html" %}
+{% block content %}
+    <div class="container mx-auto p-8">
+        <h1 class="text-3xl font-semibold mb-6 text-center">Your Joined Events</h1>
+
+        {% if events %}
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {% for event in events %}
+                    <div class="bg-white shadow-lg hover:shadow-2xl rounded-lg overflow-hidden transition-shadow duration-300 flex flex-col">
+                        {% if event.image %}
+                            <div class="w-full h-48 bg-gray-200">
+                                <img src="{{ event.image }}" alt="{{ event.name }}" class="w-full h-full object-cover">
+                            </div>
+                        {% endif %}
+                        <div class="p-6 flex-grow">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-2">{{ event.name }}</h2>
+                            <p class="text-sm text-gray-500 mb-4">{{ event.category.name }}</p>
+                            <p class="text-sm text-gray-600 mb-4">{{ event.date }} at {{ event.time }}</p>
+                            <p class="text-sm text-gray-700">{{ event.description|truncatewords:20 }}</p>
+                        </div>
+                        <!-- See Details Button -->
+                        <a href="{% url 'event_detail' event.id %}" 
+                           class="text-center bg-gray-200 text-gray-800 w-full font-medium rounded-lg py-2 px-4 transition hover:bg-gray-300 mt-auto">
+                            See Details
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-center text-gray-600">You haven't joined any events yet.</p>
+        {% endif %}
+    </div>
+{% endblock %}
