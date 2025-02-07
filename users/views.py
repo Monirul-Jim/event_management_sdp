@@ -1,3 +1,4 @@
+from django.shortcuts import redirect
 from django.shortcuts import render, get_object_or_404
 from users.forms import CustomRegistrationForm, LoginForm, AssignRoleForm, CreateGroupForm
 from django.contrib import messages
@@ -11,7 +12,21 @@ from task.models import Event, Participant, Category
 from task.forms import EventForm, ParticipantForm, CategoryForm
 from django.utils import timezone
 from django.http import JsonResponse
+import users.views
 # Create your views here.
+# Test for users
+
+
+def is_admin(user):
+    return user.groups.filter(name='Admin').exists()
+
+
+def is_organizer(user):
+    return user.groups.filter(name='Organizer').exists()
+
+
+def is_admin_or_organizer(user):
+    return is_admin(user) or is_organizer(user)
 
 
 def user_register(request):
@@ -79,16 +94,17 @@ def dashboard_redirect(request):
         return redirect('home')
 
 
-@login_required
+@user_passes_test(is_admin, login_url='no-permission')
 def admin_dashboard(request):
     return render(request, 'admin/dashboard.html')
 
 
-@login_required
+@user_passes_test(is_admin_or_organizer, login_url='no-permission')
 def organizer_dashboard(request):
     return render(request, 'organizer/dashboard.html')
 
 
+@user_passes_test(is_admin_or_organizer, login_url='no-permission')
 def organizer_category(request):
     categories = Category.objects.all()
     form = CategoryForm()
@@ -127,6 +143,7 @@ def organizer_category(request):
     })
 
 
+@user_passes_test(is_admin_or_organizer, login_url='no-permission')
 def organizer_event(request):
     events = Event.objects.select_related('category').all()
     categories = Category.objects.prefetch_related('events').all()
@@ -135,7 +152,7 @@ def organizer_event(request):
 
     if request.method == "POST":
         if "create" in request.POST:
-            form = EventForm(request.POST)
+            form = EventForm(request.POST, request.FILES)
             if form.is_valid():
                 form.save()
                 return redirect("organizer_event")
@@ -144,7 +161,7 @@ def organizer_event(request):
             event_id = request.POST.get("event_id")
             event = get_object_or_404(Event, id=event_id)
 
-            form = EventForm(request.POST, instance=event)
+            form = EventForm(request.POST, request.FILES,  instance=event)
             if form.is_valid():
                 form.save()
                 return redirect("organizer_event")
@@ -174,6 +191,7 @@ def participant_dashboard(request):
     return render(request, 'participant/dashboard.html')
 
 
+@user_passes_test(is_admin, login_url='no-permission')
 def assign_role(request, user_id):
     user = User.objects.get(id=user_id)
     form = AssignRoleForm()
@@ -191,6 +209,7 @@ def assign_role(request, user_id):
     return render(request, 'admin/assign_role.html', {"form": form})
 
 
+@user_passes_test(is_admin, login_url='no-permission')
 def create_group(request):
     form = CreateGroupForm()
     if request.method == 'POST':
@@ -205,11 +224,13 @@ def create_group(request):
     return render(request, 'admin/create_group.html', {'form': form})
 
 
+@user_passes_test(is_admin, login_url='no-permission')
 def group_list(request):
     groups = Group.objects.prefetch_related('permissions').all()
     return render(request, 'admin/group_list.html', {'groups': groups})
 
 
+@user_passes_test(is_admin, login_url='no-permission')
 def change_role(request):
     users = User.objects.prefetch_related(
         Prefetch('groups', queryset=Group.objects.all(), to_attr='all_groups')
@@ -223,6 +244,7 @@ def change_role(request):
     return render(request, 'admin/change_role.html', {"users": users})
 
 
+@user_passes_test(is_admin, login_url='no-permission')
 def delete_group(request, group_id):
     group = get_object_or_404(Group, id=group_id)
 
@@ -235,8 +257,36 @@ def delete_group(request, group_id):
     return render(request, 'admin/delete_group.html', {"group": group})
 
 
+@user_passes_test(is_admin, login_url='no-permission')
 def delete_participant(request):
-    return render(request, 'admin/delete_participants.html')
+    events = Event.objects.prefetch_related("participants__user").all()
+    return render(request, 'admin/delete_participants.html', {"events": events})
+
+
+@user_passes_test(is_admin, login_url='no-permission')
+def remove_participant(request, event_id, participant_id):
+    event = get_object_or_404(Event, id=event_id)
+    participant = get_object_or_404(Participant, id=participant_id)
+
+    participant.events.remove(event)
+
+    if participant.events.count() == 0:
+        participant.delete()
+
+    messages.success(
+        request, f"{participant.user.username} has been removed from {event.name}.")
+    return redirect('delete_participant')
+
+
+@user_passes_test(is_admin, login_url='no-permission')
+def remove_all_participants(request, event_id):
+    event = get_object_or_404(Event, id=event_id)
+
+    event.participants.clear()
+
+    messages.success(
+        request, f"All participants have been removed from {event.name}.")
+    return redirect('delete_participant')
 
 
 def organizer_dashboard_stats(request):
@@ -295,77 +345,16 @@ def get_events(request):
 
     return JsonResponse({'events': event_list})
 
-# from django.shortcuts import render, redirect
-# from users.forms import CustomRegistrationForm
-# from django.contrib import messages
-# from django.contrib.auth import get_user_model
-# from django.utils.http import urlsafe_base64_encode
-# from django.utils.encoding import force_bytes
-# from django.contrib.auth.tokens import default_token_generator
-# from django.urls import reverse
-# from django.core.mail import send_mail
-# from django.conf import settings
-# User = get_user_model()
 
+@login_required
+def participant_joined_event(request):
+    # Get the participant instance for the logged-in user
+    try:
+        # Using 'participant_profile' as related_name
+        participant = request.user.participant_profile
+        # Get all events the participant is in
+        participant_events = participant.events.all()
+    except Participant.DoesNotExist:
+        participant_events = []  # If the user doesn't have a participant profile yet
 
-# def user_login(request):
-#     return render(request, 'users/login.html')
-
-
-# def user_register(request):
-#     form = CustomRegistrationForm()
-#     if request.method == 'POST':
-#         form = CustomRegistrationForm(request.POST)
-#         if form.is_valid():
-#             user = form.save(commit=False)
-#             user.set_password(form.cleaned_data.get('password1'))
-#             user.is_active = False  # Initially inactive
-#             user.save()
-
-#             # Generate token and uid
-#             uidb64 = urlsafe_base64_encode(force_bytes(user.pk))
-#             token = default_token_generator.make_token(user)
-
-#             # Build activation link
-#             activation_link = request.build_absolute_uri(
-#                 reverse('activate', kwargs={'uidb64': uidb64, 'token': token}))
-
-#             # Send email
-#             subject = 'Activate Your Account'
-#             message = f'Dear {user.username},\n\nPlease click on the link below to activate your account:\n\n{
-#                 activation_link}\n\nIf you did not register, you can safely ignore this email.'
-#             send_mail(subject, message, settings.DEFAULT_FROM_EMAIL,
-#                       [user.email])  # Use your email settings
-
-#             messages.success(
-#                 request, 'A confirmation email has been sent. Please check your inbox to activate your account.')
-#             return redirect('register')
-
-#         else:
-#             # Keep this for debugging, but consider a better logging method in production
-#             print("Form is not valid")
-#             # Add form errors to the template context so the user sees them
-#             for field, errors in form.errors.items():
-#                 for error in errors:
-#                     messages.error(request, f"{field.capitalize()}: {
-#                                    error}")  # Display errors to the user
-
-#     return render(request, 'users/register.html', {"form": form})
-
-
-# def activate(request, uidb64, token):
-#     try:
-#         uid = force_bytes(urlsafe_base64_decode(uidb64))
-#         user = User.objects.get(pk=uid)
-#     except (TypeError, ValueError, OverflowError, User.DoesNotExist):
-#         user = None
-
-#     if user is not None and default_token_generator.check_token(user, token):
-#         user.is_active = True
-#         user.save()
-#         messages.success(
-#             request, 'Your account has been activated. You can now log in.')
-#         return redirect('login')  # Redirect to login page
-#     else:
-#         messages.error(request, 'Invalid activation link.')
-#         return redirect('register')  # Or another appropriate page
+    return render(request, 'participant/participant_joined_event.html', {'events': participant_events})

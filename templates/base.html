@@ -35,7 +35,7 @@
                     Home
                 </a>
                 
-                <div class="relative group">
+                {% comment %} <div class="relative group">
                     <button class="text-sm font-semibold text-gray-900 hover:text-indigo-600 flex items-center gap-x-1">
                         Manage
                         <svg class="w-4 h-4 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -56,7 +56,7 @@
           
                     </div>
                     
-                </div>
+                </div> {% endcomment %}
                 <form action="{% url 'search_events' %}" method="get" class="flex w-full max-w-md ml-6">
                     <input 
                         type="text" 
@@ -77,14 +77,23 @@
                         <img class="h-8 w-10 rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5BSEPxHF0-PRxJlVMHla55wvcxWdSi8RU2g&s" alt="User">
                     </button>
                     <div id="user-menu" class="hidden absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2 z-50">
-                        <a href="{% url 'dashboard' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-100 hover:text-indigo-700">
-                            Organizer Dashboard
+                       
+                        <a href="{% url 'dashboard_redirect' %}" class="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-700 rounded-md transition duration-300 ease-in-out">
+                            <span class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-indigo-500" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+                                </svg>
+                                Dashboard 
+                                <span class="ml-1 text-indigo-500 font-semibold">({{ user.username }})</span>
+                            </span>
                         </a>
-                        <a href="{% url 'dashboard_redirect' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-100 hover:text-indigo-700">
-                             Dashboard
-                        </a>
-                        <a href="{% url 'logout' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-100 hover:text-indigo-700">
-                            Logout
+                        <a href="{% url 'logout' %}" class="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-red-50 hover:text-red-700 rounded-md transition duration-300 ease-in-out">
+                            <span class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H3" />
+                                  </svg>
+                                Logout
+                            </span>
                         </a>
                     </div>
                 </div>
@@ -92,9 +101,10 @@
                 <a href="{% url 'login' %}" class="text-sm font-semibold text-gray-900 hover:text-indigo-600">
                     Login
                 </a>
-                <a href="{% url 'register' %}" class="text-sm font-semibold text-gray-900 hover:text-indigo-600">
+                <a href="{% url 'register' %}" class="text-sm font-semibold text-gray-900 hover:text-indigo-600 whitespace-nowrap">
                     Sign Up
                 </a>
+                
             {% endif %}
              
             </div>
@@ -102,9 +112,7 @@
         
         <div id="mobile-menu" class="hidden lg:hidden p-4 space-y-4 bg-white shadow-md">
             <a href="{% url 'home' %}" class="block text-sm font-semibold text-gray-900 hover:text-indigo-600">Home</a>
-            <a href="{% url 'create_category' %}" class="block text-sm font-semibold text-gray-900 hover:text-indigo-600">Create Category</a>
-            <a href="{% url 'event_list' %}" class="block text-sm font-semibold text-gray-900 hover:text-indigo-600">Event</a>
-            <a href="{% url 'participant_list' %}" class="block text-sm font-semibold text-gray-900 hover:text-indigo-600">Participant</a>
+           
             <form action="{% url 'search_events' %}" method="get" class="flex w-full max-w-md ml-6">
                 <input 
                     type="text" 
@@ -125,9 +133,7 @@
                     <img class="h-8 w-10 rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5BSEPxHF0-PRxJlVMHla55wvcxWdSi8RU2g&s" alt="User">
                 </button>
                 <div id="user-menu" class="hidden absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2 z-50">
-                    <a href="{% url 'dashboard' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-100 hover:text-indigo-700">
-                        Organizer Dashboard
-                    </a>
+                   
                     <a href="{% url 'logout' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-100 hover:text-indigo-700">
                         Logout
                     </a>

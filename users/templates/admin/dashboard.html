@@ -1,7 +1,53 @@
 {% extends "base_dashboard.html" %}
 {%block content%}
 <h1 class="text-3xl font-semibold mb-6">Admin Dashboard</h1>
-            <div class="bg-white p-6 rounded-lg shadow-lg">
-                <p>Welcome to the admin panel. Use the sidebar to navigate.</p>
-            </div>
+<main class="flex-1 p-6 md:p-8 bg-gray-100 min-h-screen">
+    <h1 class="text-3xl font-semibold mb-8 text-center text-gray-900">Admin Dashboard</h1>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg shadow-md p-6 hover:scale-105 transition duration-300 flex flex-col items-center">
+           
+            <h2 class="text-xl font-medium mb-2 text-gray-800">Create Group</h2>
+            <p class="text-gray-600 text-center">Admins can create groups to manage users efficiently.</p>
+            <a href="{% url 'create_group' %}" class="text-blue-500 hover:underline mt-4 inline-block">Create Group</a>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6 hover:scale-105 transition duration-300 flex flex-col items-center">
+            
+            <h2 class="text-xl font-medium mb-2 text-gray-800">Manage Groups</h2>
+            <p class="text-gray-600 text-center">View and manage all created groups.</p>
+            <a href="{% url 'group_list' %}" class="text-green-500 hover:underline mt-4 inline-block">View Groups</a>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6 hover:scale-105 transition duration-300 flex flex-col items-center">
+           
+            <h2 class="text-xl font-medium mb-2 text-gray-800">Change Role</h2>
+            <p class="text-gray-600 text-center">Modify user roles and permissions within groups.</p>
+            <a href="{% url 'change_role' %}" class="text-yellow-500 hover:underline mt-4 inline-block">Change Role</a>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6 hover:scale-105 transition duration-300 flex flex-col items-center">
+         
+            <h2 class="text-xl font-medium mb-2 text-gray-800">Manage Categories</h2>
+            <p class="text-gray-600 text-center">Organize and categorize different events.</p>
+            <a href="{% url 'organizer_category' %}" class="text-purple-500 hover:underline mt-4 inline-block">Manage Categories</a>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6 hover:scale-105 transition duration-300 flex flex-col items-center">
+           
+            <h2 class="text-xl font-medium mb-2 text-gray-800">Manage Events</h2>
+            <p class="text-gray-600 text-center">Create and manage events efficiently.</p>
+            <a href="{% url 'organizer_event' %}" class="text-red-500 hover:underline mt-4 inline-block">Manage Events</a>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6 hover:scale-105 transition duration-300 flex flex-col items-center">
+            
+            <h2 class="text-xl font-medium mb-2 text-gray-800">Delete Participants</h2>
+            <p class="text-gray-600 text-center">Remove participants from events if needed.</p>
+            <a href="{% url 'delete_participant' %}" class="text-gray-500 hover:underline mt-4 inline-block">Delete Participants</a>
+        </div>
+    </div>
+</main>
+
+
 {%endblock%}

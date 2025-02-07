@@ -17,11 +17,11 @@ class EventForm(forms.ModelForm):
         model = Event
         fields = '__all__'
 
-    def clean_image(self):
-        image = self.cleaned_data.get('image')
-        if image and not image.startswith(('http://', 'https://')):
-            raise ValidationError("Please provide a valid URL for the image.")
-        return image
+    # def clean_image(self):
+    #     image = self.cleaned_data.get('image')
+    #     if image and not image.startswith(('http://', 'https://')):
+    #         raise ValidationError("Please provide a valid URL for the image.")
+    #     return image
 
     def clean_name(self):
         name = self.cleaned_data.get('name')

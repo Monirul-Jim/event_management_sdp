@@ -7,18 +7,18 @@
     <h2 class="text-2xl font-bold text-gray-800 mb-4">
       {% if event_to_edit %}Edit Event{% else %}Add New Event{% endif %}
     </h2>
-    <form method="post" class="space-y-4">
+    <form method="post" class="space-y-4" enctype="multipart/form-data">
       {% csrf_token %}
       <!-- Image Field -->
       <div>
-          <label for="id_image" class="block text-sm font-medium text-gray-700">Event Image</label>
-          <input type="text" name="image" id="id_image" 
-                 value="{{ form.image.value|default_if_none:'' }}" 
-                 class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
-          {% if form.image.errors %}
-              <p class="text-red-500 text-sm mt-1">{{ form.image.errors.0 }}</p>
-          {% endif %}
-      </div>
+        <label for="id_image" class="block text-sm font-medium text-gray-700">Event Image</label>
+        <input type="file" name="image" id="id_image" 
+               value="{{ form.image.value|default_if_none:'' }}" 
+               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+        {% if form.image.errors %}
+            <p class="text-red-500 text-sm mt-1">{{ form.image.errors.0 }}</p>
+        {% endif %}
+    </div>
   
       <!-- Name Field -->
       <div>
@@ -125,7 +125,8 @@
         {% for event in events %}
         <tr class="bg-white hover:bg-gray-50">
           <td class="border border-gray-300 px-4 py-2">{{ event.name }}</td>
-          <td class="border border-gray-300 px-4 py-2 h-4 w-4"><img src="{{ event.image }}" alt="{{ event.name }}"></td>
+          <td class="border border-gray-300 px-4 py-2 h-4 w-4"> <img src="{% if event.image %}{{ event.image.url }}{% else %}https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyvetnLOz5AF4JPJGxqw0EJpwpBHl9swwqww&s{% endif %}" alt="{{ event.name }}"></td>
+         
           <td class="border border-gray-300 px-4 py-2">{{ event.description }}</td>
           <td class="border border-gray-300 px-4 py-2">{{ event.date }}</td>
           <td class="border border-gray-300 px-4 py-2">{{ event.time }}</td>

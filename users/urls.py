@@ -11,7 +11,10 @@ from users.views import (user_login, user_register, activate_user,
                          organizer_category,
                          organizer_event,
                          get_event_stats,
-                         organizer_dashboard_stats
+                         organizer_dashboard_stats,
+                         participant_joined_event,
+                         remove_participant,
+                         remove_all_participants
                          )
 urlpatterns = [
     path('login/', user_login, name='login'),
@@ -31,6 +34,8 @@ urlpatterns = [
          get_event_stats, name='get_event_stats'),
     path('participant/dashboard/', participant_dashboard,
          name='participant_dashboard'),
+    path('participant/dashboard/joined-event', participant_joined_event,
+         name='participant_joined'),
     path('admin/create-group/', create_group, name='create_group'),
     path('admin/change-role/', change_role, name='change_role'),
     path('admin/group-list/', group_list, name='group_list'),
@@ -38,6 +43,10 @@ urlpatterns = [
          delete_group, name='delete_group'),
     path('admin/delete-participants/',
          delete_participant, name='delete_participant'),
+    path('event/<int:event_id>/remove-participant/<int:participant_id>/',
+         remove_participant, name='remove_participant'),
+    path('event/<int:event_id>/remove-all-participants/',
+         remove_all_participants, name='remove_all_participants'),
     path('admin/<int:user_id>/assign-role/', assign_role, name='assign_role'),
 
 ]

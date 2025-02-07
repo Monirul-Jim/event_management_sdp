@@ -25,12 +25,15 @@
                         {{ user.group_name }}
                     </span>
                 </td>
-                <td> <a
-                    href="{% url 'assign_role' user.id %}"
-                    class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
-                >
-                    Change Role
-                </a></td>
+                <td>
+                    <a
+                        href="{% url 'assign_role' user.id %}"
+                        class="inline-block bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-2 px-6 rounded-lg shadow-lg transform transition-all hover:scale-105 hover:from-blue-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
+                    >
+                        Change Role
+                    </a>
+                </td>
+                
             </tr>
             {% empty %}
             <tr>
