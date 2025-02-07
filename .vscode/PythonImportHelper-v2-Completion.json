@@ -1826,7 +1826,7 @@
         "kind": 2,
         "importPath": "users.views",
         "description": "users.views",
-        "peekOfCode": "def assign_role(request, user_id):\n    user = User.objects.get(id=user_id)\n    form = AssignRoleForm()\n    if request.method == 'POST':\n        form = AssignRoleForm(request.POST)\n        if form.is_valid():\n            role = form.cleaned_data.get('role')\n            user.groups.clear()  # Remove old roles\n            user.groups.add(role)\n            messages.success(request, f\"User {",
+        "peekOfCode": "def assign_role(request, user_id):\n    user = User.objects.get(id=user_id)\n    form = AssignRoleForm()\n    if request.method == 'POST':\n        form = AssignRoleForm(request.POST)\n        if form.is_valid():\n            role = form.cleaned_data.get('role')\n            user.groups.clear()  # Remove old roles\n            user.groups.add(role)\n            messages.success(",
         "detail": "users.views",
         "documentation": {}
     },
@@ -1835,7 +1835,7 @@
         "kind": 2,
         "importPath": "users.views",
         "description": "users.views",
-        "peekOfCode": "def create_group(request):\n    form = CreateGroupForm()\n    if request.method == 'POST':\n        form = CreateGroupForm(request.POST)\n        if form.is_valid():\n            group = form.save()\n            messages.success(request, f\"Group {\n                             group.name} has been created successfully\")\n            return redirect('create_group')\n    return render(request, 'admin/create_group.html', {'form': form})",
+        "peekOfCode": "def create_group(request):\n    form = CreateGroupForm()\n    if request.method == 'POST':\n        form = CreateGroupForm(request.POST)\n        if form.is_valid():\n            group = form.save()\n            messages.success(\n                request, f\"Group {group.name} has been created successfully\")\n            return redirect('create_group')\n    return render(request, 'admin/create_group.html', {'form': form})",
         "detail": "users.views",
         "documentation": {}
     },
@@ -1862,7 +1862,7 @@
         "kind": 2,
         "importPath": "users.views",
         "description": "users.views",
-        "peekOfCode": "def delete_group(request, group_id):\n    group = get_object_or_404(Group, id=group_id)\n    if request.method == \"POST\":\n        group.delete()\n        messages.success(request, f\"Group '{\n                         group.name}' has been deleted successfully.\")\n        return redirect('group_list')  # Redirect to the groups list page\n    return render(request, 'admin/delete_group.html', {\"group\": group})\n@user_passes_test(is_admin, login_url='no-permission')\ndef delete_participant(request):",
+        "peekOfCode": "def delete_group(request, group_id):\n    group = get_object_or_404(Group, id=group_id)\n    if request.method == \"POST\":\n        group.delete()\n        messages.success(\n            request, f\"Group '{group.name}' has been deleted successfully.\")\n        return redirect('group_list')  # Redirect to the groups list page\n    return render(request, 'admin/delete_group.html', {\"group\": group})\n@user_passes_test(is_admin, login_url='no-permission')\ndef delete_participant(request):",
         "detail": "users.views",
         "documentation": {}
     },
