@@ -89,46 +89,16 @@
                 </button>
             </form>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {% for event in events %}
-                <a href="{% url 'event_detail' event.id %}" class="block bg-blue-500 text-white font-medium rounded-lg py-2 transition hover:bg-blue-600" >
-                <div class="bg-white shadow-lg hover:shadow-2xl rounded-lg overflow-hidden transition-shadow duration-300 flex flex-col">
-                  {% if event.image %}
-                  <div class="w-full h-48 bg-gray-200">
-                    <img src="{{ event.image }}" alt="{{ event.name }}" class="w-full h-full object-cover">
-                  </div>
-                  {% endif %}
-                  <div class="p-6 flex-grow flex flex-col">
-                    <h2 class="text-2xl font-bold text-gray-800 mb-2">{{ event.name }}</h2>
-                    <p class="text-sm text-gray-500 mb-4">{{ event.category }}</p>
-                    <div class="text-gray-600 text-sm space-y-1 mb-4">
-                      <p><strong>Date:</strong> {{ event.date }}</p>
-                      <p><strong>Time:</strong> {{ event.time }}</p>
-                      <p><strong>Location:</strong> {{ event.location }}</p>
-                      <p><strong>Participants:</strong> {{ event.participant_count }}</p>
-                    </div>
-                    <p class="text-gray-700 leading-relaxed mb-4">{{ event.description|truncatewords:20 }}</p>
-                  
-                    <div class="mt-auto">
-                        <button  class="block w-full text-center bg-blue-500 text-white font-medium rounded-lg py-2 transition hover:bg-blue-600">
-                            Join Event
-                          </button>
-                    </div>
-                  </div>
-                </div>
-                     </a>
-                {% empty %}
-                <p class="text-gray-600 text-center col-span-full">No events available.</p>
-                {% endfor %}
-            </div>
+            
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {% for event in events %}
                 <div class="bg-white shadow-lg hover:shadow-2xl rounded-lg overflow-hidden transition-shadow duration-300 flex flex-col">
-                    {% if event.image %}
+                    {% comment %} {% if event.image %} {% endcomment %}
                     <div class="w-full h-48 bg-gray-200">
-                        <img src="{{ event.image }}" alt="{{ event.name }}" class="w-full h-full object-cover">
+                        {% comment %} <img src="{{ event.image.url }}" alt="{{ event.name }}" class="w-full h-full object-cover"> {% endcomment %}
+                        <img src="{% if event.image %}{{ event.image.url }}{% else %}https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyvetnLOz5AF4JPJGxqw0EJpwpBHl9swwqww&s{% endif %}" alt="{{ event.name }}"  class="w-full h-full object-cover">
                     </div>
-                    {% endif %}
+                    {% comment %} {% endif %} {% endcomment %}
                     <div class="p-6 flex-grow flex flex-col">
                         <h2 class="text-2xl font-bold text-gray-800 mb-2">{{ event.name }}</h2>
                         <p class="text-sm text-gray-500 mb-4">{{ event.category }}</p>
@@ -136,14 +106,65 @@
                             <p><strong>Date:</strong> {{ event.date }}</p>
                             <p><strong>Time:</strong> {{ event.time }}</p>
                             <p><strong>Location:</strong> {{ event.location }}</p>
-                            <p><strong>Participants:</strong> {{ event.participants.count }}</p>
+                            {% comment %} <p><strong>Participants:</strong> {{ event.participants.count }}</p> {% endcomment %}
+                            <p><strong>Participants:</strong> <span id="participant-count-{{ event.id }}">{{ event.participants.count }}</span></p>
+
                         </div>
                         <p class="text-gray-700 leading-relaxed mb-4">{{ event.description|truncatewords:20 }}</p>
-                        <div class="mt-auto flex gap-2">
+                        {% comment %} <div class="mt-auto flex gap-2">
                             <button onclick="joinEvent({{ event.id }})" 
                                 class="flex-1 text-center bg-blue-500 text-white font-medium rounded-lg py-2 px-4 transition hover:bg-blue-600">
                                 Join Event
                             </button>
+                            <a href="{% url 'event_detail' event.id %}" 
+                                class="flex-1 text-center bg-gray-200 text-gray-800 font-medium rounded-lg py-2 px-4 transition hover:bg-gray-300">
+                                See Details
+                            </a>
+                        </div> {% endcomment %}
+                        {% comment %} <div class="mt-auto flex gap-2">
+                            {% if user.is_authenticated %}
+                                {% if user in event.participants.all %}
+                                    <button id="join-btn-{{ event.id }}" 
+                                        class="flex-1 text-center bg-green-500 text-white font-medium rounded-lg py-2 px-4" disabled>
+                                        Joined
+                                    </button>
+                                {% else %}
+                                    <button onclick="joinEvent({{ event.id }})" id="join-btn-{{ event.id }}" 
+                                        class="flex-1 text-center bg-blue-500 text-white font-medium rounded-lg py-2 px-4 transition hover:bg-blue-600">
+                                        Join Event
+                                    </button>
+                                {% endif %}
+                            {% else %}
+                                <a href="{% url 'login' %}?next={{ request.path }}" 
+                                    class="flex-1 text-center bg-red-500 text-white font-medium rounded-lg py-2 px-4 transition hover:bg-red-600">
+                                    Login to Join
+                                </a>
+                            {% endif %}
+                            <a href="{% url 'event_detail' event.id %}" 
+                                class="flex-1 text-center bg-gray-200 text-gray-800 font-medium rounded-lg py-2 px-4 transition hover:bg-gray-300">
+                                See Details
+                            </a>
+                        </div> {% endcomment %}
+                        
+                        <div class="mt-auto flex gap-2">
+                            {% if user.is_authenticated %}
+                                {% if event.is_joined %}
+                                    <button id="join-btn-{{ event.id }}" 
+                                        class="flex-1 text-center bg-green-500 text-white font-medium rounded-lg py-2 px-4" disabled>
+                                        Joined
+                                    </button>
+                                {% else %}
+                                    <button onclick="joinEvent({{ event.id }})" id="join-btn-{{ event.id }}" 
+                                        class="flex-1 text-center bg-blue-500 text-white font-medium rounded-lg py-2 px-4 transition hover:bg-blue-600">
+                                        Join Event
+                                    </button>
+                                {% endif %}
+                            {% else %}
+                                <a href="{% url 'login' %}?next={{ request.path }}" 
+                                    class="flex-1 text-center bg-red-500 text-white font-medium rounded-lg py-2 px-4 transition hover:bg-red-600">
+                                    Login to Join
+                                </a>
+                            {% endif %}
                             <a href="{% url 'event_detail' event.id %}" 
                                 class="flex-1 text-center bg-gray-200 text-gray-800 font-medium rounded-lg py-2 px-4 transition hover:bg-gray-300">
                                 See Details
@@ -329,21 +350,49 @@
             filterSection.scrollIntoView({ behavior: 'smooth' });
         }
     }
-        function joinEvent(eventId) {
-            fetch(`/event/${eventId}/join/`, {
-                method: "POST",
-                headers: {
-                    "X-CSRFToken": "{{ csrf_token }}",
-                    "Content-Type": "application/json"
-                }
-            }).then(response => {
-                if (response.ok) {
-                    location.reload();
-                }
-            });
-        }
+     
+    function joinEvent(eventId) {
+        fetch(`/event/${eventId}/join/`, {
+            method: "POST",
+            headers: {
+                "X-CSRFToken": "{{ csrf_token }}",
+                "Content-Type": "application/json"
+            }
+        }).then(response => response.json())
+          .then(data => {
+              if (data.status === "joined") {
+                  let btn = document.getElementById(`join-btn-${eventId}`);
+                  let participantCount = document.getElementById(`participant-count-${eventId}`);
+    
+                  // Update button to "Joined"
+                  btn.innerText = "Joined";
+                  btn.classList.remove("bg-blue-500", "hover:bg-blue-600");
+                  btn.classList.add("bg-green-500");
+                  btn.disabled = true;
+    
+                  // Update participant count dynamically
+                  participantCount.innerText = data.participants_count;
+              }
+          });
+    }
+    
+        
 </script>
 
 </body>
 </html>
 {% endblock%}
+
+{% comment %} function joinEvent(eventId) {
+    fetch(`/event/${eventId}/join/`, {
+        method: "POST",
+        headers: {
+            "X-CSRFToken": "{{ csrf_token }}",
+            "Content-Type": "application/json"
+        }
+    }).then(response => {
+        if (response.ok) {
+            location.reload();
+        }
+    });
+} {% endcomment %}

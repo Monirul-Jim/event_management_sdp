@@ -1,0 +1,37 @@
+{% extends "base_dashboard.html" %}
+{% block content %}
+    <div class="container mx-auto p-8">
+        <h1 class="text-3xl font-semibold mb-6 text-center">Welcome to Your Dashboard, {{ request.user.username }}!</h1>
+
+        <!-- Profile Information Section -->
+        <div class="bg-white shadow-lg rounded-lg p-6 mb-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Your Profile Information</h2>
+            <p class="text-gray-600 mb-4">Here’s a quick view of your profile details:</p>
+            <div class="space-y-2">
+                <p class="text-lg text-gray-700">Username: <strong>{{ request.user.username }}</strong></p>
+                <p class="text-lg text-gray-700">First Name: <strong>{{ request.user.first_name }}</strong></p>
+                <p class="text-lg text-gray-700">Last Name: <strong>{{ request.user.last_name }}</strong></p>
+                <p class="text-lg text-gray-700">Email: <strong>{{ request.user.email }}</strong></p>
+            </div>
+           
+        </div>
+
+        <div class="bg-white shadow-lg rounded-lg p-6 mb-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">System Tips</h2>
+            <p class="text-gray-600">Here are some helpful tips to get the most out of our Event Management System:</p>
+            <ul class="space-y-2 mt-4">
+                <li class="text-gray-700">Create your own events and invite friends.</li>
+                <li class="text-gray-700">Keep an eye on your upcoming events and join new ones!</li>
+                <li class="text-gray-700">Stay updated with notifications and reminders for your events.</li>
+                <li class="text-gray-700">Easily track participants and manage event details from your dashboard.</li>
+            </ul>
+        </div>
+
+        <!-- Additional Info Section -->
+        <div class="bg-white shadow-lg rounded-lg p-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Need Help?</h2>
+            <p class="text-gray-600">If you have any questions or need assistance, feel free to reach out to our support team!</p>
+            <p class="mt-4 inline-block px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Contact Support</p>
+        </div>
+    </div>
+{% endblock %}

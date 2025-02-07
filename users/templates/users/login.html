@@ -36,8 +36,15 @@
                     <label for="show-password" class="text-sm text-gray-600">Show Password</label>
                 </div>
                 
-                <button type="submit" class="w-full py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition duration-200">Register</button>
+                <button type="submit" class="w-full py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition duration-200">Login</button>
             </form>
+            <p class="text-sm text-gray-600 mt-4">
+                Do not have an account? 
+                <a href="{% url 'register' %}" class="font-semibold text-indigo-500 hover:text-indigo-600 transition duration-300">
+                    Register
+                </a>
+            </p>
+            
 
             <div class="mt-4">
                 {% if messages %}

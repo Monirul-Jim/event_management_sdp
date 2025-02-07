@@ -9,7 +9,6 @@
 <body>
     <div class="flex h-screen">
         <div id="sidebar" class="w-1/4 bg-gray-800 text-white p-6 space-y-6 hidden lg:block">
-            <h2 class="text-2xl font-semibold">Admin Panel</h2>
              {% comment %} <nav class="space-y-4">
                 <a href="{% url 'admin_dashboard' %}" class="block py-2 px-4 rounded hover:bg-gray-700">Dashboard</a>
                 <a href="{% url 'create_group' %}" class="block py-2 px-4 rounded hover:bg-gray-700">Create Group</a>
@@ -26,8 +25,8 @@
                     <a href="{% url 'create_group' %}" class="block py-2 px-4 rounded hover:bg-gray-700">Create Group</a>
                     <a href="{% url 'group_list' %}" class="block py-2 px-4 rounded hover:bg-gray-700">Group List</a>
                     <a href="{% url 'change_role' %}" class="block py-2 px-4 rounded hover:bg-gray-700">Change Role</a>
-                    <a href="{% url 'home' %}" class="block py-2 px-4 rounded hover:bg-gray-700">Category</a>
-                    <a href="{% url 'home' %}" class="block py-2 px-4 rounded hover:bg-gray-700">Events</a>
+                    <a href="{% url 'organizer_category' %}" class="block py-2 px-4 rounded hover:bg-gray-700">Category</a>
+                    <a href="{% url 'organizer_event' %}" class="block py-2 px-4 rounded hover:bg-gray-700">Events</a>
                     <a href="{% url 'delete_participant' %}" class="block py-2 px-4 rounded hover:bg-gray-700">Delete Participants</a>
                 {% elif request.user.groups.all.0.name == "Organizer" %}
                     <a href="{% url 'organizer_dashboard' %}" class="block py-2 px-4 rounded hover:bg-gray-700">Dashboard</a>
@@ -36,6 +35,7 @@
                     <a href="{% url 'organizer_dashboard_stats' %}" class="block py-2 px-4 rounded hover:bg-gray-700">Stats</a>
                 {% elif request.user.groups.all.0.name == "Participant" %}
                     <a href="{% url 'participant_dashboard' %}" class="block py-2 px-4 rounded hover:bg-gray-700">Dashboard</a>
+                    <a href="{% url 'participant_joined' %}" class="block py-2 px-4 rounded hover:bg-gray-700">Your Event</a>
                 {% endif %}
                 <a href="{% url 'home' %}" class="block py-2 mt-8 px-4 rounded hover:bg-gray-700">Home</a>
             </nav> 
@@ -60,12 +60,26 @@
                     &times;
                 </button>
                 <h2 class="text-2xl font-semibold text-white">Admin Panel</h2>
-                <nav class="space-y-4">
-                    <a href="#" class="block py-2 px-4 rounded text-white hover:bg-gray-700">Dashboard</a>
-                    <a href="#" class="block py-2 px-4 rounded text-white hover:bg-gray-700">Create Event</a>
-                    <a href="#" class="block py-2 px-4 rounded text-white hover:bg-gray-700">Manage Users</a>
-                    <a href="#" class="block py-2 px-4 rounded text-white hover:bg-gray-700">Settings</a>
-                </nav>
+                <nav class="space-y-4 text-white">
+                    {% if request.user.groups.all.0.name == "Admin" %}
+                        <a href="{% url 'admin_dashboard' %}" class="block py-2 px-4 rounded hover:bg-gray-700">Dashboard</a>
+                        <a href="{% url 'create_group' %}" class="block py-2 px-4 rounded hover:bg-gray-700">Create Group</a>
+                        <a href="{% url 'group_list' %}" class="block py-2 px-4 rounded hover:bg-gray-700">Group List</a>
+                        <a href="{% url 'change_role' %}" class="block py-2 px-4 rounded hover:bg-gray-700">Change Role</a>
+                        <a href="{% url 'organizer_category' %}" class="block py-2 px-4 rounded hover:bg-gray-700">Category</a>
+                        <a href="{% url 'organizer_event' %}" class="block py-2 px-4 rounded hover:bg-gray-700">Events</a>
+                        <a href="{% url 'delete_participant' %}" class="block py-2 px-4 rounded hover:bg-gray-700">Delete Participants</a>
+                    {% elif request.user.groups.all.0.name == "Organizer" %}
+                        <a href="{% url 'organizer_dashboard' %}" class="block py-2 px-4 rounded hover:bg-gray-700">Dashboard</a>
+                        <a href="{% url 'organizer_category' %}" class="block py-2 px-4 rounded hover:bg-gray-700">Category</a>
+                        <a href="{% url 'organizer_event' %}" class="block py-2 px-4 rounded hover:bg-gray-700">Events</a>
+                        <a href="{% url 'organizer_dashboard_stats' %}" class="block py-2 px-4 rounded hover:bg-gray-700">Stats</a>
+                    {% elif request.user.groups.all.0.name == "Participant" %}
+                        <a href="{% url 'participant_dashboard' %}" class="block py-2 px-4 rounded hover:bg-gray-700">Dashboard</a>
+                        <a href="{% url 'participant_joined' %}" class="block py-2 px-4 rounded hover:bg-gray-700">Your Event</a>
+                    {% endif %}
+                    <a href="{% url 'home' %}" class="block py-2 mt-8 px-4 rounded hover:bg-gray-700">Home</a>
+                </nav> 
             </div>
         </div>
     </div>

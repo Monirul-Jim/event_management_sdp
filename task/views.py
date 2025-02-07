@@ -1,3 +1,5 @@
+from .models import Event, Category, Participant
+from datetime import date, datetime
 from django.db.models import Count, Prefetch
 from .models import Event
 from django.shortcuts import render
@@ -12,6 +14,7 @@ from django.http import JsonResponse
 from django.db.models import Q
 from datetime import date
 from datetime import datetime
+from django.contrib.auth.models import Group
 
 
 def category_list(request):
@@ -138,12 +141,56 @@ def participant_list(request):
     })
 
 
+# @login_required
+# def join_event(request, event_id):
+#     event = get_object_or_404(Event, id=event_id)
+#     participant, created = Participant.objects.get_or_create(user=request.user)
+#     participant.events.add(event)
+#     return redirect('event_detail', event_id=event.id)
+
+# @login_required
+# def join_event(request, event_id):
+#     event = get_object_or_404(Event, id=event_id)
+
+#     # Get or create the participant
+#     participant, created = Participant.objects.get_or_create(user=request.user)
+
+#     # Add the user to the event
+#     participant.events.add(event)
+
+#     # Ensure that the groups "User" and "Participant" exist
+#     user_group = Group.objects.get(name='User')
+#     participant_group = Group.objects.get(name='Participant')
+
+#     # Remove the user from the "User" group and add them to the "Participant" group
+#     request.user.groups.remove(user_group)
+#     request.user.groups.add(participant_group)
+
+#     # Redirect to the event detail page
+#     return redirect('event_detail', event_id=event.id)
+
+
 @login_required
 def join_event(request, event_id):
     event = get_object_or_404(Event, id=event_id)
     participant, created = Participant.objects.get_or_create(user=request.user)
+
+    # Check if the user is already in the event
+    if event in participant.events.all():
+        return JsonResponse({"status": "already_joined", "participants_count": event.participants.count()}, status=400)
+
+    # Add the user to the event
     participant.events.add(event)
-    return redirect('event_detail', event_id=event.id)
+
+    # Handle user groups
+    user_group, _ = Group.objects.get_or_create(name='User')
+    participant_group, _ = Group.objects.get_or_create(name='Participant')
+
+    request.user.groups.remove(user_group)
+    request.user.groups.add(participant_group)
+
+    # Return updated participant count
+    return JsonResponse({"status": "joined", "participants_count": event.participants.count()})
 
 
 def organizer_dashboard(request):
@@ -224,6 +271,42 @@ def event_detail(request, event_id):
 #     return render(request, 'home.html', {'events': events, 'upcoming_events': upcoming_events})
 
 
+# def home(request):
+#     today = date.today()
+
+#     selected_category = request.GET.get('category')
+#     selected_date = request.GET.get('date')
+
+#     if selected_date:
+#         try:
+#             selected_date = datetime.strptime(selected_date, "%Y-%m-%d").date()
+#         except ValueError:
+#             selected_date = None
+
+#     events = Event.objects.annotate(participant_count=Count('participants')) \
+#         .select_related('category') \
+#         .prefetch_related('participants')
+
+#     if selected_category:
+#         events = events.filter(category_id=selected_category)
+
+#     if selected_date:
+#         events = events.filter(date=selected_date)
+
+#     upcoming_dates = Event.objects.filter(
+#         date__gte=today).values_list('date', flat=True).distinct()
+
+#     categories = Category.objects.all()
+
+#     return render(request, 'home.html', {
+#         'events': events,
+#         'categories': categories,
+#         'upcoming_dates': upcoming_dates,
+#         'selected_category': selected_category,
+#         'selected_date': selected_date,
+#     })
+
+
 def home(request):
     today = date.today()
 
@@ -251,6 +334,21 @@ def home(request):
 
     categories = Category.objects.all()
 
+    if request.user.is_authenticated:
+        user_participant = Participant.objects.filter(
+            user=request.user).first()
+        if user_participant:
+            joined_event_ids = set(
+                user_participant.events.values_list('id', flat=True))
+        else:
+            joined_event_ids = set()
+
+        for event in events:
+            event.is_joined = event.id in joined_event_ids
+    else:
+        for event in events:
+            event.is_joined = False
+
     return render(request, 'home.html', {
         'events': events,
         'categories': categories,
@@ -266,3 +364,7 @@ def search_events(request):
         Q(name__icontains=query) | Q(location__icontains=query)
     ) if query else Event.objects.none()
     return render(request, 'task/search_results.html', {'events': events, 'query': query})
+
+
+def no_permission(request):
+    return render(request, 'no_permission.html')
