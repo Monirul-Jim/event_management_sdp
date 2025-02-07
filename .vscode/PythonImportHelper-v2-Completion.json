@@ -1673,7 +1673,7 @@
         "kind": 2,
         "importPath": "users.signals",
         "description": "users.signals",
-        "peekOfCode": "def send_activation_email(sender, instance, created, **kwargs):\n    if created:\n        print(f\"Signal triggered for {instance.email}\")\n        token = default_token_generator.make_token(instance)\n        activation_url = f\"{\n            settings.FRONTEND_URL}/user/activate/{instance.id}/{token}/\"\n        subject = 'Activate Your Account'\n        message = f'Hi {instance.username}, \\n\\nPlease activate your account by clicking the link below: \\n{\n            activation_url}\\n\\nThank You!'\n        recipient_list = [instance.email]",
+        "peekOfCode": "def send_activation_email(sender, instance, created, **kwargs):\n    if created:\n        print(f\"Signal triggered for {instance.email}\")\n        token = default_token_generator.make_token(instance)\n        activation_url = f\"{settings.FRONTEND_URL}/user/activate/{instance.id}/{token}/\"\n        subject = 'Activate Your Account'\n        message = f'Hi {instance.username}, \\n\\nPlease activate your account by clicking the link below: \\n{\n            activation_url}\\n\\nThank You!'\n        recipient_list = [instance.email]\n        try:",
         "detail": "users.signals",
         "documentation": {}
     },
@@ -1691,7 +1691,7 @@
         "kind": 5,
         "importPath": "users.signals",
         "description": "users.signals",
-        "peekOfCode": "User = get_user_model()\n@receiver(post_save, sender=User)\ndef send_activation_email(sender, instance, created, **kwargs):\n    if created:\n        print(f\"Signal triggered for {instance.email}\")\n        token = default_token_generator.make_token(instance)\n        activation_url = f\"{\n            settings.FRONTEND_URL}/user/activate/{instance.id}/{token}/\"\n        subject = 'Activate Your Account'\n        message = f'Hi {instance.username}, \\n\\nPlease activate your account by clicking the link below: \\n{",
+        "peekOfCode": "User = get_user_model()\n@receiver(post_save, sender=User)\ndef send_activation_email(sender, instance, created, **kwargs):\n    if created:\n        print(f\"Signal triggered for {instance.email}\")\n        token = default_token_generator.make_token(instance)\n        activation_url = f\"{settings.FRONTEND_URL}/user/activate/{instance.id}/{token}/\"\n        subject = 'Activate Your Account'\n        message = f'Hi {instance.username}, \\n\\nPlease activate your account by clicking the link below: \\n{\n            activation_url}\\n\\nThank You!'",
         "detail": "users.signals",
         "documentation": {}
     },
