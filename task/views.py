@@ -56,8 +56,6 @@ def category_list(request):
 
 
 def event_list(request):
-    # events = Event.objects.all()
-    # categories = Category.objects.all()
     events = Event.objects.select_related('category').all()
     categories = Category.objects.prefetch_related('events').all()
     event_to_edit = None
@@ -100,7 +98,6 @@ def event_list(request):
 
 
 def participant_list(request):
-    # participants = Participant.objects.all()
     participants = Participant.objects.prefetch_related('events').all()
 
     form = ParticipantForm()
@@ -141,55 +138,22 @@ def participant_list(request):
     })
 
 
-# @login_required
-# def join_event(request, event_id):
-#     event = get_object_or_404(Event, id=event_id)
-#     participant, created = Participant.objects.get_or_create(user=request.user)
-#     participant.events.add(event)
-#     return redirect('event_detail', event_id=event.id)
-
-# @login_required
-# def join_event(request, event_id):
-#     event = get_object_or_404(Event, id=event_id)
-
-#     # Get or create the participant
-#     participant, created = Participant.objects.get_or_create(user=request.user)
-
-#     # Add the user to the event
-#     participant.events.add(event)
-
-#     # Ensure that the groups "User" and "Participant" exist
-#     user_group = Group.objects.get(name='User')
-#     participant_group = Group.objects.get(name='Participant')
-
-#     # Remove the user from the "User" group and add them to the "Participant" group
-#     request.user.groups.remove(user_group)
-#     request.user.groups.add(participant_group)
-
-#     # Redirect to the event detail page
-#     return redirect('event_detail', event_id=event.id)
-
-
 @login_required
 def join_event(request, event_id):
     event = get_object_or_404(Event, id=event_id)
     participant, created = Participant.objects.get_or_create(user=request.user)
 
-    # Check if the user is already in the event
     if event in participant.events.all():
         return JsonResponse({"status": "already_joined", "participants_count": event.participants.count()}, status=400)
 
-    # Add the user to the event
     participant.events.add(event)
 
-    # Handle user groups
     user_group, _ = Group.objects.get_or_create(name='User')
     participant_group, _ = Group.objects.get_or_create(name='Participant')
 
     request.user.groups.remove(user_group)
     request.user.groups.add(participant_group)
 
-    # Return updated participant count
     return JsonResponse({"status": "joined", "participants_count": event.participants.count()})
 
 
@@ -250,61 +214,12 @@ def get_events(request):
     return JsonResponse({'events': event_list})
 
 
-# def event_detail(request, event_id):
-#     event = get_object_or_404(Event, id=event_id)
-#     participants = event.participants.all()
-#     return render(request, 'event_detail.html', {'event': event, 'participants': participants})
-
 def event_detail(request, event_id):
     event = get_object_or_404(Event.objects.select_related(
         'category').prefetch_related('participants'), id=event_id)
     participants = event.participants.all()
 
     return render(request, 'event_detail.html', {'event': event, 'participants': participants})
-
-# def home(request):
-#     today = date.today()
-#     events = Event.objects.annotate(
-#         participant_count=Count('participants')).all()
-#     upcoming_events = Event.objects.filter(date__gte=today).annotate(
-#         participant_count=Count('participants')).order_by('date')
-#     return render(request, 'home.html', {'events': events, 'upcoming_events': upcoming_events})
-
-
-# def home(request):
-#     today = date.today()
-
-#     selected_category = request.GET.get('category')
-#     selected_date = request.GET.get('date')
-
-#     if selected_date:
-#         try:
-#             selected_date = datetime.strptime(selected_date, "%Y-%m-%d").date()
-#         except ValueError:
-#             selected_date = None
-
-#     events = Event.objects.annotate(participant_count=Count('participants')) \
-#         .select_related('category') \
-#         .prefetch_related('participants')
-
-#     if selected_category:
-#         events = events.filter(category_id=selected_category)
-
-#     if selected_date:
-#         events = events.filter(date=selected_date)
-
-#     upcoming_dates = Event.objects.filter(
-#         date__gte=today).values_list('date', flat=True).distinct()
-
-#     categories = Category.objects.all()
-
-#     return render(request, 'home.html', {
-#         'events': events,
-#         'categories': categories,
-#         'upcoming_dates': upcoming_dates,
-#         'selected_category': selected_category,
-#         'selected_date': selected_date,
-#     })
 
 
 def home(request):

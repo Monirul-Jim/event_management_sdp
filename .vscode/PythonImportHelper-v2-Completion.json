@@ -233,6 +233,14 @@
         "documentation": {}
     },
     {
+        "label": "template",
+        "importPath": "django",
+        "description": "django",
+        "isExtraImport": true,
+        "detail": "django",
+        "documentation": {}
+    },
+    {
         "label": "forms",
         "importPath": "django",
         "description": "django",
@@ -425,6 +433,14 @@
         "documentation": {}
     },
     {
+        "label": "reverse_lazy",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
         "label": "home",
         "importPath": "task.views",
         "description": "task.views",
@@ -545,6 +561,14 @@
         "documentation": {}
     },
     {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "Count",
         "importPath": "django.db.models",
         "description": "django.db.models",
@@ -617,30 +641,6 @@
         "documentation": {}
     },
     {
-        "label": "redirect",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
-        "isExtraImport": true,
-        "detail": "django.shortcuts",
-        "documentation": {}
-    },
-    {
-        "label": "render",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
-        "isExtraImport": true,
-        "detail": "django.shortcuts",
-        "documentation": {}
-    },
-    {
-        "label": "get_object_or_404",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
-        "isExtraImport": true,
-        "detail": "django.shortcuts",
-        "documentation": {}
-    },
-    {
         "label": "render",
         "importPath": "django.shortcuts",
         "description": "django.shortcuts",
@@ -658,6 +658,14 @@
     },
     {
         "label": "HttpResponse",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "get_object_or_404",
         "importPath": "django.shortcuts",
         "description": "django.shortcuts",
         "isExtraImport": true,
@@ -686,6 +694,14 @@
         "description": "django.contrib.auth.decorators",
         "isExtraImport": true,
         "detail": "django.contrib.auth.decorators",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "django.utils",
+        "description": "django.utils",
+        "isExtraImport": true,
+        "detail": "django.utils",
         "documentation": {}
     },
     {
@@ -803,6 +819,30 @@
         "documentation": {}
     },
     {
+        "label": "PasswordChangeForm",
+        "importPath": "django.contrib.auth.forms",
+        "description": "django.contrib.auth.forms",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.forms",
+        "documentation": {}
+    },
+    {
+        "label": "PasswordResetForm",
+        "importPath": "django.contrib.auth.forms",
+        "description": "django.contrib.auth.forms",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.forms",
+        "documentation": {}
+    },
+    {
+        "label": "SetPasswordForm",
+        "importPath": "django.contrib.auth.forms",
+        "description": "django.contrib.auth.forms",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.forms",
+        "documentation": {}
+    },
+    {
         "label": "get_user_model",
         "importPath": "django.contrib.auth",
         "description": "django.contrib.auth",
@@ -851,16 +891,7 @@
         "documentation": {}
     },
     {
-        "label": "users.views",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "users.views",
-        "description": "users.views",
-        "detail": "users.views",
-        "documentation": {}
-    },
-    {
-        "label": "user_login",
+        "label": "UserLoginView",
         "importPath": "users.views",
         "description": "users.views",
         "isExtraImport": true,
@@ -868,7 +899,7 @@
         "documentation": {}
     },
     {
-        "label": "user_register",
+        "label": "UserRegisterView",
         "importPath": "users.views",
         "description": "users.views",
         "isExtraImport": true,
@@ -876,7 +907,7 @@
         "documentation": {}
     },
     {
-        "label": "activate_user",
+        "label": "ActivateUserView",
         "importPath": "users.views",
         "description": "users.views",
         "isExtraImport": true,
@@ -932,7 +963,7 @@
         "documentation": {}
     },
     {
-        "label": "assign_role",
+        "label": "AssignRoleView",
         "importPath": "users.views",
         "description": "users.views",
         "isExtraImport": true,
@@ -940,7 +971,7 @@
         "documentation": {}
     },
     {
-        "label": "dashboard_redirect",
+        "label": "DashboardRedirectView",
         "importPath": "users.views",
         "description": "users.views",
         "isExtraImport": true,
@@ -1028,6 +1059,78 @@
         "documentation": {}
     },
     {
+        "label": "ProfileViews",
+        "importPath": "users.views",
+        "description": "users.views",
+        "isExtraImport": true,
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "ChangePassword",
+        "importPath": "users.views",
+        "description": "users.views",
+        "isExtraImport": true,
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "CustomPasswordResetView",
+        "importPath": "users.views",
+        "description": "users.views",
+        "isExtraImport": true,
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "CustomPasswordResetConfirmView",
+        "importPath": "users.views",
+        "description": "users.views",
+        "isExtraImport": true,
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "PasswordChangeView",
+        "importPath": "django.contrib.auth.views",
+        "description": "django.contrib.auth.views",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.views",
+        "documentation": {}
+    },
+    {
+        "label": "PasswordChangeDoneView",
+        "importPath": "django.contrib.auth.views",
+        "description": "django.contrib.auth.views",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.views",
+        "documentation": {}
+    },
+    {
+        "label": "PasswordChangeView",
+        "importPath": "django.contrib.auth.views",
+        "description": "django.contrib.auth.views",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.views",
+        "documentation": {}
+    },
+    {
+        "label": "PasswordResetView",
+        "importPath": "django.contrib.auth.views",
+        "description": "django.contrib.auth.views",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.views",
+        "documentation": {}
+    },
+    {
+        "label": "PasswordResetConfirmView",
+        "importPath": "django.contrib.auth.views",
+        "description": "django.contrib.auth.views",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.views",
+        "documentation": {}
+    },
+    {
         "label": "CustomRegistrationForm",
         "importPath": "users.forms",
         "description": "users.forms",
@@ -1060,6 +1163,30 @@
         "documentation": {}
     },
     {
+        "label": "CustomPasswordChangeForm",
+        "importPath": "users.forms",
+        "description": "users.forms",
+        "isExtraImport": true,
+        "detail": "users.forms",
+        "documentation": {}
+    },
+    {
+        "label": "CustomPasswordResetForm",
+        "importPath": "users.forms",
+        "description": "users.forms",
+        "isExtraImport": true,
+        "detail": "users.forms",
+        "documentation": {}
+    },
+    {
+        "label": "CustomPasswordResetConfirmForm",
+        "importPath": "users.forms",
+        "description": "users.forms",
+        "isExtraImport": true,
+        "detail": "users.forms",
+        "documentation": {}
+    },
+    {
         "label": "EventForm",
         "importPath": "task.forms",
         "description": "task.forms",
@@ -1081,6 +1208,38 @@
         "description": "task.forms",
         "isExtraImport": true,
         "detail": "task.forms",
+        "documentation": {}
+    },
+    {
+        "label": "FormView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "TemplateView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "View",
+        "importPath": "django.views",
+        "description": "django.views",
+        "isExtraImport": true,
+        "detail": "django.views",
+        "documentation": {}
+    },
+    {
+        "label": "UserPassesTestMixin",
+        "importPath": "django.contrib.auth.mixins",
+        "description": "django.contrib.auth.mixins",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.mixins",
         "documentation": {}
     },
     {
@@ -1232,7 +1391,7 @@
         "kind": 2,
         "importPath": "task.views",
         "description": "task.views",
-        "peekOfCode": "def event_list(request):\n    # events = Event.objects.all()\n    # categories = Category.objects.all()\n    events = Event.objects.select_related('category').all()\n    categories = Category.objects.prefetch_related('events').all()\n    event_to_edit = None\n    form = EventForm()\n    if request.method == \"POST\":\n        if \"create\" in request.POST:\n            form = EventForm(request.POST)",
+        "peekOfCode": "def event_list(request):\n    events = Event.objects.select_related('category').all()\n    categories = Category.objects.prefetch_related('events').all()\n    event_to_edit = None\n    form = EventForm()\n    if request.method == \"POST\":\n        if \"create\" in request.POST:\n            form = EventForm(request.POST)\n            if form.is_valid():\n                form.save()",
         "detail": "task.views",
         "documentation": {}
     },
@@ -1241,7 +1400,7 @@
         "kind": 2,
         "importPath": "task.views",
         "description": "task.views",
-        "peekOfCode": "def participant_list(request):\n    # participants = Participant.objects.all()\n    participants = Participant.objects.prefetch_related('events').all()\n    form = ParticipantForm()\n    participant_to_edit = None\n    if request.method == \"POST\":\n        if \"create\" in request.POST:\n            form = ParticipantForm(request.POST)\n            if form.is_valid():\n                form.save()",
+        "peekOfCode": "def participant_list(request):\n    participants = Participant.objects.prefetch_related('events').all()\n    form = ParticipantForm()\n    participant_to_edit = None\n    if request.method == \"POST\":\n        if \"create\" in request.POST:\n            form = ParticipantForm(request.POST)\n            if form.is_valid():\n                form.save()\n                return redirect(\"participant_list\")",
         "detail": "task.views",
         "documentation": {}
     },
@@ -1250,7 +1409,7 @@
         "kind": 2,
         "importPath": "task.views",
         "description": "task.views",
-        "peekOfCode": "def join_event(request, event_id):\n    event = get_object_or_404(Event, id=event_id)\n    participant, created = Participant.objects.get_or_create(user=request.user)\n    # Check if the user is already in the event\n    if event in participant.events.all():\n        return JsonResponse({\"status\": \"already_joined\", \"participants_count\": event.participants.count()}, status=400)\n    # Add the user to the event\n    participant.events.add(event)\n    # Handle user groups\n    user_group, _ = Group.objects.get_or_create(name='User')",
+        "peekOfCode": "def join_event(request, event_id):\n    event = get_object_or_404(Event, id=event_id)\n    participant, created = Participant.objects.get_or_create(user=request.user)\n    if event in participant.events.all():\n        return JsonResponse({\"status\": \"already_joined\", \"participants_count\": event.participants.count()}, status=400)\n    participant.events.add(event)\n    user_group, _ = Group.objects.get_or_create(name='User')\n    participant_group, _ = Group.objects.get_or_create(name='Participant')\n    request.user.groups.remove(user_group)\n    request.user.groups.add(participant_group)",
         "detail": "task.views",
         "documentation": {}
     },
@@ -1286,7 +1445,7 @@
         "kind": 2,
         "importPath": "task.views",
         "description": "task.views",
-        "peekOfCode": "def event_detail(request, event_id):\n    event = get_object_or_404(Event.objects.select_related(\n        'category').prefetch_related('participants'), id=event_id)\n    participants = event.participants.all()\n    return render(request, 'event_detail.html', {'event': event, 'participants': participants})\n# def home(request):\n#     today = date.today()\n#     events = Event.objects.annotate(\n#         participant_count=Count('participants')).all()\n#     upcoming_events = Event.objects.filter(date__gte=today).annotate(",
+        "peekOfCode": "def event_detail(request, event_id):\n    event = get_object_or_404(Event.objects.select_related(\n        'category').prefetch_related('participants'), id=event_id)\n    participants = event.participants.all()\n    return render(request, 'event_detail.html', {'event': event, 'participants': participants})\ndef home(request):\n    today = date.today()\n    selected_category = request.GET.get('category')\n    selected_date = request.GET.get('date')\n    if selected_date:",
         "detail": "task.views",
         "documentation": {}
     },
@@ -1606,6 +1765,24 @@
         "documentation": {}
     },
     {
+        "label": "humanized_date",
+        "kind": 2,
+        "importPath": "users.templatetags.custom_filters",
+        "description": "users.templatetags.custom_filters",
+        "peekOfCode": "def humanized_date(value):\n    if value:\n        today = datetime.now().date()\n        value = timezone.localtime(value)\n        if value.date() == today:\n            return f\"Today at {value.strftime('%I:%M %p')}\"\n        if value.date() == today.replace(day=today.day - 1):\n            return f\"Yesterday at {value.strftime('%I:%M %p')}\"\n        else:\n            return f\"{value.date().strftime('%B %d')}, {value.strftime('%I:%M %p')}\"",
+        "detail": "users.templatetags.custom_filters",
+        "documentation": {}
+    },
+    {
+        "label": "register",
+        "kind": 5,
+        "importPath": "users.templatetags.custom_filters",
+        "description": "users.templatetags.custom_filters",
+        "peekOfCode": "register = template.Library()\n@register.filter\ndef humanized_date(value):\n    if value:\n        today = datetime.now().date()\n        value = timezone.localtime(value)\n        if value.date() == today:\n            return f\"Today at {value.strftime('%I:%M %p')}\"\n        if value.date() == today.replace(day=today.day - 1):\n            return f\"Yesterday at {value.strftime('%I:%M %p')}\"",
+        "detail": "users.templatetags.custom_filters",
+        "documentation": {}
+    },
+    {
         "label": "UsersConfig",
         "kind": 6,
         "importPath": "users.apps",
@@ -1660,6 +1837,33 @@
         "documentation": {}
     },
     {
+        "label": "CustomPasswordChangeForm",
+        "kind": 6,
+        "importPath": "users.forms",
+        "description": "users.forms",
+        "peekOfCode": "class CustomPasswordChangeForm(PasswordChangeForm):\n    pass\nclass CustomPasswordResetForm(PasswordResetForm):\n    pass\nclass CustomPasswordResetConfirmForm(SetPasswordForm):\n    pass",
+        "detail": "users.forms",
+        "documentation": {}
+    },
+    {
+        "label": "CustomPasswordResetForm",
+        "kind": 6,
+        "importPath": "users.forms",
+        "description": "users.forms",
+        "peekOfCode": "class CustomPasswordResetForm(PasswordResetForm):\n    pass\nclass CustomPasswordResetConfirmForm(SetPasswordForm):\n    pass",
+        "detail": "users.forms",
+        "documentation": {}
+    },
+    {
+        "label": "CustomPasswordResetConfirmForm",
+        "kind": 6,
+        "importPath": "users.forms",
+        "description": "users.forms",
+        "peekOfCode": "class CustomPasswordResetConfirmForm(SetPasswordForm):\n    pass",
+        "detail": "users.forms",
+        "documentation": {}
+    },
+    {
         "label": "User",
         "kind": 5,
         "importPath": "users.forms",
@@ -1700,8 +1904,89 @@
         "kind": 5,
         "importPath": "users.urls",
         "description": "users.urls",
-        "peekOfCode": "urlpatterns = [\n    path('login/', user_login, name='login'),\n    path('register/', user_register, name='register'),\n    path('user-logout/', user_logout, name='logout'),\n    path('activate/<int:user_id>/<str:token>/', activate_user),\n    path('dashboard/', dashboard_redirect, name='dashboard_redirect'),\n    path('admin/dashboard/', admin_dashboard, name='admin_dashboard'),\n    path('organizer/dashboard/', organizer_dashboard, name='organizer_dashboard'),\n    path('organizer/organizer-category/',\n         organizer_category, name='organizer_category'),",
+        "peekOfCode": "urlpatterns = [\n    path('login/', UserLoginView.as_view(), name='login'),\n    path('register/', UserRegisterView.as_view(), name='register'),\n    path('user-logout/', user_logout, name='logout'),\n    path('activate/<int:user_id>/<str:token>/', ActivateUserView.as_view()),\n    path('dashboard/', DashboardRedirectView.as_view(), name='dashboard_redirect'),\n    path('admin/dashboard/', admin_dashboard, name='admin_dashboard'),\n    path('organizer/dashboard/', organizer_dashboard, name='organizer_dashboard'),\n    path('organizer/organizer-category/',\n         organizer_category, name='organizer_category'),",
         "detail": "users.urls",
+        "documentation": {}
+    },
+    {
+        "label": "UserRegisterView",
+        "kind": 6,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "class UserRegisterView(FormView):\n    template_name = 'users/register.html'\n    form_class = CustomRegistrationForm\n    success_url = '/user/login/'  # Redirect after successful registration\n    def form_valid(self, form):\n        user = form.save(commit=False)\n        user.set_password(form.cleaned_data.get('password1'))\n        user.is_active = False\n        user.save()\n        messages.success(",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "UserLoginView",
+        "kind": 6,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "class UserLoginView(FormView):\n    template_name = 'users/login.html'\n    form_class = LoginForm\n    success_url = '/'\n    def form_valid(self, form):\n        user = form.get_user()\n        login(self.request, user)\n        return super().form_valid(form)\ndef user_logout(request):\n    logout(request)",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "ActivateUserView",
+        "kind": 6,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "class ActivateUserView(View):\n    def get(self, request, user_id, token):\n        try:\n            user = User.objects.get(id=user_id)\n            if default_token_generator.check_token(user, token):\n                user.is_active = True\n                user.save()\n                return redirect('login')\n            else:\n                return HttpResponse('Invalid Id or token')",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "DashboardRedirectView",
+        "kind": 6,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "class DashboardRedirectView(View):\n    def get(self, request):\n        user = request.user\n        if user.groups.filter(name=\"Admin\").exists():\n            return redirect('admin_dashboard')\n        elif user.groups.filter(name=\"Organizer\").exists():\n            return redirect('organizer_dashboard')\n        elif user.groups.filter(name=\"Participant\").exists():\n            return redirect('participant_dashboard')\n        else:",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "AssignRoleView",
+        "kind": 6,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "class AssignRoleView(UserPassesTestMixin, FormView):\n    template_name = 'admin/assign_role.html'\n    form_class = AssignRoleForm\n    # Check if the user is an admin\n    def test_func(self):\n        return self.request.user.groups.filter(name='Admin').exists()\n    def get_success_url(self):\n        return reverse_lazy('change_role')\n    def form_valid(self, form):\n        user_id = self.kwargs['user_id']",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "ProfileViews",
+        "kind": 6,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "class ProfileViews(TemplateView):\n    template_name = 'account/profile.html'\n    def get_context_data(self, **kwargs):\n        context = super().get_context_data(**kwargs)\n        user = self.request.user\n        context['username'] = user.username\n        context['first_name'] = user.first_name\n        context['last_name'] = user.last_name\n        context['email'] = user.email\n        context['joined_date'] = user.date_joined",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "ChangePassword",
+        "kind": 6,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "class ChangePassword(PasswordChangeView):\n    template_name = 'account/password_change.html'\n    form_class = CustomPasswordChangeForm\nclass CustomPasswordResetView(PasswordResetView):\n    form_class = CustomPasswordResetForm\n    template_name = 'users/password_reset.html'\n    success_url = reverse_lazy('login')\n    html_email_template_name = 'users/reset_email.html'\n    def get_context_data(self, **kwargs):\n        context = super().get_context_data(**kwargs)",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "CustomPasswordResetView",
+        "kind": 6,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "class CustomPasswordResetView(PasswordResetView):\n    form_class = CustomPasswordResetForm\n    template_name = 'users/password_reset.html'\n    success_url = reverse_lazy('login')\n    html_email_template_name = 'users/reset_email.html'\n    def get_context_data(self, **kwargs):\n        context = super().get_context_data(**kwargs)\n        context['protocol'] = 'https' if self.request.is_secure() else 'http'\n        context['domain'] = self.request.get_host()\n        return context",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "CustomPasswordResetConfirmView",
+        "kind": 6,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "class CustomPasswordResetConfirmView(PasswordResetConfirmView):\n    form_class = CustomPasswordResetConfirmForm\n    template_name = 'users/password_reset_confirm.html'\n    success_url = reverse_lazy('login')\n    def form_valid(self, form):\n        messages.success(\n            self.request, 'Password reset successfully')\n        return super().form_valid(form)",
+        "detail": "users.views",
         "documentation": {}
     },
     {
@@ -1709,7 +1994,7 @@
         "kind": 2,
         "importPath": "users.views",
         "description": "users.views",
-        "peekOfCode": "def is_admin(user):\n    return user.groups.filter(name='Admin').exists()\ndef is_organizer(user):\n    return user.groups.filter(name='Organizer').exists()\ndef is_admin_or_organizer(user):\n    return is_admin(user) or is_organizer(user)\ndef user_register(request):\n    form = CustomRegistrationForm()\n    if request.method == 'POST':\n        form = CustomRegistrationForm(request.POST)",
+        "peekOfCode": "def is_admin(user):\n    return user.groups.filter(name='Admin').exists()\ndef is_organizer(user):\n    return user.groups.filter(name='Organizer').exists()\ndef is_admin_or_organizer(user):\n    return is_admin(user) or is_organizer(user)\n# def user_register(request):\n#     form = CustomRegistrationForm()\n#     if request.method == 'POST':\n#         form = CustomRegistrationForm(request.POST)",
         "detail": "users.views",
         "documentation": {}
     },
@@ -1718,7 +2003,7 @@
         "kind": 2,
         "importPath": "users.views",
         "description": "users.views",
-        "peekOfCode": "def is_organizer(user):\n    return user.groups.filter(name='Organizer').exists()\ndef is_admin_or_organizer(user):\n    return is_admin(user) or is_organizer(user)\ndef user_register(request):\n    form = CustomRegistrationForm()\n    if request.method == 'POST':\n        form = CustomRegistrationForm(request.POST)\n        if form.is_valid():\n            user = form.save(commit=False)",
+        "peekOfCode": "def is_organizer(user):\n    return user.groups.filter(name='Organizer').exists()\ndef is_admin_or_organizer(user):\n    return is_admin(user) or is_organizer(user)\n# def user_register(request):\n#     form = CustomRegistrationForm()\n#     if request.method == 'POST':\n#         form = CustomRegistrationForm(request.POST)\n#         if form.is_valid():\n#             user = form.save(commit=False)",
         "detail": "users.views",
         "documentation": {}
     },
@@ -1727,25 +2012,7 @@
         "kind": 2,
         "importPath": "users.views",
         "description": "users.views",
-        "peekOfCode": "def is_admin_or_organizer(user):\n    return is_admin(user) or is_organizer(user)\ndef user_register(request):\n    form = CustomRegistrationForm()\n    if request.method == 'POST':\n        form = CustomRegistrationForm(request.POST)\n        if form.is_valid():\n            user = form.save(commit=False)\n            user.set_password(form.cleaned_data.get('password1'))\n            user.is_active = False",
-        "detail": "users.views",
-        "documentation": {}
-    },
-    {
-        "label": "user_register",
-        "kind": 2,
-        "importPath": "users.views",
-        "description": "users.views",
-        "peekOfCode": "def user_register(request):\n    form = CustomRegistrationForm()\n    if request.method == 'POST':\n        form = CustomRegistrationForm(request.POST)\n        if form.is_valid():\n            user = form.save(commit=False)\n            user.set_password(form.cleaned_data.get('password1'))\n            user.is_active = False\n            user.save()\n            messages.success(",
-        "detail": "users.views",
-        "documentation": {}
-    },
-    {
-        "label": "user_login",
-        "kind": 2,
-        "importPath": "users.views",
-        "description": "users.views",
-        "peekOfCode": "def user_login(request):\n    form = LoginForm()\n    if request.method == 'POST':\n        form = LoginForm(data=request.POST)\n        if form.is_valid():\n            user = form.get_user()\n            login(request, user)\n            return redirect('home')\n    return render(request, 'users/login.html', {'form': form})\ndef user_logout(request):",
+        "peekOfCode": "def is_admin_or_organizer(user):\n    return is_admin(user) or is_organizer(user)\n# def user_register(request):\n#     form = CustomRegistrationForm()\n#     if request.method == 'POST':\n#         form = CustomRegistrationForm(request.POST)\n#         if form.is_valid():\n#             user = form.save(commit=False)\n#             user.set_password(form.cleaned_data.get('password1'))\n#             user.is_active = False",
         "detail": "users.views",
         "documentation": {}
     },
@@ -1754,25 +2021,7 @@
         "kind": 2,
         "importPath": "users.views",
         "description": "users.views",
-        "peekOfCode": "def user_logout(request):\n    logout(request)\n    return redirect('login')\ndef activate_user(request, user_id, token):\n    try:\n        user = User.objects.get(id=user_id)\n        if default_token_generator.check_token(user, token):\n            user.is_active = True\n            user.save()\n            return redirect('login')",
-        "detail": "users.views",
-        "documentation": {}
-    },
-    {
-        "label": "activate_user",
-        "kind": 2,
-        "importPath": "users.views",
-        "description": "users.views",
-        "peekOfCode": "def activate_user(request, user_id, token):\n    try:\n        user = User.objects.get(id=user_id)\n        if default_token_generator.check_token(user, token):\n            user.is_active = True\n            user.save()\n            return redirect('login')\n        else:\n            return HttpResponse('Invalid Id or token')\n    except User.DoesNotExist:",
-        "detail": "users.views",
-        "documentation": {}
-    },
-    {
-        "label": "dashboard_redirect",
-        "kind": 2,
-        "importPath": "users.views",
-        "description": "users.views",
-        "peekOfCode": "def dashboard_redirect(request):\n    user = request.user\n    if user.groups.filter(name=\"Admin\").exists():\n        return redirect('admin_dashboard')\n    elif user.groups.filter(name=\"Organizer\").exists():\n        return redirect('organizer_dashboard')\n    elif user.groups.filter(name=\"Participant\").exists():\n        return redirect('participant_dashboard')\n    else:\n        return redirect('home')",
+        "peekOfCode": "def user_logout(request):\n    logout(request)\n    return redirect('login')\n# def activate_user(request, user_id, token):\n#     try:\n#         user = User.objects.get(id=user_id)\n#         if default_token_generator.check_token(user, token):\n#             user.is_active = True\n#             user.save()\n#             return redirect('login')",
         "detail": "users.views",
         "documentation": {}
     },
@@ -1817,16 +2066,7 @@
         "kind": 2,
         "importPath": "users.views",
         "description": "users.views",
-        "peekOfCode": "def participant_dashboard(request):\n    return render(request, 'participant/dashboard.html')\n@user_passes_test(is_admin, login_url='no-permission')\ndef assign_role(request, user_id):\n    user = User.objects.get(id=user_id)\n    form = AssignRoleForm()\n    if request.method == 'POST':\n        form = AssignRoleForm(request.POST)\n        if form.is_valid():\n            role = form.cleaned_data.get('role')",
-        "detail": "users.views",
-        "documentation": {}
-    },
-    {
-        "label": "assign_role",
-        "kind": 2,
-        "importPath": "users.views",
-        "description": "users.views",
-        "peekOfCode": "def assign_role(request, user_id):\n    user = User.objects.get(id=user_id)\n    form = AssignRoleForm()\n    if request.method == 'POST':\n        form = AssignRoleForm(request.POST)\n        if form.is_valid():\n            role = form.cleaned_data.get('role')\n            user.groups.clear()  # Remove old roles\n            user.groups.add(role)\n            messages.success(",
+        "peekOfCode": "def participant_dashboard(request):\n    return render(request, 'participant/dashboard.html')\nclass AssignRoleView(UserPassesTestMixin, FormView):\n    template_name = 'admin/assign_role.html'\n    form_class = AssignRoleForm\n    # Check if the user is an admin\n    def test_func(self):\n        return self.request.user.groups.filter(name='Admin').exists()\n    def get_success_url(self):\n        return reverse_lazy('change_role')",
         "detail": "users.views",
         "documentation": {}
     },
