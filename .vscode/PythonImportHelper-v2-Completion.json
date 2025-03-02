@@ -9,99 +9,11 @@
         "documentation": {}
     },
     {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
         "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
+        "detail": "django.conf",
         "documentation": {}
     },
     {
@@ -126,6 +38,70 @@
         "description": "django.conf",
         "isExtraImport": true,
         "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
         "documentation": {}
     },
     {
@@ -265,10 +241,11 @@
         "documentation": {}
     },
     {
-        "label": "now",
+        "label": "django.utils.timezone",
+        "kind": 6,
+        "isExtraImport": true,
         "importPath": "django.utils.timezone",
         "description": "django.utils.timezone",
-        "isExtraImport": true,
         "detail": "django.utils.timezone",
         "documentation": {}
     },
@@ -281,59 +258,11 @@
         "documentation": {}
     },
     {
-        "label": "User",
-        "importPath": "django.contrib.auth.models",
-        "description": "django.contrib.auth.models",
+        "label": "now",
+        "importPath": "django.utils.timezone",
+        "description": "django.utils.timezone",
         "isExtraImport": true,
-        "detail": "django.contrib.auth.models",
-        "documentation": {}
-    },
-    {
-        "label": "Group",
-        "importPath": "django.contrib.auth.models",
-        "description": "django.contrib.auth.models",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.models",
-        "documentation": {}
-    },
-    {
-        "label": "Permission",
-        "importPath": "django.contrib.auth.models",
-        "description": "django.contrib.auth.models",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.models",
-        "documentation": {}
-    },
-    {
-        "label": "Group",
-        "importPath": "django.contrib.auth.models",
-        "description": "django.contrib.auth.models",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.models",
-        "documentation": {}
-    },
-    {
-        "label": "Group",
-        "importPath": "django.contrib.auth.models",
-        "description": "django.contrib.auth.models",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.models",
-        "documentation": {}
-    },
-    {
-        "label": "User",
-        "importPath": "django.contrib.auth.models",
-        "description": "django.contrib.auth.models",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.models",
-        "documentation": {}
-    },
-    {
-        "label": "Group",
-        "importPath": "django.contrib.auth.models",
-        "description": "django.contrib.auth.models",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.models",
+        "detail": "django.utils.timezone",
         "documentation": {}
     },
     {
@@ -737,6 +666,63 @@
         "documentation": {}
     },
     {
+        "label": "django.contrib.auth.models",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "Group",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "Permission",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "Group",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "AbstractUser",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "Group",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "Group",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
@@ -791,6 +777,31 @@
         "description": "django.core.wsgi",
         "isExtraImport": true,
         "detail": "django.core.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "django.contrib.auth.validators",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.contrib.auth.validators",
+        "description": "django.contrib.auth.validators",
+        "detail": "django.contrib.auth.validators",
+        "documentation": {}
+    },
+    {
+        "label": "CustomUser",
+        "importPath": "users.models",
+        "description": "users.models",
+        "isExtraImport": true,
+        "detail": "users.models",
+        "documentation": {}
+    },
+    {
+        "label": "CustomUser",
+        "importPath": "users.models",
+        "description": "users.models",
+        "isExtraImport": true,
+        "detail": "users.models",
         "documentation": {}
     },
     {
@@ -868,6 +879,14 @@
     },
     {
         "label": "logout",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "get_user_model",
         "importPath": "django.contrib.auth",
         "description": "django.contrib.auth",
         "isExtraImport": true,
@@ -1091,6 +1110,14 @@
         "documentation": {}
     },
     {
+        "label": "EditProfileView",
+        "importPath": "users.views",
+        "description": "users.views",
+        "isExtraImport": true,
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
         "label": "PasswordChangeView",
         "importPath": "django.contrib.auth.views",
         "description": "django.contrib.auth.views",
@@ -1163,6 +1190,14 @@
         "documentation": {}
     },
     {
+        "label": "EditProfileForm",
+        "importPath": "users.forms",
+        "description": "users.forms",
+        "isExtraImport": true,
+        "detail": "users.forms",
+        "documentation": {}
+    },
+    {
         "label": "CustomPasswordChangeForm",
         "importPath": "users.forms",
         "description": "users.forms",
@@ -1227,6 +1262,14 @@
         "documentation": {}
     },
     {
+        "label": "UpdateView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
         "label": "View",
         "importPath": "django.views",
         "description": "django.views",
@@ -1256,44 +1299,8 @@
         "kind": 6,
         "importPath": "task.migrations.0001_initial",
         "description": "task.migrations.0001_initial",
-        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Category',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('name', models.CharField(max_length=100)),",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Category',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),",
         "detail": "task.migrations.0001_initial",
-        "documentation": {}
-    },
-    {
-        "label": "Migration",
-        "kind": 6,
-        "importPath": "task.migrations.0002_event_image",
-        "description": "task.migrations.0002_event_image",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('task', '0001_initial'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='event',\n            name='image',\n            field=models.ImageField(blank=True, null=True, upload_to=''),\n        ),",
-        "detail": "task.migrations.0002_event_image",
-        "documentation": {}
-    },
-    {
-        "label": "Migration",
-        "kind": 6,
-        "importPath": "task.migrations.0003_alter_event_image",
-        "description": "task.migrations.0003_alter_event_image",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('task', '0002_event_image'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='event',\n            name='image',\n            field=models.URLField(blank=True, null=True),\n        ),",
-        "detail": "task.migrations.0003_alter_event_image",
-        "documentation": {}
-    },
-    {
-        "label": "Migration",
-        "kind": 6,
-        "importPath": "task.migrations.0004_remove_participant_email_remove_participant_name_and_more",
-        "description": "task.migrations.0004_remove_participant_email_remove_participant_name_and_more",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('task', '0003_alter_event_image'),\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name='participant',\n            name='email',\n        ),",
-        "detail": "task.migrations.0004_remove_participant_email_remove_participant_name_and_more",
-        "documentation": {}
-    },
-    {
-        "label": "Migration",
-        "kind": 6,
-        "importPath": "task.migrations.0005_alter_event_image",
-        "description": "task.migrations.0005_alter_event_image",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('task', '0004_remove_participant_email_remove_participant_name_and_more'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='event',\n            name='image',\n            field=models.ImageField(blank=True, null=True, upload_to='event_images/'),\n        ),",
-        "detail": "task.migrations.0005_alter_event_image",
         "documentation": {}
     },
     {
@@ -1355,7 +1362,7 @@
         "kind": 6,
         "importPath": "task.models",
         "description": "task.models",
-        "peekOfCode": "class Participant(models.Model):\n    user = models.OneToOneField(\n        User, on_delete=models.CASCADE, related_name='participant_profile', null=True, blank=True)\n    events = models.ManyToManyField(Event, related_name='participants')\n    def __str__(self):\n        return self.user.username\n@receiver(post_save, sender=Participant)\ndef notify_user_participate(sender, instance, created, **kwargs):\n    if created and instance.user:  # Check if it's a new participant\n        event_names = \", \".join(",
+        "peekOfCode": "class Participant(models.Model):\n    user = models.OneToOneField(\n        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='participant_profile', null=True, blank=True)\n    events = models.ManyToManyField(Event, related_name='participants')\n    def __str__(self):\n        return self.user.username\n@receiver(post_save, sender=Participant)\ndef notify_user_participate(sender, instance, created, **kwargs):\n    if created and instance.user:  # Check if it's a new participant\n        event_names = \", \".join(",
         "detail": "task.models",
         "documentation": {}
     },
@@ -1490,7 +1497,7 @@
         "kind": 5,
         "importPath": "task_managemnt.settings",
         "description": "task_managemnt.settings",
-        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = config(\"SECRET_KEY\")\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['*']\nCSRF_TRUSTED_ORIGINS = [\"https://*.onrender.com\", \"http://127.0.0.1:8000\"]\n# Application definition",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = config(\"SECRET_KEY\")\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['*']\nCSRF_TRUSTED_ORIGINS = [\"https://*.onrender.com\", \"http://127.0.0.1:8000\"]\nAUTH_USER_MODEL = 'users.CustomUser'",
         "detail": "task_managemnt.settings",
         "documentation": {}
     },
@@ -1499,7 +1506,7 @@
         "kind": 5,
         "importPath": "task_managemnt.settings",
         "description": "task_managemnt.settings",
-        "peekOfCode": "SECRET_KEY = config(\"SECRET_KEY\")\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['*']\nCSRF_TRUSTED_ORIGINS = [\"https://*.onrender.com\", \"http://127.0.0.1:8000\"]\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',",
+        "peekOfCode": "SECRET_KEY = config(\"SECRET_KEY\")\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['*']\nCSRF_TRUSTED_ORIGINS = [\"https://*.onrender.com\", \"http://127.0.0.1:8000\"]\nAUTH_USER_MODEL = 'users.CustomUser'\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',",
         "detail": "task_managemnt.settings",
         "documentation": {}
     },
@@ -1508,7 +1515,7 @@
         "kind": 5,
         "importPath": "task_managemnt.settings",
         "description": "task_managemnt.settings",
-        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = ['*']\nCSRF_TRUSTED_ORIGINS = [\"https://*.onrender.com\", \"http://127.0.0.1:8000\"]\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = ['*']\nCSRF_TRUSTED_ORIGINS = [\"https://*.onrender.com\", \"http://127.0.0.1:8000\"]\nAUTH_USER_MODEL = 'users.CustomUser'\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
         "detail": "task_managemnt.settings",
         "documentation": {}
     },
@@ -1517,7 +1524,7 @@
         "kind": 5,
         "importPath": "task_managemnt.settings",
         "description": "task_managemnt.settings",
-        "peekOfCode": "ALLOWED_HOSTS = ['*']\nCSRF_TRUSTED_ORIGINS = [\"https://*.onrender.com\", \"http://127.0.0.1:8000\"]\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "peekOfCode": "ALLOWED_HOSTS = ['*']\nCSRF_TRUSTED_ORIGINS = [\"https://*.onrender.com\", \"http://127.0.0.1:8000\"]\nAUTH_USER_MODEL = 'users.CustomUser'\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',",
         "detail": "task_managemnt.settings",
         "documentation": {}
     },
@@ -1526,7 +1533,16 @@
         "kind": 5,
         "importPath": "task_managemnt.settings",
         "description": "task_managemnt.settings",
-        "peekOfCode": "CSRF_TRUSTED_ORIGINS = [\"https://*.onrender.com\", \"http://127.0.0.1:8000\"]\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    \"debug_toolbar\",",
+        "peekOfCode": "CSRF_TRUSTED_ORIGINS = [\"https://*.onrender.com\", \"http://127.0.0.1:8000\"]\nAUTH_USER_MODEL = 'users.CustomUser'\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "detail": "task_managemnt.settings",
+        "documentation": {}
+    },
+    {
+        "label": "AUTH_USER_MODEL",
+        "kind": 5,
+        "importPath": "task_managemnt.settings",
+        "description": "task_managemnt.settings",
+        "peekOfCode": "AUTH_USER_MODEL = 'users.CustomUser'\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    \"debug_toolbar\",",
         "detail": "task_managemnt.settings",
         "documentation": {}
     },
@@ -1765,6 +1781,24 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "users.migrations.0001_initial",
+        "description": "users.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        ('auth', '0012_alter_user_first_name_max_length'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='CustomUser',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),",
+        "detail": "users.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "users.migrations.0002_customuser_phone_number",
+        "description": "users.migrations.0002_customuser_phone_number",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('users', '0001_initial'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='customuser',\n            name='phone_number',\n            field=models.CharField(blank=True, max_length=15, null=True),\n        ),",
+        "detail": "users.migrations.0002_customuser_phone_number",
+        "documentation": {}
+    },
+    {
         "label": "humanized_date",
         "kind": 2,
         "importPath": "users.templatetags.custom_filters",
@@ -1841,7 +1875,7 @@
         "kind": 6,
         "importPath": "users.forms",
         "description": "users.forms",
-        "peekOfCode": "class CustomPasswordChangeForm(PasswordChangeForm):\n    pass\nclass CustomPasswordResetForm(PasswordResetForm):\n    pass\nclass CustomPasswordResetConfirmForm(SetPasswordForm):\n    pass",
+        "peekOfCode": "class CustomPasswordChangeForm(PasswordChangeForm):\n    pass\nclass CustomPasswordResetForm(PasswordResetForm):\n    pass\nclass CustomPasswordResetConfirmForm(SetPasswordForm):\n    pass\nclass EditProfileForm(forms.ModelForm):\n    class Meta:\n        model = CustomUser\n        fields = ['email', 'first_name', 'last_name',",
         "detail": "users.forms",
         "documentation": {}
     },
@@ -1850,7 +1884,7 @@
         "kind": 6,
         "importPath": "users.forms",
         "description": "users.forms",
-        "peekOfCode": "class CustomPasswordResetForm(PasswordResetForm):\n    pass\nclass CustomPasswordResetConfirmForm(SetPasswordForm):\n    pass",
+        "peekOfCode": "class CustomPasswordResetForm(PasswordResetForm):\n    pass\nclass CustomPasswordResetConfirmForm(SetPasswordForm):\n    pass\nclass EditProfileForm(forms.ModelForm):\n    class Meta:\n        model = CustomUser\n        fields = ['email', 'first_name', 'last_name',\n                  'bio', 'profile_image', 'phone_number']",
         "detail": "users.forms",
         "documentation": {}
     },
@@ -1859,7 +1893,16 @@
         "kind": 6,
         "importPath": "users.forms",
         "description": "users.forms",
-        "peekOfCode": "class CustomPasswordResetConfirmForm(SetPasswordForm):\n    pass",
+        "peekOfCode": "class CustomPasswordResetConfirmForm(SetPasswordForm):\n    pass\nclass EditProfileForm(forms.ModelForm):\n    class Meta:\n        model = CustomUser\n        fields = ['email', 'first_name', 'last_name',\n                  'bio', 'profile_image', 'phone_number']",
+        "detail": "users.forms",
+        "documentation": {}
+    },
+    {
+        "label": "EditProfileForm",
+        "kind": 6,
+        "importPath": "users.forms",
+        "description": "users.forms",
+        "peekOfCode": "class EditProfileForm(forms.ModelForm):\n    class Meta:\n        model = CustomUser\n        fields = ['email', 'first_name', 'last_name',\n                  'bio', 'profile_image', 'phone_number']",
         "detail": "users.forms",
         "documentation": {}
     },
@@ -1870,6 +1913,15 @@
         "description": "users.forms",
         "peekOfCode": "User = get_user_model()\nclass RegisterForm(UserCreationForm):\n    class Meta:\n        model = User\n        fields = ['username', 'first_name', 'last_name',\n                  'password1', 'password2', 'email']\n    def __init__(self, *args, **kwargs):\n        super(UserCreationForm, self).__init__(*args, **kwargs)\n        for fieldname in ['username', 'password1', 'password2']:\n            self.fields[fieldname].help_text = None",
         "detail": "users.forms",
+        "documentation": {}
+    },
+    {
+        "label": "CustomUser",
+        "kind": 6,
+        "importPath": "users.models",
+        "description": "users.models",
+        "peekOfCode": "class CustomUser(AbstractUser):\n    profile_image = models.ImageField(\n        upload_to='event_images', blank=True, default='event_images/profilepic.png')\n    bio = models.TextField(blank=True)\n    phone_number = models.CharField(max_length=15, blank=True, null=True)\n    def __str__(self):\n        return self.username",
+        "detail": "users.models",
         "documentation": {}
     },
     {
@@ -1958,7 +2010,16 @@
         "kind": 6,
         "importPath": "users.views",
         "description": "users.views",
-        "peekOfCode": "class ProfileViews(TemplateView):\n    template_name = 'account/profile.html'\n    def get_context_data(self, **kwargs):\n        context = super().get_context_data(**kwargs)\n        user = self.request.user\n        context['username'] = user.username\n        context['first_name'] = user.first_name\n        context['last_name'] = user.last_name\n        context['email'] = user.email\n        context['joined_date'] = user.date_joined",
+        "peekOfCode": "class ProfileViews(TemplateView):\n    template_name = 'account/profile.html'\n    def get_context_data(self, **kwargs):\n        context = super().get_context_data(**kwargs)\n        user = self.request.user\n        context['username'] = user.username\n        context['first_name'] = user.first_name\n        context['last_name'] = user.last_name\n        context['email'] = user.email\n        context['bio'] = user.bio",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "EditProfileView",
+        "kind": 6,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "class EditProfileView(UpdateView):\n    model = User\n    form_class = EditProfileForm\n    template_name = 'account/update_profile.html'\n    context_object_name = 'form'\n    def get_object(self):\n        return self.request.user\n    def form_valid(self, form):\n        form.save()\n        return redirect('profile')",
         "detail": "users.views",
         "documentation": {}
     },
@@ -2166,6 +2227,15 @@
         "importPath": "users.views",
         "description": "users.views",
         "peekOfCode": "def participant_joined_event(request):\n    # Get the participant instance for the logged-in user\n    try:\n        # Using 'participant_profile' as related_name\n        participant = request.user.participant_profile\n        # Get all events the participant is in\n        participant_events = participant.events.all()\n    except Participant.DoesNotExist:\n        participant_events = []  # If the user doesn't have a participant profile yet\n    return render(request, 'participant/participant_joined_event.html', {'events': participant_events})",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 5,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "User = get_user_model()\n# Create your views here.\n# Test for users\ndef is_admin(user):\n    return user.groups.filter(name='Admin').exists()\ndef is_organizer(user):\n    return user.groups.filter(name='Organizer').exists()\ndef is_admin_or_organizer(user):\n    return is_admin(user) or is_organizer(user)\n# def user_register(request):",
         "detail": "users.views",
         "documentation": {}
     },

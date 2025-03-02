@@ -1,11 +1,11 @@
 
-from users.forms import CustomRegistrationForm, LoginForm, AssignRoleForm, CreateGroupForm
+from users.forms import CustomRegistrationForm, LoginForm, AssignRoleForm, CreateGroupForm, EditProfileForm
 from django.contrib import messages
 from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.tokens import default_token_generator
-from django.contrib.auth.models import User, Group
+from django.contrib.auth.models import Group
 from django.db.models import Prefetch
 from task.models import Event, Participant, Category
 from task.forms import EventForm, ParticipantForm, CategoryForm
@@ -15,9 +15,11 @@ from django.views.generic import FormView
 from django.views import View
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, UpdateView
 from django.contrib.auth.views import PasswordChangeView, PasswordResetView, PasswordResetConfirmView
 from users.forms import CustomPasswordChangeForm, CustomPasswordResetForm, CustomPasswordResetConfirmForm
+from django.contrib.auth import get_user_model
+User = get_user_model()
 # Create your views here.
 # Test for users
 
@@ -444,9 +446,26 @@ class ProfileViews(TemplateView):
         context['first_name'] = user.first_name
         context['last_name'] = user.last_name
         context['email'] = user.email
-        context['joined_date'] = user.date_joined
+        context['bio'] = user.bio
+        context['profile_image'] = user.profile_image
+        context['phone_number'] = user.phone_number
         context['last_login'] = user.last_login
+        context['joined_date'] = user.date_joined,
         return context
+
+
+class EditProfileView(UpdateView):
+    model = User
+    form_class = EditProfileForm
+    template_name = 'account/update_profile.html'
+    context_object_name = 'form'
+
+    def get_object(self):
+        return self.request.user
+
+    def form_valid(self, form):
+        form.save()
+        return redirect('profile')
 
 
 class ChangePassword(PasswordChangeView):

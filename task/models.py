@@ -1,9 +1,8 @@
 from django.db import models
-from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.core.mail import send_mail
-
+from django.conf import settings
 # Create your models here.
 
 
@@ -37,8 +36,9 @@ class Event(models.Model):
 #     def __str__(self):
 #         return self.name
 class Participant(models.Model):
+
     user = models.OneToOneField(
-        User, on_delete=models.CASCADE, related_name='participant_profile', null=True, blank=True)
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='participant_profile', null=True, blank=True)
     events = models.ManyToManyField(Event, related_name='participants')
 
     def __str__(self):
