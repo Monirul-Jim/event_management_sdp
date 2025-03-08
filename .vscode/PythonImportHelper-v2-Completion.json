@@ -740,6 +740,15 @@
         "documentation": {}
     },
     {
+        "label": "dj_database_url",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "dj_database_url",
+        "description": "dj_database_url",
+        "detail": "dj_database_url",
+        "documentation": {}
+    },
+    {
         "label": "Path",
         "importPath": "pathlib",
         "description": "pathlib",
@@ -1596,7 +1605,7 @@
         "kind": 5,
         "importPath": "task_managemnt.settings",
         "description": "task_managemnt.settings",
-        "peekOfCode": "WSGI_APPLICATION = 'task_managemnt.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/5.1/ref/settings/#databases\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\n# DATABASES = {",
+        "peekOfCode": "WSGI_APPLICATION = 'task_managemnt.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/5.1/ref/settings/#databases\n# DATABASES = {\n#     'default': {\n#         'ENGINE': 'django.db.backends.sqlite3',\n#         'NAME': BASE_DIR / 'db.sqlite3',\n#     }\n# }\nDATABASES = {",
         "detail": "task_managemnt.settings",
         "documentation": {}
     },
@@ -1605,7 +1614,7 @@
         "kind": 5,
         "importPath": "task_managemnt.settings",
         "description": "task_managemnt.settings",
-        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\n# DATABASES = {\n#     'default': {\n#         'ENGINE': 'django.db.backends.postgresql',\n#         'NAME': env(\"DB_NAME\"),",
+        "peekOfCode": "DATABASES = {\n    'default': dj_database_url.parse(\n        config('DATABASE_URL')\n    )\n}\n# DATABASES = {\n#     'default': {\n#         'ENGINE': 'django.db.backends.postgresql',\n#         'NAME': env(\"DB_NAME\"),\n#         'USER': env(\"DB_USER\"),",
         "detail": "task_managemnt.settings",
         "documentation": {}
     },
